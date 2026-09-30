@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AWS certifications, honestly | AWS Explained Simply</title>
+<meta name="description" content="Every current AWS certification with its real exam code, price, domains and status, the ones that have quietly retired, and an honest order to take them in.">
+<link rel="icon" href="assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/certs.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html"><span class="awsmark"><img src="assets/icons/brand/aws-logo.svg" alt="AWS" width="40" height="24"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="index.html">Services</a><a href="playground.html">Playground</a>
+    <a href="certifications.html">Certifications</a><a href="learn.html">Start here</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>Which AWS exams are worth your money</h1>
+    <p class="say">Every current certification with its real exam code, price and domain weightings. The ones that quietly retired. And an order to take them in that skips the ones you do not need.</p>
+    <div class="tally">
+      <div><b id="tActive">0</b><span>active exams</span></div>
+      <div><b id="tRetired">0</b><span>retired or retiring</span></div>
+      <div><b id="tPaths">0</b><span>role paths</span></div>
+    </div>
+  </div>
+  <div class="srcpanel">
+    <div class="srchead">
+      <span class="dot"></span>
+      <b>Compiled 30 September 2026 from official AWS sources</b>
+    </div>
+    <ul class="srcfacts">
+      <li><b>Three code changes</b> land between 27 October and 1 December 2026. Confirm before you book.</li>
+      <li><b>Prices are USD list</b>, excluding tax. Indian candidates pay USD plus GST at checkout. AWS publishes no rupee price.</li>
+      <li><b>Where two AWS pages disagree</b>, both figures are shown and the conflict is flagged, not guessed away.</li>
+      <li><b>Anything unconfirmed</b> is listed at the bottom of this page rather than presented as fact.</li>
+    </ul>
+    <details class="srcfull"><summary>The full note, verbatim</summary><p id="disclaimer"></p></details>
+  </div>
+</div></section>
+
+<main class="wrap" style="padding-bottom:70px">
+
+  <div class="sechead" style="--dot:var(--signal)"><span class="bar"></span>
+    <h2>An honest order, from zero</h2></div>
+  <div class="notebar" id="orderNote"></div>
+  <ol class="path" id="order"></ol>
+
+  <div class="sechead" style="--dot:var(--c-compute)"><span class="bar"></span>
+    <h2>Every exam</h2><span class="n" id="certCount"></span></div>
+  <div class="tablewrap"><table class="ctable">
+    <thead><tr>
+      <th>Exam</th><th>Certification</th><th>Level</th>
+      <th class="r">Price</th><th class="r">Time</th><th class="r">Qs</th><th class="r">Pass</th>
+      <th>Status</th>
+    </tr></thead><tbody id="certs"></tbody></table></div>
+  <p class="tablekey"><b>*</b> shortened. Click any row for the full figure, the domain weightings and the source.</p>
+
+  <div class="sechead" style="--dot:var(--c-database)"><span class="bar"></span>
+    <h2>Role paths AWS publishes</h2><span class="n" id="pathCount"></span></div>
+  <div class="cardgrid" id="paths"></div>
+
+  <div class="sechead" style="--dot:var(--ink-3)"><span class="bar"></span>
+    <h2>Already retired, do not book these</h2></div>
+  <div class="cardgrid" id="retired"></div>
+
+  <div class="sechead" style="--dot:var(--c-storage)"><span class="bar"></span>
+    <h2>Keeping a certification alive</h2></div>
+  <div class="card" id="recert"></div>
+
+  <div class="sechead" style="--dot:var(--c-network)"><span class="bar"></span>
+    <h2>Microcredentials</h2></div>
+  <div class="card" id="micro"></div>
+
+  <div class="sechead" style="--dot:var(--c-security)"><span class="bar"></span>
+    <h2>What we could not confirm</h2></div>
+  <div class="card tinted" style="--dot:var(--c-security)">
+    <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:10px">Research is only useful if it admits its gaps. These points could not be verified against an official AWS source, so treat them as unconfirmed.</p>
+    <ul class="gaps" id="gaps"></ul>
+  </div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" aria-hidden="true" aria-label="Certification detail"></aside>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol"><h3>Independent project</h3>
+      <p><strong>Not affiliated with Amazon Web Services.</strong> Not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p></div>
+    <div class="fcol"><h3>Exam details change</h3>
+      <p>Codes, prices and domain weightings are taken from official exam guides but AWS updates them without notice. Confirm on <a href="https://aws.amazon.com/certification/" rel="nofollow noopener" target="_blank">aws.amazon.com/certification</a> before you book.</p></div>
+    <div class="fcol"><h3>The opinion is ours</h3>
+      <p>The recommended order is this project's judgement, not AWS guidance. AWS recommends nearly every exam to nearly everyone.</p></div>
+    <div class="fcol"><h3>Your data</h3>
+      <p>No accounts, no ads, no tracking, no cookies. <a href="legal.html">Full notice</a>.</p></div>
+  </div>
+  <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/certs.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* certifications page, same language as the index */
+.lvl-foundational{--dot:var(--c-storage)}
+.lvl-business{--dot:var(--c-cost)}
+.lvl-associate{--dot:var(--c-compute)}
+.lvl-professional{--dot:var(--c-database)}
+.lvl-specialty{--dot:var(--c-security)}
+
+/* a certification catalogue is tabular data, so it gets a table */
+.tablewrap{border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface);margin-top:4px}
+.ctable{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
+.ctable thead th{background:var(--field);
+  font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;text-align:left;padding:10px 14px;
+  border-bottom:1px solid var(--rule);white-space:nowrap}
+.ctable th.r,.ctable td.r{text-align:right}
+.ctable tbody tr{cursor:pointer;transition:background .12s}
+.ctable tbody tr:hover{background:color-mix(in srgb,var(--dot,#6B7C91) 7%,transparent)}
+.ctable tbody td{padding:11px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:middle}
+.ctable tbody tr:last-child td{border-bottom:0}
+.ctable tbody td:first-child{border-left:4px solid var(--dot,var(--c-other));font-family:var(--mono);
+  font-size:11.5px;color:var(--ink-2);white-space:nowrap}
+.ctable .nm{font-weight:600;line-height:1.3}
+.ctable .num{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.ctable .lvl{font-family:var(--mono);font-size:9.5px;padding:3px 9px;border-radius:99px;white-space:nowrap;
+  background:color-mix(in srgb,var(--dot,#6B7C91) 15%,transparent);color:var(--ink-2)}
+.stpill{display:inline-block;font-size:11.5px;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.stpill.ok{background:color-mix(in srgb,var(--c-storage) 16%,transparent);color:var(--ink-2)}
+.stpill.warn{background:color-mix(in srgb,var(--signal) 24%,transparent);color:var(--ink)}
+.stpill.bad{background:color-mix(in srgb,var(--c-security) 15%,transparent);color:var(--ink-2)}
+.notebar{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--signal);
+  border-radius:0 12px 12px 0;padding:16px 20px;font-size:14px;line-height:1.65;color:var(--ink-2);
+  margin-top:4px;columns:2;column-gap:40px}
+@media(max-width:1000px){.notebar{columns:1}}
+@media(max-width:900px){
+  .tablewrap{overflow-x:auto}
+  .ctable{min-width:860px}
+}
+.state{font-size:12px;line-height:1.5;padding:7px 10px;border-radius:8px;overflow-wrap:anywhere}
+.state.ok{background:color-mix(in srgb,var(--c-storage) 12%,transparent);color:var(--ink-2)}
+.state.warn{background:color-mix(in srgb,var(--signal) 18%,transparent);color:var(--ink-2)}
+.state.bad{background:color-mix(in srgb,var(--c-security) 12%,transparent);color:var(--ink-2)}
+
+.path{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.path li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;
+  background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:15px 17px}
+.path li .step{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  font-family:var(--mono);font-size:13px;font-weight:500;
+  background:color-mix(in srgb,var(--dot,var(--signal)) 15%,transparent);color:var(--ink)}
+.path li b{display:block;font-size:14.5px;font-weight:600;overflow-wrap:anywhere}
+.path li p{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin-top:5px}
+.path li .skipif{font-size:12.5px;color:var(--ink-3);margin-top:7px;padding-top:7px;
+  border-top:1px solid var(--rule-soft);line-height:1.5}
+.path li.skip{--dot:var(--ink-3);border-style:dashed;background:transparent}
+.path li.skip b{color:var(--ink-2);font-weight:500}
+.path li.gap{--dot:var(--c-network)}
+
+.gaps{list-style:none;display:flex;flex-direction:column;gap:8px}
+.gaps li{font-size:12.8px;line-height:1.55;color:var(--ink-2);padding-left:18px;position:relative}
+.gaps li:before{content:"";position:absolute;left:2px;top:.6em;width:9px;height:1.5px;background:var(--c-security)}
+
+.dom{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.dombar{display:grid;grid-template-columns:minmax(0,1fr) 46px;gap:10px;align-items:center}
+.dombar .lab{font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+.dombar .pc{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-align:right}
+.dombar .track{grid-column:1/-1;height:5px;border-radius:3px;background:var(--field);overflow:hidden}
+.dombar .fill{height:100%;background:var(--dot,var(--signal));border-radius:3px}
+.domcov{font-size:12.5px;color:var(--ink-3);line-height:1.5;margin-top:3px}
+@media(max-width:860px){
+  .path li{grid-template-columns:32px minmax(0,1fr);gap:11px;padding:13px 14px}
+  .path li .step{width:32px;height:32px;font-size:12px}
+}
+
+/* the provenance note: structured, not a wall of red */
+.srcpanel{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;
+  align-self:start}
+.srchead{display:flex;align-items:center;gap:10px;padding-bottom:11px;margin-bottom:12px;
+  border-bottom:1px solid var(--rule)}
+.srchead .dot{width:8px;height:8px;border-radius:50%;background:var(--c-storage);flex:0 0 8px}
+.srchead b{font-size:13px;font-weight:600;line-height:1.35}
+.srcfacts{list-style:none;display:flex;flex-direction:column;gap:9px}
+.srcfacts li{font-size:12.8px;line-height:1.55;color:var(--ink-2);padding-left:17px;position:relative}
+.srcfacts li:before{content:"";position:absolute;left:1px;top:.58em;width:8px;height:1.5px;
+  background:var(--ink-3);border-radius:1px}
+.srcfacts b{color:var(--ink);font-weight:600}
+.srcfull{margin-top:13px;padding-top:12px;border-top:1px solid var(--rule)}
+.srcfull summary{cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--ink-3);
+  list-style:none}
+.srcfull summary::-webkit-details-marker{display:none}
+.srcfull summary:before{content:"+ ";color:var(--ink-3)}
+.srcfull[open] summary:before{content:"- "}
+.srcfull summary:hover{color:var(--ink-2)}
+.srcfull p{font-size:12.3px;line-height:1.65;color:var(--ink-3);margin-top:10px}
+
+.ctable .more{color:var(--signal);font-weight:700;margin-left:1px;cursor:help}
+.tablekey{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:9px}
+.tablekey b{color:var(--signal)}

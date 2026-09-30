@@ -1,0 +1,1362 @@
+{
+ "generated": "2026-09-30",
+ "disclaimer": "Compiled 30 September 2026 from official AWS sources (exam guides at docs.aws.amazon.com, exam landing pages at aws.amazon.com/certification, the AWS Training and Certification blog, and the AWS Certification Paths PDF). AWS exam codes, prices, retirement dates and domain weightings change frequently - three code transitions land between 27 October and 1 December 2026 alone. Always confirm on the official exam page before booking or paying. Prices are USD list price and exclude tax (Indian candidates pay USD plus GST at Pearson VUE checkout; AWS publishes no INR list price). Where two official AWS pages disagree, both figures are shown and the conflict is flagged rather than resolved by guesswork. Items we could not confirm against a primary AWS page are listed in 'unverified' - treat them as unconfirmed, not as fact. Exam-guide version/'last updated' dates were not captured for these records, so none of these confirmations can be precisely aged; re-verify before relying on any status.",
+ "certifications": [
+  {
+   "code": "CLF-C02",
+   "name": "AWS Certified Cloud Practitioner",
+   "level": "foundational",
+   "status": "Active. CLF-C02 is the current version. No successor announced as of 30 Sep 2026 (see 'unverified' - this was not checked against the AWS 'Coming Soon to AWS Certification' page).",
+   "priceUSD": "$100",
+   "durationMin": "90 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice and multiple response",
+   "passingScore": "700 of 100-1,000 scaled (compensatory - no per-domain pass requirement)",
+   "recommendedExperience": "Up to 6 months of exposure to AWS Cloud design, implementation and/or operations. No coding, architecture design, troubleshooting, implementation or load testing expected.",
+   "domains": [
+    {
+     "name": "Domain 1: Cloud Concepts",
+     "weight": "24%",
+     "covers": "Benefits of the AWS Cloud, AWS Cloud design principles, migration benefits and strategies (AWS CAF, migration strategies), and cloud economics (fixed vs variable cost, right-sizing, automation, managed-service cost benefit)"
+    },
+    {
+     "name": "Domain 2: Security and Compliance",
+     "weight": "30%",
+     "covers": "AWS shared responsibility model, security/governance/compliance concepts (Artifact, compliance programs, GuardDuty, Inspector, Shield, WAF), IAM access management (root account, users, groups, roles, policies, MFA, IAM Identity Center), and security support resources (Trusted Advisor, Security Hub, KMS)"
+    },
+    {
+     "name": "Domain 3: Cloud Technology and Services",
+     "weight": "34%",
+     "covers": "Deployment and operating methods (console, CLI, SDKs, IaC, connectivity), AWS global infrastructure (Regions, AZs, edge locations), compute (EC2, Lambda, ECS/EKS/Fargate, Elastic Beanstalk, Auto Scaling, ELB), databases (RDS, Aurora, DynamoDB, Redshift, ElastiCache, DMS), networking (VPC, subnets, security groups, NACLs, Route 53, CloudFront, Direct Connect, VPN), storage (S3 and storage classes, EBS, EFS, FSx, Storage Gateway, AWS Backup), and AI/ML, analytics and other service categories"
+    },
+    {
+     "name": "Domain 4: Billing, Pricing, and Support",
+     "weight": "12%",
+     "covers": "Pricing models (On-Demand, Reserved Instances, Savings Plans, Spot, dedicated hosts, data transfer), billing and cost management tools (Billing Console, Cost Explorer, Budgets, Cost and Usage Report, Pricing Calculator, Organizations consolidated billing, cost allocation tags), and support resources (Support plans, Trusted Advisor, AWS Health Dashboard, Knowledge Center, Partner Network, Professional Services, Marketplace)"
+    }
+   ],
+   "keyServices": [
+    "Amazon EC2",
+    "AWS Lambda",
+    "Amazon S3 (and storage classes)",
+    "Amazon EBS / Amazon EFS",
+    "Amazon VPC",
+    "Amazon RDS / Amazon Aurora",
+    "Amazon DynamoDB",
+    "AWS IAM and IAM Identity Center",
+    "Amazon CloudWatch",
+    "AWS CloudTrail",
+    "AWS Organizations",
+    "AWS Cost Explorer / AWS Budgets / AWS Pricing Calculator",
+    "AWS Trusted Advisor",
+    "AWS Artifact",
+    "Amazon CloudFront",
+    "Elastic Load Balancing / EC2 Auto Scaling",
+    "AWS Support plans"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html (domains, question count, passing score); https://aws.amazon.com/certification/certified-cloud-practitioner/ (price, duration)"
+  },
+  {
+   "code": "AIF-C01",
+   "name": "AWS Certified AI Practitioner",
+   "level": "foundational",
+   "status": "Active. GA since 2024 and still the current version as of 30 Sep 2026.",
+   "priceUSD": "$100",
+   "durationMin": "90 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice, multiple response, ordering and matching. This is the only exam in the foundational/associate set that uses ordering and matching.",
+   "passingScore": "700 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "Up to 6 months of exposure to AI/ML technologies on AWS. The candidate USES rather than BUILDS AI/ML solutions. Familiarity with core AWS services (EC2, S3, Lambda, Bedrock, SageMaker AI), the shared responsibility model, IAM and AWS pricing models. Model development, feature engineering, hyperparameter tuning and pipeline building are out of scope.",
+   "domains": [
+    {
+     "name": "Domain 1: Fundamentals of AI and ML",
+     "weight": "20%",
+     "covers": "AI/ML/deep-learning terminology (inferencing, model, training data, labelled vs unlabelled), supervised/unsupervised/reinforcement learning, practical use cases and when AI is not appropriate, and the ML development lifecycle with MLOps concepts and metrics"
+    },
+    {
+     "name": "Domain 2: Fundamentals of Generative AI",
+     "weight": "24%",
+     "covers": "Foundation-model concepts (tokens, embeddings, vectors, chunking, transformers, prompt engineering, diffusion, multimodal), GenAI use cases and limitations (hallucination, nondeterminism, interpretability), and AWS infrastructure for GenAI (Amazon Bedrock, SageMaker JumpStart, Amazon Q, PartyRock) plus cost tradeoffs"
+    },
+    {
+     "name": "Domain 3: Applications of Foundation Models",
+     "weight": "28%",
+     "covers": "Design considerations for FM applications (model selection, inference parameters such as temperature and output length, RAG and vector stores - OpenSearch Service, Aurora pgvector, Neptune, DocumentDB, RDS for PostgreSQL), prompt-engineering techniques (zero-shot, few-shot, chain-of-thought) and risks (prompt injection, jailbreaking), plus training/fine-tuning approaches and evaluation (ROUGE, BLEU, BERTScore, human evaluation)"
+    },
+    {
+     "name": "Domain 4: Guidelines for Responsible AI",
+     "weight": "14%",
+     "covers": "Responsible AI dimensions - bias, fairness, inclusivity, robustness, safety, veracity; tools such as Guardrails for Amazon Bedrock and SageMaker Clarify; dataset bias and its effects; and transparency mechanisms including AWS AI Service Cards and model cards, and the interpretability/performance tradeoff"
+    },
+    {
+     "name": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+     "weight": "14%",
+     "covers": "Securing AI systems (IAM roles and policies, encryption, Amazon Macie, PrivateLink, source citation and data lineage, data-quality controls) and governance/compliance for AI systems (ISO, SOC, algorithm accountability) using AWS Config, Inspector, Audit Manager, Artifact, CloudTrail and Trusted Advisor"
+    }
+   ],
+   "keyServices": [
+    "Amazon Bedrock (Guardrails, Knowledge Bases, Agents)",
+    "Amazon SageMaker AI (JumpStart, Clarify, Model Cards, Data Wrangler, Ground Truth)",
+    "Amazon Q (Business / Developer)",
+    "Amazon Comprehend",
+    "Amazon Transcribe / Amazon Polly",
+    "Amazon Rekognition",
+    "Amazon Textract",
+    "Amazon Translate",
+    "Amazon Lex",
+    "Amazon Personalize",
+    "Amazon Kendra",
+    "Amazon OpenSearch Service (vector search)",
+    "Amazon S3",
+    "AWS IAM / AWS KMS",
+    "Amazon Macie",
+    "AWS CloudTrail / AWS Config / AWS Audit Manager"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html (domains, question count, passing score); https://aws.amazon.com/certification/certified-ai-practitioner/ (price, duration)"
+  },
+  {
+   "code": "AIB-C01",
+   "name": "AWS Certified AI Business Strategist",
+   "level": "business",
+   "status": "BETA as of 30 Sep 2026. AWS lists this under a separate 'Business certifications' category, not under Foundational. Beta exams return no immediate pass/fail - scores are released after the beta scoring period. Languages: English and Japanese. Candidates who earn the certification by 15 Feb 2027 also receive an Early Adopter digital badge.",
+   "priceUSD": "$50 (beta price, confirmed). $100 standard price after general availability (confirmed on aws.amazon.com).",
+   "durationMin": "CONFLICT - two official AWS sources disagree and AWS has published nothing that reconciles them. The exam guide states 130 minutes; the aws.amazon.com product page states 170 minutes with 85 questions for the beta form. Both figures are official; we do not know which applies after GA. Plan for the longer figure and confirm at booking.",
+   "questionCount": "85 questions on the beta form per aws.amazon.com. Multiple choice and multiple response only. The exam guide does not state a scored/unscored split.",
+   "passingScore": "700 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "A business professional who evaluates, champions or scales AI initiatives - product/program managers, sales, line-of-business managers, consultants, marketers, business analysts. Works alongside technical teams but does not build AI solutions. No coding or hands-on AWS implementation required. Baseline of roughly 6 months working with or alongside teams adopting AI.",
+   "domains": [
+    {
+     "name": "Domain 1: AI Fundamentals and Literacy",
+     "weight": "24%",
+     "covers": "Applying foundational AI/ML/GenAI concepts and terminology to business contexts, selecting AI solution types against business requirements and constraints, and using GenAI techniques (prompt engineering, model adaptation) to achieve business outcomes"
+    },
+    {
+     "name": "Domain 2: AI Strategy and Business Value Creation",
+     "weight": "28%",
+     "covers": "Developing and prioritising AI strategies aligned to organisational objectives, measuring AI business value with KPIs, ROI frameworks and baseline metrics, and positioning AI initiatives for competitive advantage and business-model transformation, including build-buy-partner decisions and AWS pricing/cost tooling at a business level"
+    },
+    {
+     "name": "Domain 3: AI Governance and Responsible AI Leadership",
+     "weight": "24%",
+     "covers": "Applying responsible AI principles to business decisions involving tradeoffs, establishing governance structures and regulatory compliance for AI initiatives, and identifying enterprise AI risks and directing mitigation strategies"
+    },
+    {
+     "name": "Domain 4: Business Readiness, Leadership, and AI Transformation",
+     "weight": "24%",
+     "covers": "Assessing organisational AI readiness and maturity across people, process, technology and governance; evaluating data and infrastructure foundations; leading enterprise change management and workforce capability building; and scaling AI from pilots to enterprise-wide deployment"
+    }
+   ],
+   "keyServices": [
+    "Amazon Bedrock (strategic level only - platform, pricing tiers, Guardrails, Knowledge Bases)",
+    "Amazon SageMaker AI (managed vs custom ML decisions)",
+    "Amazon Quick (AI-powered business assistants)",
+    "AWS Cloud Adoption Framework (AWS CAF)",
+    "AWS Well-Architected Framework - Responsible AI Lens",
+    "AWS shared responsibility model for AI workloads",
+    "AWS Pricing Calculator",
+    "AWS Cost Explorer",
+    "AWS Savings Plans",
+    "AWS Marketplace"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html (domains, passing score, 130-minute figure); https://aws.amazon.com/certification/certified-ai-business-strategist/ (beta price, 170 minutes, 85 questions, languages, Early Adopter badge)"
+  },
+  {
+   "code": "SAA-C03",
+   "name": "AWS Certified Solutions Architect - Associate",
+   "level": "associate",
+   "status": "Active. SAA-C03 is the current version; no SAA-C04 announced and no retirement date published as of 30 Sep 2026 (see 'unverified' - not checked against the AWS 'Coming Soon' page).",
+   "priceUSD": "$150",
+   "durationMin": "130 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice and multiple response",
+   "passingScore": "720 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "At least 1 year of hands-on experience designing cloud solutions that use AWS services. Validates designing solutions per the AWS Well-Architected Framework - secure, resilient, high-performing and cost-optimised architectures - and reviewing existing solutions for improvement.",
+   "domains": [
+    {
+     "name": "Domain 1: Design Secure Architectures",
+     "weight": "30%",
+     "covers": "Secure access to AWS resources (IAM roles and policies, IAM Identity Center, Organizations SCPs, federation, Cognito, Secrets Manager, STS), secure workloads and application tiers (VPC design, security groups, NACLs, WAF, Shield, Network Firewall, GuardDuty, Inspector, bastion/edge protection), and data security (KMS, CloudHSM, encryption at rest and in transit, ACM, S3 policies, Macie)"
+    },
+    {
+     "name": "Domain 2: Design Resilient Architectures",
+     "weight": "26%",
+     "covers": "Scalable and loosely coupled architectures (SQS, SNS, EventBridge, API Gateway, Lambda, Auto Scaling, ELB, ECS/EKS/Fargate, Step Functions, caching) and highly available/fault-tolerant architectures (Multi-AZ, multi-Region, Route 53 routing and health checks, RDS Multi-AZ and read replicas, Aurora, DynamoDB global tables, S3 replication, backup and DR with RPO/RTO)"
+    },
+    {
+     "name": "Domain 3: Design High-Performing Architectures",
+     "weight": "24%",
+     "covers": "High-performing storage (S3 classes, EBS volume types, EFS, FSx), compute (EC2 instance families, Lambda, container sizing, Auto Scaling policies), database (RDS, Aurora, DynamoDB capacity modes, ElastiCache, read replicas), network (CloudFront, Global Accelerator, Direct Connect, Transit Gateway, VPC endpoints, placement groups) and data ingestion/transformation (Kinesis, Firehose, Glue, Athena, EMR, Lake Formation)"
+    },
+    {
+     "name": "Domain 4: Design Cost-Optimized Architectures",
+     "weight": "20%",
+     "covers": "Cost-optimised storage (S3 lifecycle and Intelligent-Tiering, Glacier classes, EBS right-sizing, data-transfer costs), compute (Spot, Savings Plans, Reserved Instances, Lambda vs EC2, right-sizing, Compute Optimizer), database (instance sizing, serverless options, retention) and network (NAT gateway vs instance, VPC endpoints, CloudFront to reduce egress), plus Cost Explorer, Budgets and cost allocation tags"
+    }
+   ],
+   "keyServices": [
+    "Amazon EC2 and EC2 Auto Scaling",
+    "Elastic Load Balancing",
+    "Amazon VPC (subnets, NAT, endpoints, Transit Gateway, peering, Direct Connect, Site-to-Site VPN)",
+    "Amazon S3 (storage classes, lifecycle, replication, policies)",
+    "Amazon EBS / EFS / FSx / AWS Storage Gateway",
+    "Amazon RDS and Amazon Aurora",
+    "Amazon DynamoDB (DAX, global tables, on-demand)",
+    "Amazon ElastiCache",
+    "AWS Lambda",
+    "Amazon API Gateway",
+    "Amazon SQS / SNS / EventBridge / AWS Step Functions",
+    "Amazon ECS / EKS / AWS Fargate",
+    "Amazon Route 53",
+    "Amazon CloudFront / AWS Global Accelerator",
+    "AWS IAM / AWS Organizations / IAM Identity Center",
+    "AWS KMS / AWS Secrets Manager / AWS Certificate Manager",
+    "AWS WAF / AWS Shield / Amazon GuardDuty",
+    "Amazon CloudWatch / AWS CloudTrail",
+    "Amazon Kinesis / AWS Glue / Amazon Athena",
+    "AWS Backup / AWS DMS"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html (domains, question count, passing score); https://aws.amazon.com/certification/certified-solutions-architect-associate/ (price, duration)"
+  },
+  {
+   "code": "DVA-C02",
+   "name": "AWS Certified Developer - Associate (outgoing version)",
+   "level": "associate",
+   "status": "ACTIVE BUT RETIRING. The official AWS product page states: 'This exam is being updated. Registration for the updated version (DVA-C03) opens October 27, 2026. The last day to take the current exam (DVA-C02) is December 1, 2026.' The AWS September 2026 blog gives the last day as 30 November 2026 with DVA-C03 GA on 1 December 2026 - the two official sources differ by one day, so book on or before 30 November 2026 to be safe. Superseded by DVA-C03.",
+   "priceUSD": "$150",
+   "durationMin": "130 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice and multiple response. The guide also carries an 'Emerging topics' section of UNSCORED pretest questions on AI-assisted development, AI security risks, AI-generated tests, AI in CI/CD, AI error analysis and AI-driven optimisation - these do not affect your score but signal where DVA-C03 is heading.",
+   "passingScore": "720 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "1 or more years of hands-on experience developing and maintaining applications using AWS services, proficiency in at least one high-level programming language, understanding of application lifecycle management, and ability to use a CI/CD pipeline to deploy on AWS. Designing architectures, designing CI/CD pipelines, IAM administration, server/OS administration and network design are out of scope.",
+   "domains": [
+    {
+     "name": "Domain 1: Development with AWS Services",
+     "weight": "32%",
+     "covers": "Writing code for applications hosted on AWS (Lambda handlers, event-driven and stateless/idempotent design, SDKs, retries and exponential backoff), developing code for AWS Lambda, and using data stores in application development (DynamoDB data modelling and queries, S3, RDS, ElastiCache, caching and TTL, serialization)"
+    },
+    {
+     "name": "Domain 2: Security",
+     "weight": "26%",
+     "covers": "Authentication and authorization for applications and AWS services (Cognito user and identity pools, IAM roles and policies, resource policies, federated access, token-based auth), encryption using AWS services (KMS keys, envelope encryption, client- vs server-side, TLS/ACM), and managing sensitive data in application code (Secrets Manager, SSM Parameter Store, rotation, keeping secrets out of code and logs)"
+    },
+    {
+     "name": "Domain 3: Deployment",
+     "weight": "24%",
+     "covers": "Preparing application artifacts (packaging, Lambda layers, container images to ECR, environment variables and configuration), testing in development environments, automating deployment testing, and deploying with AWS CI/CD services (CodePipeline, CodeBuild, CodeDeploy, CloudFormation, SAM, CDK, Elastic Beanstalk) using blue/green, canary, rolling and all-at-once strategies"
+    },
+    {
+     "name": "Domain 4: Troubleshooting and Optimization",
+     "weight": "18%",
+     "covers": "Root cause analysis (CloudWatch Logs and Logs Insights, metrics and alarms, X-Ray traces and service map, CloudTrail, HTTP error codes, SDK exceptions), instrumenting code for observability (structured logging, custom metrics, embedded metric format, distributed tracing), and optimizing applications (Lambda memory/concurrency and provisioned concurrency, caching with ElastiCache/CloudFront/API Gateway, DynamoDB capacity tuning)"
+    }
+   ],
+   "keyServices": [
+    "AWS Lambda",
+    "Amazon API Gateway",
+    "Amazon DynamoDB",
+    "Amazon S3",
+    "Amazon Cognito",
+    "AWS IAM / AWS STS",
+    "AWS KMS",
+    "AWS Secrets Manager / AWS Systems Manager Parameter Store",
+    "Amazon SQS / SNS / EventBridge / AWS Step Functions",
+    "Amazon Kinesis Data Streams",
+    "AWS CodePipeline / CodeBuild / CodeDeploy / CodeArtifact",
+    "AWS CloudFormation / AWS SAM / AWS CDK",
+    "AWS Elastic Beanstalk",
+    "Amazon ECS / Amazon ECR / AWS Fargate",
+    "Amazon CloudWatch (Logs, Logs Insights, metrics, alarms)",
+    "AWS X-Ray",
+    "Amazon ElastiCache",
+    "Amazon CloudFront",
+    "Amazon RDS / Amazon Aurora"
+   ],
+   "source": "https://aws.amazon.com/certification/certified-developer-associate/ (update banner with retirement and successor dates, price); https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html (domains, duration, question count, passing score, emerging topics)"
+  },
+  {
+   "code": "DVA-C03",
+   "name": "AWS Certified Developer - Associate (updated version)",
+   "level": "associate",
+   "status": "ANNOUNCED, not yet available. Registration opens 27 October 2026; general availability 1 December 2026, replacing DVA-C02. Full exam guide with task statements and domain weightings publishes when registration opens - domain weightings are NOT public yet, and anything quoting them today is fabricated.",
+   "priceUSD": "$150 (per the AWS September 2026 blog)",
+   "durationMin": "130 minutes (per the AWS September 2026 blog)",
+   "questionCount": "65 total (50 scored) per the AWS September 2026 blog",
+   "passingScore": "Not yet published. AWS associate exams have used 720 of 100-1,000 - assume 720, unverified for C03.",
+   "recommendedExperience": "Not yet published. Expected to remain around 1 year of hands-on AWS development experience plus proficiency in at least one high-level programming language; the official target-candidate description publishes 27 October 2026.",
+   "domains": [
+    {
+     "name": "Domain weightings not yet published",
+     "weight": "UNVERIFIABLE until 27 October 2026",
+     "covers": "AWS has not published the DVA-C03 task statements or weightings. The clearest available signal is DVA-C02's 'Emerging topics' unscored section: AI-assisted development, AI security risks, AI-generated testing, AI in CI/CD, AI error analysis and AI-driven optimisation."
+    }
+   ],
+   "keyServices": [
+    "Not yet published; expected to build on the DVA-C02 service set (Lambda, API Gateway, DynamoDB, S3, Cognito, IAM, KMS, CodePipeline/CodeBuild/CodeDeploy, CloudFormation/SAM/CDK, CloudWatch, X-Ray)"
+   ],
+   "source": "https://aws.amazon.com/certification/certified-developer-associate/ ; https://aws.amazon.com/blogs/training-and-certification/september-2026-new-offerings/"
+  },
+  {
+   "code": "DEA-C01",
+   "name": "AWS Certified Data Engineer - Associate",
+   "level": "associate",
+   "status": "Active. Current as of 30 Sep 2026; no successor announced (see 'unverified' - not checked against the AWS 'Coming Soon' page). The exam guide carries a Revisions section, and AWS publishes guide revisions at least one month before they reach the live exam. The target-candidate description now includes 'general concepts of vectors'.",
+   "priceUSD": "$150",
+   "durationMin": "130 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice and multiple response",
+   "passingScore": "720 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "The equivalent of 2-3 years of data engineering experience plus at least 1-2 years of hands-on AWS experience. Should understand the effects of volume, variety and velocity on ingestion, transformation, modelling, security, governance, privacy, schema design and data store design; know Git, data lakes, SQL, general networking/storage/compute and vector concepts. ML training/inference and drawing business conclusions are out of scope.",
+   "domains": [
+    {
+     "name": "Domain 1: Data Ingestion and Transformation",
+     "weight": "34%",
+     "covers": "Data ingestion (streaming vs batch, Kinesis Data Streams, Data Firehose, MSK, DynamoDB Streams, throughput and replayability), transforming and processing data (Glue ETL and Spark, EMR, Lambda, container-based processing, conversion to Parquet/ORC), orchestrating pipelines (Step Functions, MWAA/Airflow, EventBridge, Glue workflows), and programming concepts (CI/CD for pipelines, SQL, IaC, code optimization)"
+    },
+    {
+     "name": "Domain 2: Data Store Management",
+     "weight": "26%",
+     "covers": "Choosing a data store (S3 and storage classes, Redshift, DynamoDB, RDS/Aurora, DocumentDB, Keyspaces, Neptune), cataloguing systems (Glue Data Catalog, crawlers, schema discovery, Hive metastore), data lifecycle (S3 lifecycle and Intelligent-Tiering, hot/warm/cold tiering, retention, Redshift/Aurora backups), and data models and schema evolution (star/snowflake schemas, partitioning, compression, indexing, Lake Formation)"
+    },
+    {
+     "name": "Domain 3: Data Operations and Support",
+     "weight": "22%",
+     "covers": "Automating data processing (Glue, Lambda, EventBridge, SDKs, MWAA), analysing data (Athena, Redshift and Redshift Spectrum, EMR, OpenSearch Service, QuickSight), maintaining and monitoring pipelines (CloudWatch metrics, logs and alarms, CloudTrail, Glue job metrics, cost and performance troubleshooting), and ensuring data quality (Glue Data Quality, DataBrew, completeness, consistency, profiling, anomaly detection)"
+    },
+    {
+     "name": "Domain 4: Data Security and Governance",
+     "weight": "18%",
+     "covers": "Authentication and authorization (IAM roles and policies, Lake Formation permissions, IAM Identity Center, cross-account access), encryption and masking (KMS, encryption at rest and in transit, client-side, masking and anonymization), preparing logs for audit (CloudTrail, CloudWatch Logs, Glue and Redshift logging, Macie, CloudTrail Lake), and data privacy and governance (PII handling, Macie, data sharing, compliance, cross-Region considerations)"
+    }
+   ],
+   "keyServices": [
+    "AWS Glue (ETL, Data Catalog, crawlers, DataBrew, Data Quality)",
+    "Amazon S3 (storage classes, lifecycle, S3 Select)",
+    "Amazon Redshift (Redshift Spectrum, Serverless)",
+    "Amazon Athena",
+    "Amazon Kinesis Data Streams and Amazon Data Firehose",
+    "Amazon MSK (Managed Streaming for Apache Kafka)",
+    "Amazon EMR",
+    "AWS Lambda",
+    "AWS Step Functions",
+    "Amazon Managed Workflows for Apache Airflow (MWAA)",
+    "Amazon EventBridge",
+    "Amazon DynamoDB (and DynamoDB Streams)",
+    "Amazon RDS / Amazon Aurora",
+    "AWS Lake Formation",
+    "AWS DMS",
+    "Amazon OpenSearch Service",
+    "Amazon QuickSight",
+    "AWS KMS / AWS IAM / Amazon Macie",
+    "Amazon CloudWatch / AWS CloudTrail",
+    "AWS Data Exchange / Amazon AppFlow"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.html (domains, question count, passing score); https://aws.amazon.com/certification/certified-data-engineer-associate/ (price, duration)"
+  },
+  {
+   "code": "SOA-C03",
+   "name": "AWS Certified CloudOps Engineer - Associate",
+   "level": "associate",
+   "status": "Active. This certification REPLACED AWS Certified SysOps Administrator - Associate: the exam was renamed effective 30 September 2025 and the code moved from SOA-C02 to SOA-C03. It is a rename plus content update, not a new certification - the guide contains a 'Comparison of SOA-C02 and SOA-C03' section confirming SOA-C02 ran to 29 Sep 2025 and SOA-C03 from 30 Sep 2025, with six domains collapsing to five (the old Domain 6, Cost and Performance Optimization, folded into Task 1.3). The docs URL slug is still '.../sysops-administrator-associate-03/...', which is expected for a rename. Holders of the old SysOps Administrator - Associate credential keep it valid for 3 years from the date earned and need not retake. Simplified Chinese and Korean versions retire after 19 November 2026. Note on hands-on labs: NEITHER SOA-C02 (since March 2023) NOR SOA-C03 includes exam labs - labs were removed from SOA-C02 in March 2023, well before SOA-C03 existed, so SOA-C03 did not 'drop' them.",
+   "priceUSD": "$150",
+   "durationMin": "130 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice and multiple response only",
+   "passingScore": "720 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "1 year of experience with deployment, management, troubleshooting, networking and security on AWS, plus at least 1 year in a related operations role such as system administrator. Should know monitoring/logging/troubleshooting, networking concepts (DNS, TCP/IP, firewalls), at least one scripting language and one major OS, containerization and orchestration basics, and CI/CD and Git. Designing distributed architectures, designing CI/CD pipelines, designing hybrid/multi-VPC networking, software development, defining security/compliance/governance requirements, capacity planning and cost/TCO analysis are out of scope.",
+   "domains": [
+    {
+     "name": "Content Domain 1: Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+     "weight": "22%",
+     "covers": "Implementing metrics, alarms and filters with CloudWatch; collecting, analysing and retaining logs (CloudWatch Logs, Logs Insights, CloudTrail); remediating issues based on monitoring and availability data; and optimising performance of compute, storage, database and network resources"
+    },
+    {
+     "name": "Content Domain 2: Reliability and Business Continuity",
+     "weight": "22%",
+     "covers": "Scalability and elasticity (EC2 Auto Scaling, ELB, caching), high availability and resilient environments (Multi-AZ, Route 53 health checks and routing, decoupled architectures), and backup/restore and disaster recovery (AWS Backup, snapshots, RDS/Aurora backups, S3 versioning and replication, RTO/RPO)"
+    },
+    {
+     "name": "Content Domain 3: Deployment, Provisioning, and Automation",
+     "weight": "22%",
+     "covers": "Provisioning and maintaining cloud resources (AMIs, CloudFormation templates and StackSets, Systems Manager, Elastic Beanstalk, container provisioning) and automating manual or repeatable processes (Systems Manager Automation and Run Command, Lambda, EventBridge rules, CLI/SDK scripting, patch management)"
+    },
+    {
+     "name": "Content Domain 4: Security and Compliance",
+     "weight": "16%",
+     "covers": "Implementing and managing security and compliance policies (IAM users/groups/roles/policies, Organizations SCPs, IAM Identity Center, cross-account access, AWS Config rules, Security Hub, GuardDuty, Inspector, Audit Manager) and data/infrastructure protection (KMS encryption at rest and in transit, Secrets Manager, ACM, Macie, Shield, WAF)"
+    },
+    {
+     "name": "Content Domain 5: Networking and Content Delivery",
+     "weight": "18%",
+     "covers": "Implementing networking features and connectivity (VPC subnets, route tables, security groups, NACLs, NAT gateways, VPC endpoints, Transit Gateway, peering, Site-to-Site VPN, Direct Connect), configuring domains, DNS and content delivery (Route 53, CloudFront, Global Accelerator, ACM), and troubleshooting connectivity (VPC Flow Logs, Reachability Analyzer, DNS resolution, ELB errors)"
+    }
+   ],
+   "keyServices": [
+    "Amazon CloudWatch (metrics, alarms, Logs, Logs Insights, agent)",
+    "AWS CloudTrail",
+    "AWS Systems Manager (Session Manager, Run Command, Patch Manager, Automation, Parameter Store)",
+    "AWS CloudFormation (including StackSets)",
+    "Amazon EC2 (AMIs, instance types, placement, EBS)",
+    "EC2 Auto Scaling and Elastic Load Balancing",
+    "Amazon VPC (route tables, security groups, NACLs, NAT, endpoints, Flow Logs, Transit Gateway, peering)",
+    "Amazon Route 53",
+    "Amazon CloudFront",
+    "Amazon S3 (versioning, lifecycle, replication, policies)",
+    "Amazon EBS / Amazon EFS / AWS Storage Gateway",
+    "AWS Backup",
+    "Amazon RDS / Aurora / DynamoDB / ElastiCache",
+    "AWS IAM / AWS Organizations / IAM Identity Center",
+    "AWS KMS / AWS Secrets Manager / AWS Certificate Manager",
+    "AWS Config / AWS Security Hub / Amazon GuardDuty / Amazon Inspector",
+    "AWS Trusted Advisor / AWS Health Dashboard",
+    "Amazon ECS / Amazon EKS / AWS Fargate",
+    "AWS Lambda / Amazon EventBridge",
+    "AWS Cost Explorer / AWS Budgets"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html and .../sysops-administrator-associate-03-comparison.html (domains, question count, passing score, C02-vs-C03 comparison); https://aws.amazon.com/certification/certified-cloudops-engineer-associate/ (price, duration, rename, credential validity); AWS Training and Certification Blog, March 2023 (removal of exam labs from SOA-C02)"
+  },
+  {
+   "code": "MLA-C01",
+   "name": "AWS Certified Machine Learning Engineer - Associate (outgoing version)",
+   "level": "associate",
+   "status": "RETIRING - effectively retired for English candidates. The last day to take MLA-C01 in English was 28 September 2026, two days before this record's as-of date. Japanese, Korean and Simplified Chinese versions remain available until MLA-C02 reaches general availability (14 January 2027). Superseded by MLA-C02. Credentials already earned remain valid for 3 years from the date earned.",
+   "priceUSD": "$150",
+   "durationMin": "130 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored); multiple choice and multiple response",
+   "passingScore": "720 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "At least 1 year of experience using Amazon SageMaker and other AWS services for ML engineering, plus at least 1 year in a related role such as backend software developer, DevOps developer, data engineer or data scientist.",
+   "domains": [
+    {
+     "name": "Domain 1: Data Preparation for Machine Learning (ML)",
+     "weight": "28% (UNVERIFIED - see below)",
+     "covers": "Ingesting and storing data, transforming data and performing feature engineering, and ensuring data integrity and preparing data for modelling (bias detection, encryption, compliance)"
+    },
+    {
+     "name": "Domain 2: ML Model Development",
+     "weight": "26% (UNVERIFIED - see below)",
+     "covers": "Choosing a modelling approach, training and refining models, analysing model performance, and managing model versions and repositories"
+    },
+    {
+     "name": "Domain 3: Deployment and Orchestration of ML Workflows",
+     "weight": "22% (UNVERIFIED - see below)",
+     "covers": "Selecting deployment infrastructure based on existing architecture and requirements, creating and scripting infrastructure from performance and cost requirements, and using automated orchestration tools to set up CI/CD pipelines"
+    },
+    {
+     "name": "Domain 4: ML Solution Monitoring, Maintenance, and Security",
+     "weight": "24% (UNVERIFIED - see below)",
+     "covers": "Monitoring model inference, monitoring and optimizing infrastructure and costs, and securing AWS ML resources. NOTE ON ALL FOUR WEIGHTINGS: these came from secondary reporting of the MLA-C01 guide, not from opening the official MLA-C01 guide page, because the docs path now resolves to MLA-C02. Treat as plausible, not confirmed. The exam is retired in English, so this matters only for candidates sitting the remaining non-English versions."
+    }
+   ],
+   "keyServices": [
+    "Amazon SageMaker (Studio, Pipelines, Model Monitor, Clarify, Feature Store, Data Wrangler, JumpStart)",
+    "Amazon Bedrock",
+    "Amazon S3",
+    "AWS Glue",
+    "Amazon Athena",
+    "Amazon EMR",
+    "AWS Lambda",
+    "AWS Step Functions",
+    "Amazon ECR / ECS / EKS",
+    "Amazon CloudWatch",
+    "AWS CodePipeline / AWS CodeBuild",
+    "AWS IAM / AWS KMS",
+    "Amazon EventBridge",
+    "Amazon Kinesis"
+   ],
+   "source": "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/ (retirement dates, price, duration); https://aws.amazon.com/blogs/training-and-certification/updates-to-aws-certified-machine-learning-engineer-associate-mla-c02/ . Domain weightings from secondary reporting only."
+  },
+  {
+   "code": "MLA-C02",
+   "name": "AWS Certified Machine Learning Engineer - Associate (updated version)",
+   "level": "associate",
+   "status": "BETA as of 30 Sep 2026. Beta registration opened 1 September 2026; beta delivery began 29 September 2026; general availability 14 January 2027. English only during beta - Japanese, Korean and Simplified Chinese arrive at GA. Beta exams return no immediate pass/fail (the guide footnotes that the passing score 'does not apply to the beta version of the exam'). This is the same certification track as MLA-C01, not a separate credential. Major expansion: foundation models, Amazon Bedrock, RAG architectures and agentic AI workflows are now in scope. The guide includes a 'Comparison of MLA-C01 and MLA-C02' section.",
+   "priceUSD": "$75 beta price (confirmed). Post-GA price NOT published by AWS - the $150 associate-tier figure often quoted is an inference from AWS's standard pricing, not an AWS statement.",
+   "durationMin": "170 minutes on the beta form (per aws.amazon.com). GA duration not separately published.",
+   "questionCount": "CONFLICT between two official AWS sources: the exam guide states 50 scored + 15 unscored (65); aws.amazon.com states 85 questions at 170 minutes for the beta form. AWS publishes no explanation for the gap - we report the discrepancy rather than invent a reason for it. Multiple choice and multiple response only.",
+   "passingScore": "720 of 100-1,000 scaled (compensatory). The guide notes this does not apply to the beta version.",
+   "recommendedExperience": "At least 1 year of experience using Amazon SageMaker AI, Amazon Bedrock and other AWS services for ML engineering, plus at least 1 year in a related role (backend software developer, DevOps developer, data engineer or data scientist). Experience with BOTH traditional ML and generative AI is required. Should know common ML algorithms, FM capabilities and limitations, data engineering fundamentals, software engineering best practices, CI/CD and IaC. Designing full end-to-end AI/ML architectures and setting ML strategy are out of scope.",
+   "domains": [
+    {
+     "name": "Content Domain 1: Data Preparation for ML and AI",
+     "weight": "28%",
+     "covers": "Ingesting, transforming, validating and preparing data for both AI and ML modelling - data formats, feature engineering, data quality and integrity, bias detection, and preparing data for foundation-model workflows such as knowledge bases and embeddings"
+    },
+    {
+     "name": "Content Domain 2: ML Model and Foundation Model (FM) Development",
+     "weight": "24%",
+     "covers": "Selecting modelling approaches across traditional ML and FMs, training models, tuning hyperparameters, fine-tuning and adapting foundation models, analysing model performance, and managing model versions"
+    },
+    {
+     "name": "Content Domain 3: Deployment and Orchestration of ML and AI Workflows",
+     "weight": "24%",
+     "covers": "Choosing deployment infrastructure and endpoints, provisioning compute and configuring auto scaling to requirements, setting up CI/CD pipelines to automate AI/ML workflow orchestration, and building agentic workflows"
+    },
+    {
+     "name": "Content Domain 4: Operating, Monitoring, and Securing ML and AI Solutions",
+     "weight": "24%",
+     "covers": "Maintaining observability and optimizing efficiency and cost; monitoring models, agentic workflows, data and infrastructure to detect drift, quality and bias issues; and securing AI/ML systems through access controls, encryption, compliance features and best practices"
+    }
+   ],
+   "keyServices": [
+    "Amazon SageMaker AI (Studio, Pipelines, Model Monitor, Clarify, Feature Store, JumpStart, endpoints and auto scaling)",
+    "Amazon Bedrock (Knowledge Bases, Agents, Guardrails, model evaluation, fine-tuning)",
+    "Amazon S3",
+    "AWS Glue",
+    "Amazon Athena",
+    "Amazon EMR",
+    "AWS Lambda",
+    "AWS Step Functions",
+    "Amazon ECR / Amazon ECS / Amazon EKS",
+    "Amazon CloudWatch (logs, metrics, alarms)",
+    "AWS CodePipeline / AWS CodeBuild",
+    "AWS CloudFormation / AWS CDK",
+    "AWS IAM / AWS KMS",
+    "Amazon EventBridge",
+    "Amazon OpenSearch Service (vector store for RAG)"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html (domains, passing score, scored/unscored split); https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/ (beta price, 170 minutes, 85 questions, beta dates); https://aws.amazon.com/blogs/training-and-certification/september-2026-new-offerings/ (GA date)"
+  },
+  {
+   "code": "SAP-C02",
+   "name": "AWS Certified Solutions Architect - Professional (outgoing version)",
+   "level": "professional",
+   "status": "ACTIVE BUT BEING REPLACED. CONFLICT on the last testing day: the AWS September 2026 blog says 16 November 2026, while the AWS certification page (and several vendor summaries) say 17 November 2026. Book on or before 16 November 2026 to be safe. SAP-C03 registration opens 27 October 2026; SAP-C03 general availability 17 November 2026. Anyone starting a 9-14 month path today will not finish it on SAP-C02.",
+   "priceUSD": "$300",
+   "durationMin": "180 minutes",
+   "questionCount": "75 total (65 scored + 10 unscored)",
+   "passingScore": "750 of 100-1,000 scaled (compensatory - no per-domain pass)",
+   "recommendedExperience": "2 or more years using AWS services to design and implement cloud solutions, with the ability to give expert architectural guidance across multiple applications and projects in a complex organization. Out of scope: mobile frontend development, 12-factor methodology, deep operating-system knowledge.",
+   "domains": [
+    {
+     "name": "Domain 1: Design Solutions for Organizational Complexity",
+     "weight": "26%",
+     "covers": "Multi-account architecture, AWS Organizations, cross-account networking and connectivity, hybrid connectivity, centralized identity and SSO, multi-account cost and governance controls"
+    },
+    {
+     "name": "Domain 2: Design for New Solutions",
+     "weight": "29%",
+     "covers": "Greenfield design for deployment strategy, business continuity and DR, security controls, reliability, performance and cost objectives"
+    },
+    {
+     "name": "Domain 3: Continuous Improvement for Existing Solutions",
+     "weight": "25%",
+     "covers": "Improving operational excellence, security, performance, reliability and cost of running workloads; observability and remediation"
+    },
+    {
+     "name": "Domain 4: Accelerate Workload Migration and Modernization",
+     "weight": "20%",
+     "covers": "Migration assessment, selecting migration strategies (the 7 Rs), migration tooling, modernizing to serverless, containers and managed data services"
+    }
+   ],
+   "keyServices": [
+    "AWS Organizations",
+    "AWS Control Tower",
+    "AWS IAM / IAM Identity Center",
+    "AWS Transit Gateway",
+    "Amazon VPC, AWS Direct Connect, Site-to-Site VPN, Amazon Route 53",
+    "AWS Resource Access Manager",
+    "AWS CloudFormation / AWS CDK",
+    "Amazon EC2, EC2 Auto Scaling, Amazon ECS, Amazon EKS, AWS Lambda",
+    "Amazon S3, Amazon EFS, Amazon FSx, AWS Storage Gateway",
+    "Amazon RDS, Aurora, DynamoDB, ElastiCache",
+    "Amazon CloudFront, AWS Global Accelerator, Elastic Load Balancing",
+    "Amazon CloudWatch, AWS CloudTrail, AWS Config, AWS Systems Manager",
+    "AWS KMS, AWS Secrets Manager, AWS WAF, AWS Shield, Amazon GuardDuty, AWS Security Hub",
+    "AWS Migration Hub, AWS Application Migration Service, AWS DMS, AWS DataSync, AWS Snow Family",
+    "AWS Cost Explorer, AWS Budgets, AWS Compute Optimizer",
+    "Emerging/pretest only: Amazon Bedrock Guardrails, AgentCore Identity, Step Functions human-approval workflows"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.html ; https://aws.amazon.com/certification/certified-solutions-architect-professional/ ; https://aws.amazon.com/blogs/training-and-certification/september-2026-new-offerings/"
+  },
+  {
+   "code": "SAP-C03",
+   "name": "AWS Certified Solutions Architect - Professional (updated version)",
+   "level": "professional",
+   "status": "ANNOUNCED, not yet released. Registration opens 27 October 2026; general availability 17 November 2026. The full exam guide with task statements publishes when registration opens - domain weightings, passing score and the in-scope service list are NOT public yet, and anything quoting them today is fabricated.",
+   "priceUSD": "$300 expected, matching SAP-C02 - UNCONFIRMED for C03; AWS has not published a C03 price.",
+   "durationMin": "180 minutes expected, matching SAP-C02 - UNCONFIRMED for C03; AWS has not published a C03 duration.",
+   "questionCount": "75 expected, matching SAP-C02 - UNCONFIRMED for C03; AWS has not published a C03 question count, and the announcement blog does not confirm the exam is the same length or format.",
+   "passingScore": "Not yet published. AWS professional exams have used 750 of 100-1,000 - assume 750, unverified for C03.",
+   "recommendedExperience": "Expected to remain 2 or more years designing and implementing solutions on AWS. The official target-candidate description publishes 27 October 2026.",
+   "domains": [
+    {
+     "name": "Domain weightings not yet published",
+     "weight": "UNVERIFIABLE until 27 October 2026",
+     "covers": "AWS has previewed content additions rather than weightings: roughly 11 new generative AI / agentic architecture skills (Amazon Bedrock, Bedrock AgentCore, RAG, Bedrock Guardrails, human-oversight workflows); resilience engineering (AWS Fault Injection Service, AWS Resilience Hub, Application Recovery Controller, Systems Manager automated runbooks); cloud-native patterns (serverless data pipelines, Step Functions durable workflows, VPC Lattice, ECS Service Connect, container image security, multi-tenant SaaS, real-time data, data lakehouse); DevSecOps (pipeline vulnerability scanning, multi-account deployment pipelines, container monitoring, AI/ML metrics monitoring, synthetic and real-user monitoring); and post-quantum cryptography"
+    }
+   ],
+   "keyServices": [
+    "Amazon Bedrock",
+    "Amazon Bedrock AgentCore",
+    "AWS Fault Injection Service",
+    "AWS Resilience Hub",
+    "Application Recovery Controller (ARC)",
+    "AWS Step Functions",
+    "Amazon VPC Lattice",
+    "Amazon ECS Service Connect",
+    "AWS Systems Manager",
+    "AWS KMS (post-quantum cryptography)",
+    "plus the existing SAP-C02 service set"
+   ],
+   "source": "https://aws.amazon.com/blogs/training-and-certification/september-2026-new-offerings/"
+  },
+  {
+   "code": "DOP-C02",
+   "name": "AWS Certified DevOps Engineer - Professional",
+   "level": "professional",
+   "status": "Active. No replacement version announced as of 30 September 2026 (see 'unverified' - not checked against the AWS 'Coming Soon' page). The Korean-language version retires after 31 December 2026; English and the other supported languages continue. DOP-C02 is also a recertification path for SOA-C03 and the associate certifications, since passing a higher-level exam renews the lower one.",
+   "priceUSD": "$300",
+   "durationMin": "180 minutes",
+   "questionCount": "75 total (65 scored + 10 unscored)",
+   "passingScore": "750 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "2 or more years provisioning, operating and managing AWS environments; experience with the SDLC and with programming or scripting; building highly automated infrastructure; operating-system administration. Out of scope: advanced routing and failover, deep security recommendations, database performance tuning, full-stack application code.",
+   "domains": [
+    {
+     "name": "Domain 1: SDLC Automation",
+     "weight": "22%",
+     "covers": "CI/CD pipelines, automated testing gates, artifact management, and deployment strategies (blue/green, canary, rolling)"
+    },
+    {
+     "name": "Domain 2: Configuration Management and Infrastructure as Code",
+     "weight": "17%",
+     "covers": "CloudFormation and CDK, reusable infrastructure, account provisioning and configuration at scale, image and container build automation"
+    },
+    {
+     "name": "Domain 3: Resilient Cloud Solutions",
+     "weight": "15%",
+     "covers": "Highly available, scalable, self-healing and multi-Region architectures; backup and DR automation"
+    },
+    {
+     "name": "Domain 4: Monitoring and Logging",
+     "weight": "15%",
+     "covers": "Metrics, logs and traces, log aggregation and retention, audit collection and analysis"
+    },
+    {
+     "name": "Domain 5: Incident and Event Response",
+     "weight": "14%",
+     "covers": "Event-driven automation, alerting and escalation, automated remediation, and troubleshooting failed deployments"
+    },
+    {
+     "name": "Domain 6: Security and Compliance",
+     "weight": "17%",
+     "covers": "Identity and access automation, automated security controls, secrets and credential management, compliance validation and governance"
+    }
+   ],
+   "keyServices": [
+    "AWS CodePipeline, CodeBuild, CodeDeploy, CodeArtifact, CodeConnections",
+    "AWS CloudFormation, AWS CDK, AWS Service Catalog",
+    "AWS Organizations, AWS Control Tower, AWS IAM / IAM Identity Center",
+    "AWS Systems Manager (Automation, Patch Manager, Parameter Store), AWS Config and Config Rules",
+    "Amazon CloudWatch (Logs, Alarms, EMF), CloudWatch Synthetics, AWS X-Ray, AWS CloudTrail",
+    "Amazon EventBridge, Amazon SNS, Amazon SQS, AWS Step Functions, AWS Lambda",
+    "Amazon EC2 / EC2 Auto Scaling, Amazon ECS, Amazon EKS, Amazon ECR, AWS Elastic Beanstalk",
+    "Amazon S3, Amazon DynamoDB, Amazon RDS/Aurora, Amazon Route 53, Elastic Load Balancing",
+    "AWS Secrets Manager, AWS KMS, Amazon GuardDuty, AWS Security Hub, Amazon Inspector, Amazon Macie",
+    "AWS Backup, AWS Elastic Disaster Recovery",
+    "Amazon OpenSearch Service, Amazon Kinesis Data Streams / Amazon Data Firehose"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html ; https://aws.amazon.com/certification/certified-devops-engineer-professional/"
+  },
+  {
+   "code": "AIP-C01",
+   "name": "AWS Certified Generative AI Developer - Professional",
+   "level": "professional",
+   "status": "Active and new - AWS's newest professional certification, validating the generative AI developer role. The full exam guide is published at docs.aws.amazon.com.",
+   "priceUSD": "$300",
+   "durationMin": "180 minutes",
+   "questionCount": "75 total (65 scored + 10 unscored)",
+   "passingScore": "750 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "2 or more years building production-grade applications on AWS or with open-source technologies, plus general AI/ML or data engineering experience, plus 1 year hands-on implementing generative AI solutions on AWS. Explicitly out of scope for the candidate: model development and training, advanced ML techniques, and data/feature engineering.",
+   "domains": [
+    {
+     "name": "Domain 1: Foundation Model Integration, Data Management, and Compliance",
+     "weight": "31%",
+     "covers": "Selecting and integrating foundation models; vector stores, embeddings and chunking; RAG and knowledge bases; data preparation, lineage and residency; and compliance obligations on GenAI data"
+    },
+    {
+     "name": "Domain 2: Implementation and Integration",
+     "weight": "26%",
+     "covers": "Integrating foundation models into applications and business workflows; prompt engineering and prompt management; agentic AI solutions and tool/function calling; orchestration"
+    },
+    {
+     "name": "Domain 3: AI Safety, Security, and Governance",
+     "weight": "20%",
+     "covers": "Guardrails and content filtering, responsible AI practices, identity and access control for GenAI and agents, data protection, governance and auditability"
+    },
+    {
+     "name": "Domain 4: Operational Efficiency and Optimization for GenAI Applications",
+     "weight": "12%",
+     "covers": "Cost and performance optimization, model and inference selection, caching, throughput and quota management, and measuring business value"
+    },
+    {
+     "name": "Domain 5: Testing, Validation, and Troubleshooting",
+     "weight": "11%",
+     "covers": "Evaluating foundation models for quality and responsibility, evaluation harnesses, monitoring and observability of GenAI applications, and troubleshooting quality and latency regressions"
+    }
+   ],
+   "keyServices": [
+    "Amazon Bedrock (Converse/InvokeModel, Knowledge Bases, Agents, Guardrails, Prompt Management, Model Evaluation)",
+    "Amazon Bedrock AgentCore",
+    "Amazon SageMaker AI / SageMaker JumpStart",
+    "Amazon OpenSearch Service (vector engine), Aurora PostgreSQL pgvector, Amazon Kendra",
+    "Amazon Q",
+    "AWS Lambda, AWS Step Functions, Amazon API Gateway, Amazon EventBridge",
+    "Amazon S3, Amazon DynamoDB, Amazon RDS/Aurora",
+    "AWS IAM, AWS KMS, AWS Secrets Manager, VPC endpoints (AWS PrivateLink)",
+    "Amazon CloudWatch, AWS CloudTrail, AWS X-Ray",
+    "Amazon Comprehend, Amazon Transcribe, Amazon Textract, Amazon Polly"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html"
+  },
+  {
+   "code": "ANS-C01",
+   "name": "AWS Certified Advanced Networking - Specialty",
+   "level": "specialty",
+   "status": "RETIRING. The official AWS certification page states the last day to take the exam is 31 December 2026. (Some third-party posts cite 25 August 2026 - that is NOT what the official AWS page says; treat 31 December 2026 as official and book early.) Credentials already earned stay valid for 3 years from the date earned. AWS has announced NO replacement certification; the AWS page points holders to AWS Skill Builder digital training. After ANS-C01 retires, Security (SCS-C03) is the only remaining AWS specialty certification.",
+   "priceUSD": "$300",
+   "durationMin": "170 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored). Question types CONFLICT between official sources: the exam guide lists multiple response and matching; the AWS marketing page says multiple choice or multiple response. Where they differ, the exam guide is authoritative.",
+   "passingScore": "750 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "5 or more years of networking experience with 2 or more years of cloud and hybrid networking experience; knowledge of AWS networking nuances, AWS security best practices, and AWS compute/storage consistency models.",
+   "domains": [
+    {
+     "name": "Domain 1: Network Design",
+     "weight": "30%",
+     "covers": "Designing global, multi-account and hybrid network architectures; DNS design; edge and content delivery design; IP addressing and segmentation"
+    },
+    {
+     "name": "Domain 2: Network Implementation",
+     "weight": "26%",
+     "covers": "Implementing VPCs, Transit Gateway, Direct Connect, VPN, Route 53 and load balancing, and automating network deployment with infrastructure as code"
+    },
+    {
+     "name": "Domain 3: Network Management and Operation",
+     "weight": "20%",
+     "covers": "Monitoring, logging and troubleshooting connectivity, routing (BGP), performance and packet-path issues; operational automation"
+    },
+    {
+     "name": "Domain 4: Network Security, Compliance, and Governance",
+     "weight": "24%",
+     "covers": "Network segmentation and perimeter controls, firewalls, DDoS protection, inspection architectures, encryption in transit, and compliance and governance of network configuration"
+    }
+   ],
+   "keyServices": [
+    "Amazon VPC (subnets, route tables, NAT, endpoints, PrivateLink, IPAM)",
+    "AWS Transit Gateway, VPC peering, AWS Cloud WAN",
+    "AWS Direct Connect and Direct Connect Gateway, AWS Site-to-Site VPN, AWS Client VPN",
+    "Amazon Route 53 (public/private zones, Resolver, health checks) and Route 53 Application Recovery Controller",
+    "Elastic Load Balancing (ALB/NLB/GWLB), AWS Global Accelerator, Amazon CloudFront",
+    "AWS Network Firewall, AWS WAF, AWS Shield Advanced, AWS Firewall Manager, security groups and NACLs",
+    "VPC Flow Logs, Traffic Mirroring, Reachability Analyzer, Network Access Analyzer, AWS Network Manager",
+    "Amazon CloudWatch, AWS CloudTrail, AWS Config",
+    "AWS Certificate Manager, AWS CloudFormation, AWS Resource Access Manager",
+    "Amazon VPC Lattice"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html ; https://aws.amazon.com/certification/certified-advanced-networking-specialty/"
+  },
+  {
+   "code": "SCS-C03",
+   "name": "AWS Certified Security - Specialty",
+   "level": "specialty",
+   "status": "Active, and the exam code is SCS-C03 - NOT the older SCS-C02, which was retired on 1 December 2025 and cannot be booked. The SCS-C03 guide includes an appendix comparing SCS-C02 and SCS-C03. The Simplified Chinese, Spanish (Latin America) and Portuguese (Brazil) versions retire after 31 December 2026; English, Japanese and Korean continue.",
+   "priceUSD": "$300",
+   "durationMin": "170 minutes",
+   "questionCount": "65 total (50 scored + 15 unscored). SCS-C03 adds ORDERING and MATCHING question types alongside multiple choice and multiple response.",
+   "passingScore": "750 of 100-1,000 scaled (compensatory)",
+   "recommendedExperience": "3-5 years securing cloud solutions (the AWS marketing page words this as 5 years of IT security experience plus 2 or more years hands-on securing AWS workloads). Knowledge of the shared responsibility model, identity at scale, multi-account governance, software supply chain risk, incident response, vulnerability management, layer 3-7 firewall rules at scale, audit response, logging and monitoring, encryption at rest and in transit, and DR/backup controls.",
+   "domains": [
+    {
+     "name": "Domain 1: Detection",
+     "weight": "16%",
+     "covers": "Designing and implementing threat detection, log and event collection and analysis, and security findings triage and alerting"
+    },
+    {
+     "name": "Domain 2: Incident Response",
+     "weight": "14%",
+     "covers": "Incident response plans, containment and eradication, forensics and evidence preservation, automated remediation, and root cause analysis"
+    },
+    {
+     "name": "Domain 3: Infrastructure Security",
+     "weight": "18%",
+     "covers": "Edge, network and compute security; segmentation; firewall rules at layers 3-7; hardening and patching; vulnerability management"
+    },
+    {
+     "name": "Domain 4: Identity and Access Management",
+     "weight": "20%",
+     "covers": "Authentication and authorization at scale, IAM policy design and evaluation, federation, permission boundaries, SCPs, least privilege and access review"
+    },
+    {
+     "name": "Domain 5: Data Protection",
+     "weight": "18%",
+     "covers": "Encryption at rest and in transit, key and certificate lifecycle management, data classification, secrets management, and backup and lifecycle controls"
+    },
+    {
+     "name": "Domain 6: Security Foundations and Governance",
+     "weight": "14%",
+     "covers": "Multi-account strategy and guardrails, compliance and audit readiness, security posture management, software supply chain risk, and cost/security tradeoffs"
+    }
+   ],
+   "keyServices": [
+    "AWS IAM, IAM Identity Center, IAM Access Analyzer, AWS STS, Amazon Cognito",
+    "AWS Organizations, Service Control Policies, AWS Control Tower",
+    "Amazon GuardDuty, AWS Security Hub, Amazon Inspector, Amazon Macie, AWS Audit Manager, AWS Config",
+    "AWS CloudTrail (including CloudTrail Lake), Amazon CloudWatch Logs, Amazon Detective, Amazon Security Lake",
+    "AWS KMS, AWS CloudHSM, AWS Secrets Manager, AWS Certificate Manager, AWS Private CA",
+    "AWS WAF, AWS Shield Advanced, AWS Network Firewall, AWS Firewall Manager",
+    "Amazon VPC (security groups, NACLs, Flow Logs, PrivateLink, endpoints)",
+    "AWS Systems Manager (Patch Manager, Session Manager, Automation)",
+    "Amazon S3 (Block Public Access, bucket policies, Object Lock), Amazon EBS and RDS encryption",
+    "AWS Lambda, Amazon EventBridge, AWS Step Functions (automated response)",
+    "AWS Backup, AWS Resource Access Manager"
+   ],
+   "source": "https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html ; https://aws.amazon.com/certification/certified-security-specialty/ ; https://aws.amazon.com/blogs/training-and-certification/big-news-aws-expands-ai-certification-portfolio-and-updates-security-certification/"
+  }
+ ],
+ "rolePaths": [
+  {
+   "role": "Solutions Architect",
+   "responsibilities": "Design and implement AWS solutions and give architectural guidance across applications and projects. AWS recommends 1 year hands-on for the associate step and 2 or more years designing and operating AWS solutions for the professional step. AWS marks Cloud Practitioner OPTIONAL for anyone with an IT or STEM background.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional. Cloud concepts, shared responsibility, core services, billing and pricing. Skip it if you already work in IT. Roughly 20-40 hours. $100 / 90 min / 65 questions / pass 700."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03",
+     "note": "The anchor certification of the whole AWS scheme: secure, resilient, high-performing and cost-optimised design. Roughly 80-120 hours over 2-3 months. $150 / 130 min / 65 questions / pass 720."
+    },
+    {
+     "order": 3,
+     "code": "AIF-C01",
+     "note": "Recommended add-on, not required. AWS suggests it for IT and cloud professionals who need to work with AI. Conceptual generative AI, Bedrock, responsible AI. Roughly 20-30 hours. $100 / 90 min / 65 questions / pass 700. Not included in the path cost and time totals below."
+    },
+    {
+     "order": 4,
+     "code": "SAP-C02 (until 16 Nov 2026), then SAP-C03",
+     "note": "TIMING WARNING: SAP-C02's last day is 16 November 2026 per the AWS blog (the AWS certification page says 17 November - book by 16 November). SAP-C03 registration opens 27 October 2026, GA 17 November 2026. Anyone starting this 9-14 month path today will sit SAP-C03, whose weightings, price, duration and question count are not yet published. SAP-C02 today: $300 / 180 min / 75 questions / pass 750."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024 edition - predates the CloudOps rename, SCS-C03, MLA-C02 and the ANS-C01 retirement); per-exam figures from https://aws.amazon.com/certification/certified-cloud-practitioner/ , /certified-solutions-architect-associate/ , /certified-solutions-architect-professional/ , /certified-ai-practitioner/"
+  },
+  {
+   "role": "Application Architect",
+   "responsibilities": "AWS's statement: 'Design significant aspects of application architecture including user interface, middleware, and infrastructure, and ensure enterprise-wide scalable, reliable, and manageable systems.' Assumes existing software architecture experience plus roughly 1 year on AWS.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for IT and cloud professionals. Vocabulary and billing model only; most application architects should skip it."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03",
+     "note": "The same associate anchor as the Solutions Architect path - AWS does not differentiate the two paths until the professional step."
+    },
+    {
+     "order": 3,
+     "code": "AIF-C01",
+     "note": "Recommended add-on: where generative AI fits into application design; Bedrock, RAG and guardrails at a conceptual level. Excluded from the cost and time totals."
+    },
+    {
+     "order": 4,
+     "code": "SAP-C02 (until 16 Nov 2026), then SAP-C03",
+     "note": "Complex application modernisation, decoupling, event-driven and microservice patterns across accounts and Regions. SAME TIMING WARNING as the Solutions Architect path: SAP-C02 closes mid-November 2026 and SAP-C03 opens for registration 27 October 2026."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-solutions-architect-professional/"
+  },
+  {
+   "role": "Cloud Engineer",
+   "responsibilities": "AWS's statement: 'Implement and operate an organization's networked computing infrastructure and implement security systems to maintain data safety.' Assumes 1-2 years of sysadmin or infrastructure work before the associate step. Full path (four exams): $700, or $600 without Cloud Practitioner; 530 minutes of exam time (90 + 130 + 130 + 180); 270 questions (65 + 65 + 65 + 75); passing scores 700 / 720 / 720 / 750. Roughly 10-15 months elapsed.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional orientation step. $100 / 90 min / 65 questions / pass 700."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03",
+     "note": "Breadth across compute, storage, networking and identity - the practical vocabulary a cloud engineer uses daily. $150 / 130 min / 65 questions / pass 720."
+    },
+    {
+     "order": 3,
+     "code": "SOA-C03",
+     "note": "Sibling associate: monitoring, deployment, reliability and automation of running workloads. Renamed from SysOps Administrator - Associate effective 30 September 2025. $150 / 130 min / 65 questions / pass 720. NOTE: earlier versions of this path summed only three exams and understated the cost by $150, the time by 130 minutes and the question count by 65."
+    },
+    {
+     "order": 4,
+     "code": "DOP-C02",
+     "note": "CI/CD, IaC, monitoring and incident response, automated governance at scale. Assumes 2 or more years provisioning and operating AWS. $300 / 180 min / 75 questions / pass 750."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-cloudops-engineer-associate/ ; https://aws.amazon.com/certification/certified-devops-engineer-professional/"
+  },
+  {
+   "role": "Cloud DevOps Engineer",
+   "responsibilities": "AWS's statement: 'Design, deployment, and operations of large-scale global hybrid cloud computing environment, advocating for end-to-end automated CI/CD DevOps pipelines.' DOP-C02 assumes 2 or more years provisioning, operating and managing AWS environments plus real scripting and IaC ability. Roughly $450-$600 depending on how many associates you sit; 12-18 months elapsed from a standing start.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional; genuinely skippable for anyone already on a platform team."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03 or SOA-C03",
+     "note": "AWS accepts either associate as the on-ramp. SAA-C03 gives design breadth; SOA-C03 gives operations depth. Both $150 / 130 min / 65 questions / pass 720."
+    },
+    {
+     "order": 3,
+     "code": "DOP-C02",
+     "note": "The terminal certification for this role: SDLC automation, IaC and configuration management, resilient cloud solutions, monitoring and logging, incident and event response, security and compliance automation. $300 / 180 min / 75 questions / pass 750."
+    },
+    {
+     "order": 4,
+     "code": "MLA-C02 (was MLA-C01)",
+     "note": "Optional, only if your pipelines carry ML workloads. STATUS CHANGE: MLA-C01's last English sitting was 28 September 2026. MLA-C02 has been in beta since 29 September 2026 (170 minutes, 85 questions, $75 beta, English only) with general availability on 14 January 2027; the beta returns no immediate pass/fail."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/ ; https://aws.amazon.com/blogs/training-and-certification/updates-to-aws-certified-machine-learning-engineer-associate-mla-c02/"
+  },
+  {
+   "role": "DevSecOps Engineer",
+   "responsibilities": "AWS's statement: 'Accelerate enterprise cloud adoption while enabling rapid and stable delivery of capabilities using CI/CD principles, methodologies, and technologies.' Assumes 2 or more years on AWS plus security engineering exposure. Roughly 15-24 months elapsed. IMPORTANT CODE CORRECTION: the security step is SCS-C03, not SCS-C02 - SCS-C02 was retired on 1 December 2025 and cannot be booked.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for IT and cloud professionals."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03 or SOA-C03",
+     "note": "Breadth or operations depth as the on-ramp. $150 / 130 min / 65 questions / pass 720."
+    },
+    {
+     "order": 3,
+     "code": "DOP-C02",
+     "note": "Pipeline automation, IaC, compliance as code - the DevOps half of the role. $300 / 180 min / 75 questions / pass 750."
+    },
+    {
+     "order": 4,
+     "code": "SCS-C03",
+     "note": "Detection, incident response, infrastructure security, IAM, data protection, and security foundations and governance. $300 / 170 min / 65 questions / pass 750. Do not study SCS-C02 material as current - the code was superseded in December 2025."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-security-specialty/ ; https://aws.amazon.com/certification/certified-devops-engineer-professional/"
+  },
+  {
+   "role": "Systems Administrator",
+   "responsibilities": "AWS's statement: 'Install, upgrade, and maintain computer components and software, and integrate automation processes.' AWS recommends roughly 1 year of hands-on AWS operations experience for SOA-C03. $250 with Cloud Practitioner, $150 without; 220 minutes of exam time; roughly 4-8 months elapsed.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for anyone already administering systems."
+    },
+    {
+     "order": 2,
+     "code": "SOA-C03",
+     "note": "The core exam for this role: monitoring/logging/remediation and performance optimization, reliability and business continuity, deployment/provisioning/automation, security and compliance, and networking and content delivery. Renamed from SysOps Administrator - Associate. Neither SOA-C02 (since March 2023) nor SOA-C03 includes hands-on exam labs."
+    },
+    {
+     "order": 3,
+     "code": "DOP-C02",
+     "note": "Not on AWS's systems administrator card - our suggested continuation once automation becomes the job rather than a task."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-cloudops-engineer-associate/"
+  },
+  {
+   "role": "Network Engineer",
+   "responsibilities": "AWS's statement: 'Design and implement computer and information networks, such as local area networks (LAN), wide area networks (WAN), intranets, extranets, etc.' ANS-C01 assumes 5 years of networking experience and 2 years of AWS networking. $550 full path; 390 minutes of exam time; roughly 9-15 months elapsed. ACTION REQUIRED: the final step retires 31 December 2026 with no announced replacement - sit it before then or plan to stop at the associate step.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03",
+     "note": "VPC design, routing, load balancing and edge services in their architectural context."
+    },
+    {
+     "order": 3,
+     "code": "ANS-C01",
+     "note": "RETIRING 31 DECEMBER 2026 (official AWS page; ignore third-party posts citing 25 August 2026). Network design, implementation, management and operation, and network security/compliance/governance - hybrid connectivity (Direct Connect, Transit Gateway, VPN), BGP and DNS at scale. $300 / 170 min / 65 questions / pass 750. No replacement certification has been announced; a credential earned before retirement stays valid for its full 3 years."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-advanced-networking-specialty/"
+  },
+  {
+   "role": "Cloud Security Engineer",
+   "responsibilities": "AWS's statement: 'Design computer security architecture and develop detailed cyber security designs. Develop, execute, and track performance of security measures to protect information.' SCS-C03 assumes 3-5 years of security experience and 2 or more years securing AWS workloads. $550 full path with Cloud Practitioner, $450 without, covering steps 1-3 only; 390 minutes (90 + 130 + 170). The optional AI Practitioner step is NOT included in those totals - add $100 and 90 minutes if you take it.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03",
+     "note": "You cannot secure an architecture you cannot draw. The breadth step."
+    },
+    {
+     "order": 3,
+     "code": "SCS-C03",
+     "note": "CODE CORRECTION: SCS-C03, not SCS-C02 (retired 1 December 2025). Detection 16%, incident response 14%, infrastructure security 18%, identity and access management 20%, data protection 18%, security foundations and governance 14%. $300 / 170 min / 65 questions / pass 750."
+    },
+    {
+     "order": 4,
+     "code": "AIF-C01",
+     "note": "Recommended by AWS for security people who now have to govern generative AI workloads. Excluded from the cost and time totals above."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-security-specialty/"
+  },
+  {
+   "role": "Cloud Security Architect",
+   "responsibilities": "AWS's statement: 'Design and implement enterprise cloud solutions applying governance to identify, communicate, and minimize business and technical risks.' The heaviest of the security paths; assumes several years of enterprise architecture plus security. $850 for steps 1-4 ($100 + $150 + $300 + $300); 570 minutes (90 + 130 + 180 + 170); roughly 18-30 months elapsed. The optional AI Practitioner step is NOT in those totals - add $100 and 90 minutes. TWO CODE WARNINGS: SCS-C02 no longer exists (use SCS-C03), and SAP-C02 closes mid-November 2026, so on an 18-30 month timeline you will sit SAP-C03.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional."
+    },
+    {
+     "order": 2,
+     "code": "SAA-C03",
+     "note": "Architecture breadth."
+    },
+    {
+     "order": 3,
+     "code": "SAP-C02 (until 16 Nov 2026), then SAP-C03",
+     "note": "Multi-account governance, landing zones, migration and cost - the governance frame the role is judged on. SAP-C03 registration opens 27 October 2026, GA 17 November 2026; its weightings are not yet published."
+    },
+    {
+     "order": 4,
+     "code": "SCS-C03",
+     "note": "The deep security controls layered on top of the architecture. SCS-C02 was retired on 1 December 2025."
+    },
+    {
+     "order": 5,
+     "code": "AIF-C01",
+     "note": "Recommended: AI governance and responsible-AI controls. Excluded from the cost and time totals."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-security-specialty/ ; https://aws.amazon.com/certification/certified-solutions-architect-professional/"
+  },
+  {
+   "role": "Software Development Engineer / Developer",
+   "responsibilities": "AWS's statement: 'Develop, construct, and maintain software across platforms and devices.' DVA-C02 assumes 1 or more years developing on AWS and proficiency in at least one high-level language. $550 full path, $450 without Cloud Practitioner; 400 minutes (90 + 130 + 180); roughly 9-15 months elapsed. TIMING: given that timeline, most people starting today will sit DVA-C03, not DVA-C02.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for IT and cloud professionals."
+    },
+    {
+     "order": 2,
+     "code": "DVA-C02 (until 30 Nov / 1 Dec 2026), then DVA-C03",
+     "note": "DVA-C02: development with AWS services 32%, security 26%, deployment 24%, troubleshooting and optimisation 18%. $150 / 130 min / 65 questions / pass 720. RETIRING: registration for DVA-C03 opens 27 October 2026 and DVA-C02's last day is 1 December 2026 per the AWS product page (the AWS blog says 30 November 2026 - book by 30 November to be safe). DVA-C03 weightings are not yet published."
+    },
+    {
+     "order": 3,
+     "code": "AIF-C01",
+     "note": "Recommended add-on: Bedrock, embeddings, RAG and prompt patterns at a level a developer can apply. Excluded from the totals."
+    },
+    {
+     "order": 4,
+     "code": "DOP-C02",
+     "note": "Where developers take ownership of pipelines, deployment safety and production operations. $300 / 180 min / 75 questions / pass 750."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-developer-associate/"
+  },
+  {
+   "role": "Cloud Data Engineer",
+   "responsibilities": "AWS's statement: 'Automate collection and processing of structured/semi-structured data and monitor data pipeline performance.' DEA-C01 assumes 2-3 years of data engineering and 1-2 years hands-on AWS. Roughly $250-$400 depending on optional steps; 6-12 months elapsed. Context: Data Analytics - Specialty (DAS-C01, retired 8 April 2024), Database - Specialty (DBS-C01, retired 29 April 2024) and SAP on AWS - Specialty (PAS-C01, retired 29 April 2024) are all gone; DEA-C01 is the successor credential for the analytics work.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional."
+    },
+    {
+     "order": 2,
+     "code": "DEA-C01",
+     "note": "The core exam: data ingestion and transformation 34%, data store management 26%, data operations and support 22%, data security and governance 18%. $150 / 130 min / 65 questions / pass 720."
+    },
+    {
+     "order": 3,
+     "code": "MLA-C02 (was MLA-C01)",
+     "note": "Optional, for pipelines that feed models. STATUS CHANGE: MLA-C01 closed to English candidates on 28 September 2026. MLA-C02 is in beta from 29 September 2026 at 170 minutes / 85 questions / $75 (English only), GA 14 January 2027. The '130 minutes / 65 questions' figures often quoted for this step are MLA-C01's and no longer describe what you would sit."
+    },
+    {
+     "order": 4,
+     "code": "SAA-C03",
+     "note": "Not on AWS's card for this role - our addition. Useful for data engineers who own their own infrastructure."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-data-engineer-associate/ ; https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/ ; https://aws.amazon.com/blogs/training-and-certification/aws-certification-retirements-and-launches/"
+  },
+  {
+   "role": "Data Scientist",
+   "responsibilities": "AWS's statement: 'Develop and implement AI/ML models to solve business problems. Train and fine tune models and evaluate their performance.' Assumes existing statistics and modelling skill - the AWS exams test the platform, not the mathematics. Roughly 4-9 months elapsed. The old Machine Learning - Specialty (MLS-C01) is retired; the ML Engineer - Associate track is the current ML credential.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for IT and cloud professionals."
+    },
+    {
+     "order": 2,
+     "code": "AIF-C01",
+     "note": "AWS marks this optional for people already doing AI/ML; it is mainly for those coming from outside. $100 / 90 min / 65 questions / pass 700."
+    },
+    {
+     "order": 3,
+     "code": "MLA-C02 (was MLA-C01)",
+     "note": "The core exam. MLA-C01's last English sitting was 28 September 2026, so its published figures ($150 / 130 min / 65 questions / pass 720) no longer describe what a new English-language candidate faces. MLA-C02 beta from 29 September 2026: $75, 170 minutes, 85 questions, English only, no immediate pass/fail, GA 14 January 2027. MLA-C01 remains available in Japanese, Korean and Simplified Chinese until MLA-C02 GA."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/ ; https://aws.amazon.com/certification/certified-ai-practitioner/"
+  },
+  {
+   "role": "Machine Learning Engineer",
+   "responsibilities": "AWS's statement: 'Research, build, and design artificial intelligence (AI) systems to automate predictive models, and design machine learning systems, models, and schemes.' The ML Engineer - Associate exam assumes 1 or more years using SageMaker and related services in an engineering role. Roughly 5-10 months elapsed. The defining exam of this path changed version two days before this data's as-of date, so treat any MLA-C01 figures you see elsewhere as stale.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for IT and cloud professionals."
+    },
+    {
+     "order": 2,
+     "code": "AIF-C01",
+     "note": "Conceptual AI and generative AI, responsible AI, Bedrock. Skip it if you already ship models."
+    },
+    {
+     "order": 3,
+     "code": "MLA-C02 (replaces MLA-C01)",
+     "note": "The terminal AWS credential for this role: data preparation for ML and AI 28%, ML and foundation model development 24%, deployment and orchestration 24%, operating/monitoring/securing 24%. MLA-C01 closed in English on 28 September 2026. MLA-C02 is in beta from 29 September 2026: $75 beta, 170 minutes, 85 questions, English only, passing score 720 but no immediate pass/fail during beta, GA 14 January 2027."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/"
+  },
+  {
+   "role": "Machine Learning Ops Engineer",
+   "responsibilities": "AWS's statement: 'Build and maintain AI and ML platforms and infrastructure. Design, implement, and operationally support AI/ML model activity and deployment infrastructure.' AWS's card calls the role Machine Learning Ops Engineer only - the label 'AI-ML specialist' is not AWS's. In practice this is a DevOps job wearing an ML hat, and AWS's card understates the infrastructure demand. Roughly $250-$650 depending on whether you add DOP-C02; 9-18 months elapsed.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "Optional for IT and cloud professionals."
+    },
+    {
+     "order": 2,
+     "code": "AIF-C01",
+     "note": "Optional conceptual grounding if you come from the infrastructure side."
+    },
+    {
+     "order": 3,
+     "code": "MLA-C02 (was MLA-C01)",
+     "note": "Deployment and orchestration of ML and AI workflows, model and agent monitoring, ML security - the MLOps core. MLA-C01's last English sitting was 28 September 2026; MLA-C02 beta from 29 September 2026 (170 min, 85 questions, $75, English only), GA 14 January 2027."
+    },
+    {
+     "order": 4,
+     "code": "DOP-C02",
+     "note": "Not on AWS's card - our addition. MLOps at scale is CI/CD, IaC and observability; DOP-C02 is what separates an MLOps engineer from a notebook user. $300 / 180 min / 75 questions / pass 750."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024) ; https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/ ; https://aws.amazon.com/certification/certified-devops-engineer-professional/"
+  },
+  {
+   "role": "Cloud Financial Manager / FinOps (RECONSTRUCTED - not an AWS path)",
+   "responsibilities": "NO AWS certification path exists for this role. We verified this by extracting the text of the official AWS Certification Paths PDF: it lists exactly sixteen roles - Application Architect, Solutions Architect, Cloud Data Engineer, Software Development Engineer, Test Engineer, Cloud Engineer, Systems Administrator, Network Engineer, Cloud DevOps Engineer, DevSecOps Engineer, Cloud Security Engineer, Cloud Security Architect, Prompt Engineer, Machine Learning Engineer, Machine Learning Ops Engineer and Data Scientist - and there is no Cloud Financial Manager path. This entry is our reconstruction, not an AWS recommendation. The real qualification for the role is having owned a cloud bill, not an exam.",
+   "steps": [
+    {
+     "order": 1,
+     "code": "CLF-C02",
+     "note": "The only AWS exam with meaningful billing and pricing content: pricing models, support plans, Cost Explorer, Budgets, consolidated billing. This is the ceiling of AWS's own certification coverage for the role. $100 / 90 min / 65 questions / pass 700."
+    },
+    {
+     "order": 2,
+     "code": "AWS Cloud Financial Management digital badges / Skill Builder learning plan (NOT a certification)",
+     "note": "AWS ships FinOps content as training and digital badges, not as a proctored exam."
+    },
+    {
+     "order": 3,
+     "code": "FinOps Certified Practitioner (FinOps Foundation - third party, not AWS)",
+     "note": "The credential the market actually recognises for this role. Vendor-neutral: allocation, showback and chargeback, unit economics, rate vs usage optimisation. Price is approximately $300-$400 per the FinOps Foundation - NOT verified against the FinOps Foundation site in this pass, and not an AWS figure."
+    },
+    {
+     "order": 4,
+     "code": "SAA-C03",
+     "note": "Optional credibility step. Useful mainly because cost conversations with engineers go better when you can read an architecture diagram."
+    }
+   ],
+   "source": "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf (2024, text extracted locally - confirms no such path exists) ; https://aws.amazon.com/certification/certified-cloud-practitioner/"
+  }
+ ],
+ "recertification": {
+  "validYears": "3 years from the date earned, or from the date of a qualifying recertification action. Renewal adds 3 years; a maintenance action adds 1 year. Both are dated from completion, not from the old expiry date.",
+  "howToRenew": "Three routes. (1) Pass the latest version of the same exam, using the 50% discount voucher that appears in your AWS Certification Account. (2) Step up - passing a higher-level exam renews the lower one (for example, Solutions Architect - Professional renews Solutions Architect - Associate; DevOps Engineer - Professional renews CloudOps Engineer - Associate). (3) For Cloud Practitioner only, complete the free AWS Cloud Quest: Recertify Cloud Practitioner activity. A credential earned before its exam retires stays valid for the full 3 years - retirement stops new issuance, it does not revoke badges - but a retired exam cannot be re-sat to renew, so plan the successor exam before expiry.",
+  "freePath": "AWS Cloud Quest: Recertify Cloud Practitioner - a game-based AWS Skill Builder activity that renews AWS Certified Cloud Practitioner with no exam and no exam fee. This is the ONLY free renewal path. There is no free Skill Builder renewal for any associate, professional or specialty certification; those still require passing an exam. Any claim otherwise is wrong.",
+  "source": "https://aws.amazon.com/certification/recertification/ ; https://aws.amazon.com/certification/"
+ },
+ "microcredentials": {
+  "what": "Free (since 23 April 2026 - no AWS Skill Builder subscription needed), hands-on, timed assessments run inside a provisioned live AWS environment. There are no multiple-choice questions: you are dropped into a simulated business scenario and must actually complete and troubleshoot tasks. Roughly 2 hours each, available in multiple languages, with unlimited attempts. In one line: a certification is a proctored, paid, role-based exam validating broad knowledge across a domain and valid for 3 years; a microcredential is a free hands-on lab evaluation validating one specific capability you can perform. AWS positions them as complementary, with microcredentials aligned roughly to associate-level depth. Microcredentials do NOT renew and do NOT substitute for a certification. CAUTION: the live roster shifts month to month and AWS has not clearly published validity periods or attempt limits - verify on AWS Skill Builder before relying on any fixed list.",
+  "topics": [
+   "AWS Serverless Demonstrated (Lambda, API Gateway, Step Functions, DynamoDB)",
+   "AWS Agentic AI Demonstrated (troubleshooting and enhancing agents on Amazon Bedrock)",
+   "AWS Application Networking Demonstrated",
+   "AWS Incident Response Demonstrated",
+   "AWS Data Visualization Demonstrated (announced 2026)",
+   "AWS Data Lakehouse Demonstrated (announced 2026)",
+   "AWS Data Streaming Demonstrated (announced 2026)",
+   "AWS MLOps Demonstrated",
+   "More microcredentials are slated for 2026-27"
+  ],
+  "source": "https://aws.amazon.com/training/digital/aws-skill-builder/ and the AWS Skill Builder microcredentials catalogue; AWS Training and Certification Blog (23 April 2026 free-access announcement)"
+ },
+ "retired": [
+  {
+   "name": "AWS Certified Security - Specialty (SCS-C02)",
+   "retiredOn": "2025-12-01",
+   "replacedBy": "SCS-C03 - AWS Certified Security - Specialty (current). The SCS-C03 guide contains an appendix comparing the two. Anyone holding or studying SCS-C02 material should switch to SCS-C03."
+  },
+  {
+   "name": "AWS Certified SysOps Administrator - Associate (SOA-C02)",
+   "retiredOn": "2025-09-29",
+   "replacedBy": "SOA-C03 - AWS Certified CloudOps Engineer - Associate (from 30 September 2025). A rename plus content update, not a new certification; six domains became five. Existing SysOps Administrator - Associate credentials stay valid for 3 years from the date earned."
+  },
+  {
+   "name": "AWS Certified Machine Learning Engineer - Associate (MLA-C01)",
+   "retiredOn": "2026-09-28 (English; Japanese, Korean and Simplified Chinese continue until MLA-C02 general availability on 2027-01-14)",
+   "replacedBy": "MLA-C02 - same certification track, in beta from 29 September 2026, GA 14 January 2027"
+  },
+  {
+   "name": "AWS Certified Machine Learning - Specialty (MLS-C01)",
+   "retiredOn": "2026-03-31",
+   "replacedBy": "No direct replacement. Nearest paths: AWS Certified Machine Learning Engineer - Associate (MLA), AWS Certified AI Practitioner (AIF-C01), or AWS Certified Generative AI Developer - Professional (AIP-C01). Listed here explicitly because third-party career guides still cite it."
+  },
+  {
+   "name": "AWS Certified Data Analytics - Specialty (DAS-C01)",
+   "retiredOn": "2024-04-08",
+   "replacedBy": "AWS Certified Data Engineer - Associate (DEA-C01)"
+  },
+  {
+   "name": "AWS Certified Database - Specialty (DBS-C01)",
+   "retiredOn": "2024-04-29",
+   "replacedBy": "No direct replacement; covered by the Solutions Architect and Data Engineer paths"
+  },
+  {
+   "name": "AWS Certified SAP on AWS - Specialty (PAS-C01)",
+   "retiredOn": "2024-04-29",
+   "replacedBy": "No replacement certification"
+  },
+  {
+   "name": "AWS Certified Alexa Skill Builder - Specialty (AXS-C01)",
+   "retiredOn": "2021-03-22",
+   "replacedBy": "No replacement certification"
+  },
+  {
+   "name": "AWS Certified Big Data - Specialty (BDS-C00)",
+   "retiredOn": "2020 (exact date not verified)",
+   "replacedBy": "AWS Certified Data Analytics - Specialty (DAS-C01), itself now retired; the live successor is AWS Certified Data Engineer - Associate (DEA-C01)"
+  }
+ ],
+ "ourRecommendedOrder": {
+  "note": "Our opinion, not AWS's. AWS's role cards are, among other things, marketing for exams; this ordering is optimised for capability and hiring outcomes for one specific target - DevOps at large scale from a standing start - and it deliberately skips several exams AWS sells. Total for the three exams that matter: $600 ($150 SAA-C03 + $150 SOA-C03 + $300 DOP-C02). Roughly 24 months elapsed from genuine zero, of which about 18 months is unglamorous production work and 6 months is exam preparation; anyone promising 6 months is selling a course. The real bar is not the exam: can you rebuild the production environment from an empty account using only code in git? If not, the certificate is decoration. For the record, AWS currently lists 12 certifications (Cloud Practitioner and AI Practitioner at foundational; Solutions Architect, Developer, CloudOps Engineer, Data Engineer and Machine Learning Engineer at associate; Solutions Architect and DevOps Engineer at professional; Advanced Networking and Security at specialty; plus Generative AI Developer - Professional), with AWS Certified AI Business Strategist in beta in a separate Business category.",
+  "steps": [
+   {
+    "order": 0,
+    "code": "PREREQUISITE (no exam)",
+    "why": "Linux, networking (TCP/IP, DNS, TLS, BGP basics), Python and git, plus a real workload you personally run - a small service with a database behind a load balancer, in your own account, that you actually pay for. Three to six months. The bill is the best teacher AWS has. Without this, every AWS exam degrades into memorising service names, which is exactly the failure mode that makes certified people useless in incidents.",
+    "skipIf": "You already run production workloads you personally provisioned and pay for."
+   },
+   {
+    "order": 1,
+    "code": "SAA-C03",
+    "why": "Your first and possibly only associate exam. Take it because it is the credential recruiters filter on, and because it forces breadth across VPC, IAM, storage and compute that you cannot fake later. Two to three months alongside a job.",
+    "skipIf": "Do not skip. This is the one exam we would keep in every version of this plan."
+   },
+   {
+    "order": 2,
+    "code": "SOA-C03",
+    "why": "Monitoring, remediation and reliability - the content DOP-C02 assumes you already have. The most skippable of the three.",
+    "skipIf": "You are already on call for production. Go straight to step 3."
+   },
+   {
+    "order": 3,
+    "code": "THE 12-MONTH GAP (no exam)",
+    "why": "The part no certification path mentions. Own a CI/CD pipeline. Write CloudFormation or CDK that others depend on. Get paged at 3am and write the postmortem. DOP-C02 is written for people who have done this; sitting it before is how you get a certificate you cannot defend in an interview.",
+    "skipIf": "Nothing skips this. Shortening it is the single most expensive mistake on this path."
+   },
+   {
+    "order": 4,
+    "code": "DOP-C02",
+    "why": "The terminal certification for this career, and the only AWS exam whose content genuinely maps to the job: pipeline design, IaC, resilience, observability, incident response, governance automation. Roughly 150 hours, and it should feel like revision rather than learning if step 3 was real.",
+    "skipIf": "Do not skip if large-scale DevOps is the goal."
+   },
+   {
+    "order": 5,
+    "code": "SKIP: CLF-C02",
+    "why": "AWS itself marks it optional for anyone with an IT or STEM background. It teaches vocabulary you absorb in a fortnight of real use and signals nothing to a hiring manager for a DevOps role. $100 and 30 hours better spent on step 0.",
+    "skipIf": "Take it only if your employer reimburses it, or you are switching from a non-technical role and need one early win."
+   },
+   {
+    "order": 6,
+    "code": "SKIP: SAP-C02 / SAP-C03",
+    "why": "Excellent exam, wrong career. Solutions Architect - Professional is for people who design and sell multi-account enterprise migrations. DOP-C02 covers the operational surface; SAP mostly adds migration-strategy content you will never be paged about. (Note the version change: SAP-C02's last day is 16-17 November 2026 and SAP-C03 registration opens 27 October 2026.)",
+    "skipIf": "Consider it years later if you move toward platform architecture or consulting."
+   },
+   {
+    "order": 7,
+    "code": "SKIP for now: DVA-C02 / DVA-C03",
+    "why": "Heavy overlap with SAA and DOP. Its unique content - SDK specifics, Cognito flows - is better learned by writing code than by sitting an exam. Collecting all three associates is a hobby, not a strategy. (Note the version change: DVA-C02's last day is 30 November / 1 December 2026 and DVA-C03 registration opens 27 October 2026.)",
+    "skipIf": "Take it only if you are moving INTO development rather than out of it."
+   },
+   {
+    "order": 8,
+    "code": "SKIP: AIF-C01",
+    "why": "AWS recommends it on nearly every role card, which is a signal about AWS's priorities rather than yours. It is a foundational exam, and foundational exams do not move a DevOps career. If your platform starts hosting inference, learn Bedrock and SageMaker by running them - the operational skills transfer, the certificate does not.",
+    "skipIf": "Take it if an employer or client specifically asks for it."
+   },
+   {
+    "order": 9,
+    "code": "SKIP: ANS-C01",
+    "why": "Retiring 31 December 2026 with no announced replacement, so any effort now has a hard expiry on its market value. The networking you need for DevOps at scale - VPC design, Transit Gateway, PrivateLink, DNS, TLS - is already inside SAA and DOP.",
+    "skipIf": "Take it only if you are specifically becoming a hybrid-networking specialist, and only before 31 December 2026."
+   },
+   {
+    "order": 10,
+    "code": "CONSIDER LATER: SCS-C03",
+    "why": "The one specialty that earns its place for a large-scale DevOps lead, because at scale you own guardrails, IAM boundaries and audit evidence whether you wanted to or not. Note the code: SCS-C03, since SCS-C02 was retired on 1 December 2025.",
+    "skipIf": "Not yet. Take it after DOP-C02 and after you have been through a real compliance audit - roughly year 3."
+   }
+  ]
+ },
+ "unverified": [
+  "The AWS 'Coming Soon to AWS Certification' page (https://aws.amazon.com/certification/coming-soon/) was not opened in this pass. It is the authoritative index of announced exam updates, betas and retirements, so every 'no successor announced' claim here - CLF-C02, AIF-C01, SAA-C03, DEA-C01, DOP-C02 - is unverified against it. The DVA-C02 case, where an active-looking exam turned out to have a published retirement date and a successor code, shows this gap is not theoretical.",
+  "No exam-guide version number or 'last updated' date was captured for any record, so none of these confirmations can be precisely re-verified or aged later.",
+  "AIB-C01 duration: the exam guide says 130 minutes; aws.amazon.com says 170 minutes with 85 questions for the beta form. AWS has published nothing reconciling them, and nothing about a post-GA duration. Reported as a conflict, not resolved.",
+  "MLA-C02 question count: the exam guide says 50 scored + 15 unscored (65); aws.amazon.com says 85 questions at 170 minutes for the beta. AWS states no mechanism for the difference, so none is asserted here.",
+  "AIB-C01 and MLA-C02 post-GA list prices. Only the beta prices ($50 and $75) are published by AWS. The $100 business/foundational and $150 associate figures follow AWS's standard tier pricing but AWS has not posted them for these two exams.",
+  "SAP-C03 price ($300), duration (180 minutes) and question count (75) are assumed from SAP-C02 and are NOT published for C03. Its passing score, domain weightings, task statements and in-scope service list do not exist publicly until 27 October 2026 - anything quoting them today is fabricated.",
+  "DVA-C03 domain weightings, task statements, passing score and in-scope services are not published until registration opens on 27 October 2026. Its price, duration and question count come from the AWS September 2026 blog rather than an exam guide.",
+  "SAP-C02 last testing day: the AWS September 2026 blog says 16 November 2026; the AWS certification page says 17 November 2026. One-day conflict between two official sources, unresolved - book by 16 November.",
+  "DVA-C02 last testing day: the AWS product page says 1 December 2026; the AWS September 2026 blog says 30 November 2026 with GA on 1 December. One-day conflict, unresolved - book by 30 November.",
+  "ANS-C01 question types: the exam guide lists multiple response and matching, while the AWS marketing page says multiple choice or multiple response. Unresolved; the guide should be treated as authoritative.",
+  "ANS-C01 replacement: AWS names no replacement and points to AWS Skill Builder digital training. Our suggestion of the AWS Application Networking Demonstrated microcredential as the nearest live substitute is our editorial inference, not AWS guidance, and whether that specific microcredential is free was not separately verified.",
+  "MLA-C01 domain weightings (28/26/22/24) come from secondary reporting, not from the official MLA-C01 exam guide page, which now resolves to MLA-C02. Plausible, not confirmed.",
+  "Retirement dates for Big Data - Specialty, Alexa Skill Builder - Specialty, Data Analytics - Specialty, Database - Specialty and SAP on AWS - Specialty come from secondary sources (community timelines, training vendors) because AWS removed the original announcement pages. The April 2024 dates are corroborated by AWS's own retirements-and-launches blog; the Big Data 2020 date is not.",
+  "The per-certification keyServices lists are a synthesis of each exam guide's task statements plus the linked In-Scope AWS Services appendices. The individual 'In-Scope AWS Services' subpages were not each fetched line by line. High confidence, not line-verified.",
+  "Passing scores were confirmed against each exam guide where the guide was opened, and otherwise against AWS's long-standing published pattern (700 foundational, 720 associate, 750 professional and specialty). Nothing contradicted the pattern, but not every value was read out of its own guide PDF.",
+  "The AWS Certification Paths PDF used for the role paths carries a 2024 copyright: it still names SysOps Administrator - Associate rather than CloudOps Engineer and predates SCS-C03, MLA-C02, DVA-C03, SAP-C03 and the ANS-C01 retirement. Role names and step structures come from it; every exam code, price and date attached to those steps was re-checked against the individual exam pages.",
+  "Available exam languages are not recorded per certification, although several records hinge on language-specific retirements (SOA-C03 drops Simplified Chinese and Korean after 19 November 2026; DOP-C02 drops Korean after 31 December 2026; SCS-C03 drops Simplified Chinese, Spanish (Latin America) and Portuguese (Brazil) after 31 December 2026). Confirm the language you intend to test in on the exam page.",
+  "The exact current microcredential roster, and whether each microcredential carries a validity period or attempt limit, is not clearly published by AWS. Verify on AWS Skill Builder before relying on the topic list here.",
+  "The third-party FinOps Certified Practitioner price ($300-$400) in the Cloud Financial Manager entry was not verified against the FinOps Foundation and is not an AWS figure.",
+  "AWS also publishes two role paths not reproduced here - Test Engineer (Cloud Practitioner optional, then SAA or DVA, then AI Practitioner) and Prompt Engineer (Cloud Practitioner optional, then AI Practitioner, then ML Engineer - Associate). Both follow the same shape as their neighbours but their steps were not verified individually in this pass.",
+  "AWS's certification index flags further professional-level updates as 'coming soon'; pending Professional exam updates beyond SAP-C03 were not chased down in this pass."
+ ]
+}
