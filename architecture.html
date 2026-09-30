@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What should I actually build? | AWS Explained Simply</title>
+<meta name="description" content="Find your situation in plain words and get the AWS architecture that fits it, what it costs, what breaks first, and when to move on. From a one page site to Netflix scale.">
+<link rel="icon" href="assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/arch.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html"><span class="awsmark"><img src="assets/icons/brand/aws-logo.svg" alt="AWS" width="40" height="24"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="index.html">Services</a><a href="architecture.html">What to build</a>
+    <a href="playground.html">Playground</a><a href="certifications.html">Certifications</a><a href="learn.html">Start here</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>What should I actually build?</h1>
+    <p class="say">Find the sentence that sounds like your situation. You get the setup that fits it, what it costs a month, what breaks first, and the signal that says move on.</p>
+    <div class="tally">
+      <div><b id="tBp">51</b><span>setups</span></div>
+      <div><b id="tTracks">9</b><span>situations</span></div>
+      <div><b id="tDont">13</b><span>things not to build</span></div>
+    </div>
+  </div>
+  <div class="startpanel">
+    <div class="sphd"><span class="dot"></span><b>Never done this before?</b></div>
+    <p>Read the questions first. An experienced architect asks these before drawing a single box, and the answers decide everything else.</p>
+    <a class="spbtn" href="#questions">The 15 questions</a>
+  </div>
+</div></section>
+
+<section class="filters"><div class="wrap">
+  <div class="fr">
+    <input id="q" type="search" placeholder="Describe it in your own words: my site goes down, video, chat, too expensive" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="cats" id="tracks" role="group" aria-label="Filter by situation"></div>
+</div></section>
+
+<main class="wrap arch">
+  <p class="count" id="count"></p>
+  <div id="list"></div>
+
+  <section id="questions" class="qsec">
+    <div class="sechead" style="--dot:var(--signal)"><span class="bar"></span>
+      <h2>Before you build anything, answer these</h2><span class="n" id="qCount"></span></div>
+    <p class="qintro">Asking these out of order is how bad architecture happens. The answer to number four decides more than any other single thing, and most teams have never worked it out.</p>
+    <ol class="qlist" id="questions-list"></ol>
+  </section>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" aria-hidden="true" aria-label="Architecture detail"></aside>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol"><h3>Independent project</h3>
+      <p><strong>Not affiliated with Amazon Web Services.</strong> Not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p></div>
+    <div class="fcol"><h3>These are starting points</h3>
+      <p>Every real system has a constraint this page does not know about. Use these to decide what to read next, not as a plan to follow without thinking.</p></div>
+    <div class="fcol"><h3>Costs are estimates</h3>
+      <p>Rough US East list pricing, ignoring the free tier, data transfer and discounts. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers.</p></div>
+    <div class="fcol"><h3>Your data</h3>
+      <p>No accounts, no ads, no tracking, no cookies. <a href="legal.html">Full notice</a>.</p></div>
+  </div>
+  <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/notice.js"></script>
+<script src="assets/js/arch.js"></script>
+</body>
+</html>
