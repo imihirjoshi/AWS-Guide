@@ -216,12 +216,14 @@ h1,h2,h3,p,li,td,th,dd,dt,span,button{overflow-wrap:break-word}
          border-right:1px solid var(--rule);border-bottom:1px solid var(--rule-soft);white-space:nowrap}
 .spec dd{font-size:13.5px;padding:8px 11px;border-bottom:1px solid var(--rule-soft)}
 .spec dt:last-of-type,.spec dd:last-of-type{border-bottom:0}
-.rel{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule)}
-.rel button{flex:1 1 44%;display:flex;align-items:center;gap:9px;padding:9px 11px;background:transparent;
+.relgrid{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.relgrid button{flex:1 1 44%;display:flex;align-items:center;gap:9px;padding:9px 11px;background:transparent;
   border:0;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);
   cursor:pointer;font:13px var(--sans);color:inherit;text-align:left}
-.rel button:hover{background:var(--field)}
-.rel img{width:20px;height:20px}
+.relgrid button:hover{background:var(--field)}
+.relgrid button[disabled]{opacity:.85;cursor:default}
+.relgrid button[disabled]:hover{background:transparent}
+.relgrid img{width:20px;height:20px}
 .todo-note{border:1px dashed var(--rule);padding:16px;color:var(--ink-2);font-size:14px;line-height:1.55}
 
 /* ---------- foot ---------- */
@@ -303,7 +305,7 @@ h1,h2,h3,p,li,td,th,dd,dt,span,button{overflow-wrap:break-word}
   .lede{font-size:16px}
   .spec{grid-template-columns:1fr}
   .spec dt{border-right:0;border-bottom:0;padding-bottom:1px}
-  .rel button{flex:1 1 100%;border-right:0}
+  .relgrid button{flex:1 1 100%;border-right:0}
 }
 
 @media(max-width:400px){
@@ -384,4 +386,63 @@ h1,h2,h3,p,li,td,th,dd,dt,span,button{overflow-wrap:break-word}
   .noticebar .wrap{gap:10px}
   .noticebar p{flex:1 1 100%;font-size:12px}
   .noticebar .ver{margin-left:auto}
+}
+
+/* ---------- learning progress, kept in this browser only ---------- */
+.progress{margin-top:22px;background:var(--surface);border:1px solid var(--rule);border-radius:12px}
+.pmain{display:flex;align-items:center;gap:26px;padding:16px 20px}
+.pnum{flex:0 0 auto;display:flex;align-items:baseline;gap:8px}
+.pnum b{font-family:var(--mono);font-size:30px;font-weight:500;letter-spacing:-.04em;line-height:1}
+.pnum span{font-size:12.5px;color:var(--ink-3)}
+.pbars{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:9px}
+.prow{display:grid;grid-template-columns:150px minmax(0,1fr) 46px;gap:12px;align-items:center}
+.plab{font-size:12px;color:var(--ink-2)}
+.ptrack{height:7px;border-radius:4px;background:var(--field);overflow:hidden;display:block}
+.ptrack span{display:block;height:100%;background:var(--signal);border-radius:4px;
+  transition:width .35s ease}
+.prow.core .ptrack span{background:var(--c-storage)}
+.ppc{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-align:right}
+.pfoot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding:11px 20px;border-top:1px solid var(--rule-soft)}
+.pfoot span{font-size:11.5px;color:var(--ink-3);line-height:1.5}
+.pfoot kbd{font-family:var(--mono);font-size:10.5px;background:var(--field);border:1px solid var(--rule);
+  border-radius:4px;padding:1px 5px}
+.pfoot button{background:transparent;border:1px solid var(--rule);color:var(--ink-3);
+  font:11.5px var(--sans);border-radius:99px;padding:5px 12px;cursor:pointer}
+.pfoot button:hover{border-color:var(--c-security);color:var(--c-security)}
+@media (prefers-reduced-motion:reduce){.ptrack span{transition:none}}
+
+/* a read service is marked, not hidden */
+.row.read{background:color-mix(in srgb,var(--dot,#6B7C91) 5%,var(--surface))}
+.row.read .nm{color:var(--ink-2)}
+.row .tick{flex:0 0 auto;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  font-size:11px;line-height:1;color:#fff;background:var(--dot,var(--c-storage));margin-top:1px}
+
+/* per category progress in the group header */
+.gprog{display:flex;align-items:center;gap:8px;margin-left:12px;flex:0 0 auto}
+.gbar{display:block;width:54px;height:4px;border-radius:2px;background:var(--rule);overflow:hidden}
+.gbar span{display:block;height:100%;background:var(--dot,var(--c-other));border-radius:2px}
+.gnum{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.gprog.full .gnum{color:var(--dot,var(--c-storage))}
+
+/* mark as read, inside the spec sheet */
+.readbar{margin-top:22px;padding:14px 16px;background:var(--field);border-radius:10px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.readbar button{background:var(--ink);color:#fff;border:0;border-radius:99px;
+  padding:9px 18px;font:600 12.5px var(--sans);cursor:pointer;flex:0 0 auto}
+.readbar button:hover{background:var(--signal);color:var(--signal-ink)}
+.readbar button.on{background:var(--c-storage);color:#fff}
+.readbar button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.readbar .rhint{font-size:11.5px;color:var(--ink-3);line-height:1.5;flex:1 1 200px;min-width:0}
+@media(max-width:860px){
+  .pmain{flex-wrap:wrap;gap:14px;padding:14px 16px}
+  .pnum{flex:1 1 100%}
+  .prow{grid-template-columns:120px minmax(0,1fr) 40px;gap:9px}
+  .plab{font-size:11.5px}
+  .pfoot{padding:10px 16px}
+}
+@media(max-width:620px){
+  .gprog .gbar{display:none}
+  .prow{grid-template-columns:minmax(0,1fr) 40px}
+  .plab{grid-column:1/-1;margin-bottom:-4px}
 }

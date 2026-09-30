@@ -343,7 +343,7 @@
         h += '</div>';
       });
     }
-    h += '<button class="chip" id="del" style="margin-top:5px">Remove from board</button>';
+    h += '<button class="rmv" id="del">Remove from board</button>';
     $('#cfg').innerHTML = h;
     Array.prototype.forEach.call($('#cfg').querySelectorAll('[data-k]'), function (inp) {
       inp.addEventListener('change', function () {

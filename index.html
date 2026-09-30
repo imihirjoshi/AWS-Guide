@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/icons/brand/aws-cloud.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=80d1d815">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -45,13 +45,15 @@
     <div class="seg" role="group" aria-label="Filter by depth">
       <button data-lv="all" aria-pressed="true">Everything</button>
       <button data-lv="1" aria-pressed="false">Learn first</button>
-      <button data-lv="written" aria-pressed="false">Written up</button>
+      <button data-lv="unread" aria-pressed="false">Not read yet</button>
+      <button data-lv="done" aria-pressed="false">Read</button>
     </div>
   </div>
   <div class="cats" id="cats" role="group" aria-label="Filter by category"></div>
 </div></section>
 
 <main class="wrap index">
+  <div class="progress" id="progress"></div>
   <div class="listbar">
     <p class="count" id="count"></p>
     <div class="allbtns">
@@ -87,9 +89,9 @@
   <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
 </div></footer>
 
-<script src="assets/js/currency.js"></script>
-<script src="assets/js/ui.js"></script>
-<script src="assets/js/notice.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/currency.js?v=2e9bf22e"></script>
+<script src="assets/js/ui.js?v=370b117b"></script>
+<script src="assets/js/notice.js?v=f8947909"></script>
+<script src="assets/js/app.js?v=75c46361"></script>
 </body>
 </html>

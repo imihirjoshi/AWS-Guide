@@ -614,8 +614,32 @@
 "name": "AWS Express Workflows",
 "category": "Application Integration",
 "icon": "assets/icons/services/aws-express-workflows.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A fast, cheap mode of AWS Step Functions for very high volume, short jobs.",
+"like": "A quick checkout lane at the shop. It moves a lot of people fast, but it is not a different shop.",
+"what": "This is not a separate AWS service. Express Workflows are one of the two workflow types inside AWS Step Functions. When you create a state machine you pick Standard or Express, and you cannot change it later. Express runs for up to five minutes, has no limit on state transition rate, and is priced by the number of runs, how long they take, and the memory used. Standard runs up to one year and is priced per state transition. Express does not keep an execution history of its own, so you must turn on Amazon CloudWatch Logs to see what happened. Express is at-least-once for the async kind, so a run can happen more than once. The sync kind is at-most-once and returns the result to the caller. Because of this, Express suits steps that are safe to repeat, like writing a record to Amazon DynamoDB. Standard is exactly-once and suits steps that must not repeat, like taking a payment.",
+"when": [
+"High volume event processing, like IoT or streaming data, where each run finishes in seconds",
+"Short data transform steps that are safe to run twice",
+"A small chain of steps behind an API call, using the sync mode, so the caller gets the answer back",
+"Cutting Step Functions cost when you run millions of short workflows"
+],
+"nope": [
+"Do not use it for work that takes more than five minutes. Use a Standard workflow.",
+"Do not use it for anything that must run exactly once, like charging a card. Use a Standard workflow.",
+"Do not use it if you need human approval steps or long waits. Express does not support the callback or job-run patterns.",
+"Do not use it if you need Distributed Map or Activities. Those are Standard only.",
+"Do not go looking for it as a product to sign up for. You get it by choosing the type when you make a Step Functions state machine."
+],
+"eg": "A sensor sends readings every second. An Express workflow cleans each reading, checks it against a rule, and writes it to DynamoDB. Millions run a day and each takes under a second.",
+"pay": "You pay per run, plus the run time and the memory it used. There is no charge per step, unlike Standard workflows. Logs sent to CloudWatch cost extra. Check the Step Functions pricing page for current rates.",
+"rel": [
+"aws-step-functions",
+"aws-lambda",
+"amazon-dynamodb",
+"amazon-cloudwatch"
+]
 },
 {
 "slug": "aws-step-functions",
@@ -647,8 +671,32 @@
 "name": "Amazon AppFlow",
 "category": "Application Integration",
 "icon": "assets/icons/services/amazon-appflow.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A managed way to move data between business apps like Salesforce or SAP and AWS, without writing the plumbing.",
+"like": "A courier between two offices that do not speak the same language. You say what to send and how often, and it goes.",
+"what": "Amazon AppFlow is a real AWS service. It copies data between software as a service apps and AWS. On one side you have apps like Salesforce, SAP, ServiceNow, Slack or Zendesk. On the other side you have AWS stores like Amazon S3 and Amazon Redshift. You set up a flow: pick the source, pick the target, map the fields, and pick when it runs. It can run on a schedule, on an event in the source app, or when you press run. It can filter rows, mask or drop fields, and combine data before it lands. Traffic can stay off the public internet using AWS PrivateLink. You do not build or run any connector code yourself.",
+"when": [
+"Pulling Salesforce or SAP records into Amazon S3 for reporting",
+"Feeding SaaS data into a data lake or warehouse on a schedule",
+"Pushing AWS data back out into a business app so sales or support teams see it",
+"Small to medium data syncs where you do not want to maintain custom API code"
+],
+"nope": [
+"Not for moving data between AWS databases. AWS Database Migration Service or AWS Glue fit better.",
+"Not for app to app data that is already in your own systems and needs heavy transformation. AWS Glue gives more control.",
+"Not for real time streaming. AppFlow runs flows, it is not a stream.",
+"Not useful if your source app has no AppFlow connector. Check the supported list first, or write your own integration.",
+"If you need complex joins or business logic in the middle, do that after landing the data, not in AppFlow."
+],
+"eg": "A company copies new Salesforce opportunities into Amazon S3 every hour, then reports on them in Amazon Athena next to their billing data.",
+"pay": "You pay per flow run, plus per GB of data processed. Prices differ by connector type. There is no monthly fee for keeping a flow that does not run. Check the AppFlow pricing page.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-glue",
+"amazon-athena",
+"amazon-sagemaker-ai"
+]
 },
 {
 "slug": "amazon-eventbridge",
@@ -899,8 +947,21 @@
 "name": "AWS Elemental Inference",
 "category": "AI and Machine Learning",
 "icon": "assets/icons/services/aws-elemental-inference.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A media focused machine learning capability. We could not confirm the current details.",
+"like": "A sign on a door we could not open to look inside.",
+"what": "This appears in the AWS icon set under media services. We could not verify what it currently is, or whether it is generally available, from an official AWS page during this research. It is deliberately left unconfirmed here rather than described from guesswork. Check the AWS media services documentation for the current position.",
+"when": [],
+"nope": [
+"Do not plan around this entry. Confirm with AWS first"
+],
+"eg": "",
+"pay": "Not confirmed.",
+"rel": [
+"aws-elemental-mediaconvert",
+"amazon-rekognition"
+]
 },
 {
 "slug": "aws-healthimaging",
@@ -990,8 +1051,26 @@
 "name": "AWS HealthScribe",
 "category": "AI and Machine Learning",
 "icon": "assets/icons/services/aws-healthscribe.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Listens to a doctor and patient talking and writes up the clinical note.",
+"like": "A very fast medical secretary sitting in the corner of the room taking notes.",
+"what": "HealthScribe turns a recorded consultation into a structured clinical note, with the transcript, the speakers separated, and sections like history and assessment. Every line it writes links back to the moment in the audio, so a clinician can check it. It is a drafting tool and the clinician still signs off. It supports English only.",
+"when": [
+"Cutting the time doctors spend typing notes",
+"Building a scribe feature into medical software"
+],
+"nope": [
+"General meeting notes, Amazon Transcribe plus a summariser is cheaper",
+"Anything that decides treatment, it drafts, it does not diagnose"
+],
+"eg": "A fifteen minute consultation comes back as a draft note the doctor edits in two minutes instead of ten.",
+"pay": "Per minute of audio processed. Long consultations add up, so most teams cap the recording length.",
+"rel": [
+"amazon-transcribe",
+"amazon-comprehend-medical",
+"amazon-simple-storage-service"
+]
 },
 {
 "slug": "aws-neuron",
@@ -1802,16 +1881,51 @@
 "name": "TensorFlow on AWS",
 "category": "AI and Machine Learning",
 "icon": "assets/icons/services/tensorflow-on-aws.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Not a service. It is the ways you can run the TensorFlow library on AWS.",
+"like": "A page telling you which of the shop's ovens will bake your particular recipe.",
+"what": "TensorFlow is open source software from Google for machine learning. AWS does not sell it. This entry covers the routes to run it: on SageMaker, on a Deep Learning AMI, in a Deep Learning Container, or on a plain GPU instance you set up yourself. There is nothing here to switch on.",
+"when": [
+"You already have TensorFlow code and need somewhere to run it"
+],
+"nope": [
+"If you want to use a ready made AI model, use Bedrock and skip all of this",
+"If you are starting fresh, most teams now pick PyTorch"
+],
+"eg": "A team lifts an existing TensorFlow training script onto a SageMaker training job without changing the code.",
+"pay": "Nothing for TensorFlow itself. You pay for whichever compute you run it on, and GPU instances are the expensive part.",
+"rel": [
+"amazon-sagemaker-ai",
+"amazon-ec2",
+"amazon-bedrock"
+]
 },
 {
 "slug": "amazon-managed-blockchain",
 "name": "Amazon Managed Blockchain",
 "category": "Blockchain",
 "icon": "assets/icons/services/amazon-managed-blockchain.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Runs blockchain networks so you do not have to operate the nodes yourself.",
+"like": "Renting a seat at a shared ledger that several companies all write into, with someone else maintaining the room.",
+"what": "Two separate things sit under this name. One creates and runs a private Hyperledger Fabric network between named members. The other gives you access to public blockchain nodes, mainly Ethereum and Bitcoin, so you can read and write without running your own node. Very few business problems actually need a blockchain, and a shared database with good audit logging solves most of them.",
+"when": [
+"Several companies that do not trust each other must share one record",
+"You need public chain node access without operating nodes"
+],
+"nope": [
+"Keeping an audit trail inside one company, an append only table with row level security is far simpler and cheaper",
+"Anything where one organisation owns the data, a normal database is the honest answer"
+],
+"eg": "Three logistics firms record container handovers on one shared ledger that none of them alone can rewrite.",
+"pay": "Per node hour and per GB of data written, or per request for node access. Idle nodes keep billing, which is the usual surprise.",
+"rel": [
+"amazon-dynamodb",
+"amazon-rds",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "aws-appfabric",
@@ -2011,8 +2125,28 @@
 "name": "Amazon Pinpoint APIs",
 "category": "Business Applications",
 "icon": "assets/icons/services/amazon-pinpoint-apis.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "The older set of Pinpoint APIs for customer messaging, most of which stop working in October 2026.",
+"like": "A phone line that is being switched off, with the useful calls moved to a new number.",
+"what": "Amazon Pinpoint was a service for talking to your customers by email, SMS, push and voice, with campaigns, journeys and analytics on top. AWS has announced end of support for Amazon Pinpoint on 30 October 2026. After that date the Pinpoint console and Pinpoint resources such as endpoints, segments, campaigns, journeys and analytics stop being available. The parts that survive are the sending APIs. AWS says the APIs for SMS, voice, mobile push, OTP and phone number validate are not affected, and those now live under AWS End User Messaging. So \"Amazon Pinpoint APIs\" today means two different things. The campaign and analytics APIs are going away. The message sending APIs continue under a new name.",
+"when": [
+"You already have an app calling Pinpoint APIs and need to plan the move before October 2026",
+"You want to send SMS, push, OTP or voice from your own code, in which case you use AWS End User Messaging",
+"You are checking which of your API calls survive the end of support date"
+],
+"nope": [
+"Do not start a new project on Pinpoint APIs. The service has an end of support date. For SMS, push, voice and OTP use AWS End User Messaging. For email use Amazon SES.",
+"If you only send transactional email such as receipts and password resets, Amazon SES is the better fit and always was.",
+"If you want marketing campaigns and customer journeys with a console, AWS no longer offers that here. You will need a third party tool."
+],
+"eg": "A shopping app sends order updates by SMS and push. The sending calls keep working through AWS End User Messaging. The campaign that used to send a weekly offer from the Pinpoint console has to move somewhere else before October 2026.",
+"pay": "You pay per message sent, by channel, with the price depending on the country for SMS and voice. There is no charge for the API itself. Pinpoint campaign and analytics features carried their own charges, and those go away with the service.",
+"rel": [
+"aws-end-user-messaging",
+"amazon-simple-email-service",
+"amazon-simple-notification-service"
+]
 },
 {
 "slug": "amazon-pinpoint",
@@ -2047,8 +2181,28 @@
 "name": "Amazon Quick",
 "category": "Business Applications",
 "icon": "assets/icons/services/amazon-quick.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "The new umbrella name for Amazon QuickSight plus AI agents that answer questions about your business data.",
+"like": "A business analyst who reads all your reports and answers your questions, instead of just handing you the reports.",
+"what": "On the AWS site, QuickSight is now presented as part of Amazon Quick, also written as Amazon Quick Suite. Quick is the wider product. Amazon Quick Sight is the business intelligence part inside it, the dashboards and charts that QuickSight always did. Around it, Quick adds research and automation agents, connections to many other applications, and no code app building. The pitch is answers grounded in your own business data rather than a general chatbot. This is recent, so treat the naming as still settling. The QuickSight dashboards, APIs and pricing you may already use are not gone. They sit under a new brand.",
+"when": [
+"You already use QuickSight and want to know why the branding changed",
+"You want people to ask questions in plain English about company data instead of reading a dashboard",
+"You want dashboards plus an agent that can pull from other business apps in one place"
+],
+"nope": [
+"If you just want charts over a database and nothing more, plain QuickSight dashboards, or Athena with any BI tool, is a simpler answer.",
+"If your data is not in AWS and not in a connected app, there is nothing for the agent to ground its answers in.",
+"If you need an AI agent inside your own application rather than a business tool, Amazon Bedrock is the right layer."
+],
+"eg": "A sales head asks \"why did revenue drop in the west region last month\" and gets an answer built from the company's own sales data, with the chart behind it, instead of opening six dashboards.",
+"pay": "QuickSight has always charged per user per month, split between authors who build and readers who view, with a capacity option for large reader counts. The agent and automation parts of Quick are new and priced separately, so check the current pricing page before committing.",
+"rel": [
+"amazon-athena",
+"amazon-bedrock",
+"amazon-simple-storage-service"
+]
 },
 {
 "slug": "amazon-simple-email-service",
@@ -2079,8 +2233,27 @@
 "name": "Amazon WorkDocs SDK",
 "category": "Business Applications",
 "icon": "assets/icons/services/amazon-workdocs-sdk.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "The programming interface to Amazon WorkDocs, a file sharing service AWS has closed to new customers.",
+"like": "A key to a building that is being emptied. Useful for carrying your things out, not for moving in.",
+"what": "Amazon WorkDocs was a managed file storage and sharing service for companies, with commenting, versions, sharing controls and desktop and mobile apps. AWS documentation now carries a notice that new customer sign ups and account upgrades are no longer available for Amazon WorkDocs, and points customers at instructions for migrating their data out. The WorkDocs SDK is the set of API calls for that service, available through the normal AWS SDKs in Python, Java, Go and so on. It lets code upload documents, list folders, manage users and read comments. Because the service itself is being wound down, the SDK matters mainly for one job now, which is getting existing data out in bulk. I could not confirm a final shutdown date from an official page, so verify that before planning a migration.",
+"when": [
+"You are an existing WorkDocs customer and need to export documents, folders and metadata in bulk",
+"You need to list what is stored in WorkDocs before deciding where it should move to",
+"You are auditing old code that still calls WorkDocs APIs"
+],
+"nope": [
+"Almost nobody needs this now. Do not build anything new on it. The service is closed to new customers.",
+"For file storage from an application, use Amazon S3.",
+"For shared team file storage that people use like a drive, use Amazon FSx or a non AWS product such as Google Drive, SharePoint or Dropbox."
+],
+"eg": "A company with ten years of documents in WorkDocs writes a script that walks every folder, downloads each file with its latest version, and writes it into an S3 bucket before the service closes.",
+"pay": "WorkDocs charged per active user per month with a storage allowance. There was no separate charge for API calls. Since sign ups are closed, pricing only matters to existing customers.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "amazon-workdocs",
@@ -2112,8 +2285,28 @@
 "name": "Amazon WorkMail",
 "category": "Business Applications",
 "icon": "assets/icons/services/amazon-workmail.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "AWS business email and calendar. It is being shut down on 31 March 2027.",
+"like": "A company post room that is closing. It still sorts your post today, but you have been told the date it stops.",
+"what": "Amazon WorkMail is a managed business email and calendar service. It gives your staff mailboxes on your own domain, with shared calendars and contacts. People can use Microsoft Outlook on Windows or Mac, phone mail apps, IMAP clients, or a web browser. It can link to Active Directory and it encrypts mail using keys you control in AWS KMS. The important fact comes first though. AWS has said it will stop supporting Amazon WorkMail on 31 March 2027. After that date you will not be able to get into it. AWS has published migration guidance. So this is not a product to start a new business on.",
+"when": [
+"Almost nobody should start with this now, because of the 2027 end date",
+"Existing WorkMail customers, who should be planning a move off it",
+"Reading up on it only to understand a system you have inherited"
+],
+"nope": [
+"Do not pick this for new email. It ends on 31 March 2027. Use Microsoft 365 or Google Workspace instead.",
+"Do not use it to send bulk or app email. That is Amazon Simple Email Service, which is a different thing and is not going away.",
+"Do not confuse it with Amazon Simple Email Service. WorkMail is staff mailboxes. SES is mail your software sends.",
+"If you are on it today, start the migration now rather than near the date."
+],
+"eg": "A 30 person firm gave every person a mailbox on their own domain and used Outlook as usual. That firm now needs to move to another mail provider before March 2027.",
+"pay": "4 US dollars per user per month, including 50 GB of storage per user. That price is still listed, but the service ends in March 2027, so the real cost to you includes a migration.",
+"rel": [
+"amazon-simple-email-service",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "aws-billing-conductor",
@@ -2223,8 +2416,29 @@
 "name": "AWS FinOps Agent",
 "category": "Cost and Billing",
 "icon": "assets/icons/services/aws-finops-agent.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "An AI agent that watches your AWS bill, investigates cost spikes and answers cost questions in plain English.",
+"like": "A finance person who notices the bill jumped, finds out who changed what, and tells the right engineer.",
+"what": "AWS FinOps Agent is an agent you create in your own AWS account to monitor cost, investigate anomalies and surface savings. It reads cost and usage data from AWS Cost Explorer, listens for alerts from AWS Cost Anomaly Detection, pulls recommendations from Cost Optimization Hub and Compute Optimizer, and uses AWS CloudTrail to find the change that caused a spike. It then writes an investigation summary with a likely root cause and the owner, and can open a Jira ticket or post to Slack. Engineers can also just ask it questions such as why cost went up last month. You can upload context files, for example which account belongs to which team, so it answers in your own terms. Each agent is a separate instance with its own permissions, context, memory and integrations. It is in preview and starts in the US East N. Virginia region, so expect changes.",
+"when": [
+"A cost spike appears and nobody wants to dig through CloudTrail to find which change caused it",
+"You want engineers to self serve cost answers instead of pinging the finance team",
+"You want anomaly alerts to arrive as a Slack message or Jira ticket with a cause already attached, not just a number"
+],
+"nope": [
+"If your AWS bill is small and one person reads Cost Explorer once a month, this is more machinery than you need. Cost Explorer plus AWS Budgets is enough.",
+"If you only want to be told when spend crosses a limit, AWS Budgets does that on its own.",
+"It is in preview, so do not put a process that must not break on top of it yet."
+],
+"eg": "Cost Anomaly Detection flags a 900 dollar jump overnight. The agent correlates it with CloudTrail, finds a team launched a large GPU instance and left it running, and posts that in Slack with the owner named, by the time people log in.",
+"pay": "Preview pricing should be checked on the AWS page before use. The data sources it reads, Cost Explorer, Cost Anomaly Detection and Compute Optimizer, are largely free or low cost on their own, so the agent's own charge is what to look at.",
+"rel": [
+"aws-cost-explorer",
+"aws-budgets",
+"amazon-bedrock",
+"amazon-cloudwatch"
+]
 },
 {
 "slug": "reserved-instance-reporting",
@@ -2259,8 +2473,32 @@
 "name": "Savings Plans",
 "category": "Cost and Billing",
 "icon": "assets/icons/services/savings-plans.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "A pricing commitment, not a service. You promise to spend a set amount per hour for one or three years and pay less per hour.",
+"like": "A yearly train pass instead of buying a ticket each day. Cheaper per trip, but you pay for the pass whether you travel or not.",
+"what": "Savings Plans is a way of paying, not something you switch on and use. You commit to spend a fixed amount of money per hour, for one year or three years, and in return AWS charges you lower rates, up to about 72 percent below on demand. The discount is applied to your bill automatically each hour, across your accounts in AWS Organizations. There are different plans. Compute Savings Plans are the most flexible and cover Amazon EC2, AWS Lambda and AWS Fargate across instance families, sizes, operating systems and Regions. EC2 Instance Savings Plans give a bigger discount but lock you to one instance family in one Region. There are also plans for Amazon SageMaker AI. You can pay all up front, part up front, or nothing up front, with a better rate the more you pay early. Once bought, a plan cannot be cancelled or refunded.",
+"when": [
+"You have steady baseline usage that runs all year and is not going away",
+"You want a discount without picking exact instance types, so a Compute Savings Plan fits",
+"You already know your lowest monthly compute spend and can commit to a part of it safely",
+"You run Lambda or Fargate a lot, since Reserved Instances do not cover those but Compute Savings Plans do"
+],
+"nope": [
+"Not for short lived or spiky workloads. You pay the commitment even on quiet hours.",
+"Not for a new workload you cannot size yet. Run on demand first, look at AWS Cost Explorer, then commit.",
+"Not a fault tolerance or batch discount. For interruptible work, Spot Instances are cheaper.",
+"Do not commit to 100 percent of your usage. Cover the floor, not the peak.",
+"Do not buy one expecting to change your mind. There is no cancel and no refund."
+],
+"eg": "A team always runs at least 20 servers day and night. They look at Cost Explorer, commit to the spend those 20 cover for three years, and their bill for that part drops sharply. The extra servers they add in busy weeks stay on demand.",
+"pay": "There is no fee for a Savings Plan itself. You pay the hourly amount you committed to, every hour of the term, used or not. Usage above the commitment is billed at normal on demand rates. Paying more up front lowers the rate.",
+"rel": [
+"amazon-ec2",
+"aws-lambda",
+"aws-cost-explorer",
+"aws-budgets"
+]
 },
 {
 "slug": "aws-app-runner",
@@ -2484,24 +2722,90 @@
 "name": "AWS Outposts rack",
 "category": "Compute",
 "icon": "assets/icons/services/aws-outposts-rack.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Puts a full rack of AWS hardware inside your own building.",
+"like": "Renting a branch of the bank and having it built in your office lobby.",
+"what": "AWS ships a 42U rack, installs it in your data centre, and keeps running it. You use the same AWS console and APIs, but the machines sit on your floor. Only a subset of AWS services run on it, and you need real data centre space, power and cooling.",
+"when": [
+"Data must stay inside your building by law",
+"An app needs very low delay to machines on site",
+"You are moving off a data centre slowly and want one control plane"
+],
+"nope": [
+"If you just want cloud servers, use amazon-ec2 in a normal Region.",
+"If you only need a small box at a shop or factory, use AWS Outposts servers instead.",
+"If you only need a private network link back to AWS, use aws-direct-connect.",
+"Most companies never need this. It is for large regulated or latency bound workloads."
+],
+"eg": "A hospital runs its imaging app on an Outposts rack in its own basement so patient scans never leave the site.",
+"pay": "You pay per rack for a 3 year term, billed monthly, whether you use it or not. The surprise is that it is a long commitment, not pay as you go, and you still pay for data going back to the Region.",
+"rel": [
+"aws-outposts-family",
+"amazon-ec2",
+"aws-direct-connect",
+"amazon-virtual-private-cloud"
+]
 },
 {
 "slug": "aws-outposts-servers",
 "name": "AWS Outposts servers",
 "category": "Compute",
 "icon": "assets/icons/services/aws-outposts-servers.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A single AWS server box you put in a shop, clinic or factory.",
+"like": "A vending machine AWS drops off, refills and services, but it lives in your shop.",
+"what": "This is the small version of Outposts. A 1U or 2U server arrives, you or a contractor rack it, and AWS provisions it remotely. It runs far fewer services than the rack, mainly EC2, ECS and local storage, and there is no local block storage service or database service.",
+"when": [
+"A retail store needs compute on site when the internet drops",
+"A factory floor needs fast local processing of sensor data",
+"Hundreds of small sites need the same setup managed centrally"
+],
+"nope": [
+"If you have real data centre space and need databases or large capacity, use the Outposts rack.",
+"If you just need to process data on a small device at the edge, aws-iot-greengrass is far cheaper and simpler.",
+"If latency is fine, use a normal Region with amazon-ec2.",
+"Very few teams need this."
+],
+"eg": "A supermarket chain puts one 1U Outposts server in each store to run checkout software that must keep working offline.",
+"pay": "Per server, on a 3 year commitment, paid up front or monthly. Capacity is fixed, so you pay the same whether the box is busy or idle.",
+"rel": [
+"aws-outposts-family",
+"amazon-ec2",
+"aws-iot-greengrass",
+"amazon-elastic-container-service"
+]
 },
 {
 "slug": "aws-parallel-cluster",
 "name": "AWS Parallel Cluster",
 "category": "Compute",
 "icon": "assets/icons/services/aws-parallel-cluster.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Sets up a cluster of machines that run scientific jobs in a queue.",
+"like": "Hiring a shift manager who opens extra counters when the queue grows and closes them when it empties.",
+"what": "It is an open source command line tool, not a hosted service. You give it a config file and it builds the head node, the Slurm scheduler, the shared file system and the compute nodes. You still own and operate the cluster, including patching and upgrades.",
+"when": [
+"Running engineering simulations or genomics pipelines",
+"Moving an existing on-site Slurm cluster to AWS",
+"You want machines to start only while jobs are waiting"
+],
+"nope": [
+"AWS Parallel Computing Service (PCS) is the newer managed Slurm option. Pick that if you do not want to run the cluster yourself.",
+"For ordinary batch work that is not HPC, aws-batch or aws-step-functions is simpler.",
+"If your work is containers, use amazon-elastic-kubernetes-service.",
+"Nobody outside HPC and research computing needs this."
+],
+"eg": "A drug research team submits 2000 molecule simulations; the cluster grows to 500 instances, then shrinks back to zero.",
+"pay": "The tool is free. You pay for the EC2 instances, the shared storage and the network. The surprise is the head node and shared file system run 24/7 and cost money even with no jobs.",
+"rel": [
+"amazon-ec2",
+"amazon-efs",
+"amazon-cloudwatch",
+"amazon-simple-storage-service"
+]
 },
 {
 "slug": "aws-parallel-computing-service",
@@ -2621,8 +2925,27 @@
 "name": "Amazon DCV",
 "category": "Compute",
 "icon": "assets/icons/services/amazon-dcv.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Lets you use a graphics heavy desktop that is running somewhere else.",
+"like": "A very good live video link to a computer in another room, with your mouse and keyboard attached.",
+"what": "Amazon DCV is the renamed NICE DCV, the remote display protocol AWS bought in 2016. It streams the screen of a remote Linux or Windows machine to a laptop or browser. It is software you install, not a managed service, and it is the same protocol underneath WorkSpaces and AppStream.",
+"when": [
+"A designer needs a CAD or 3D app that will not run on a laptop",
+"Viewing simulation results that live next to the data",
+"Giving engineers access to a shared GPU workstation"
+],
+"nope": [
+"If you want a finished managed desktop, use amazon-workspaces instead of building your own.",
+"For plain server admin, SSH or Systems Manager is enough.",
+"If the app is a normal web app, none of this is needed."
+],
+"eg": "An architect opens a 40 GB building model on a GPU instance in Mumbai and works on it from a thin laptop.",
+"pay": "No charge for the DCV server when it runs on an EC2 instance. You pay the normal EC2 and GPU cost. Running DCV outside AWS needs a paid licence, which catches people out.",
+"rel": [
+"amazon-ec2",
+"amazon-workspaces"
+]
 },
 {
 "slug": "amazon-ec2-auto-scaling",
@@ -2792,8 +3115,29 @@
 "name": "Bottlerocket",
 "category": "Compute",
 "icon": "assets/icons/services/bottlerocket.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A stripped down operating system for machines that only run containers.",
+"like": "A kitchen with nothing in it but the one oven you need, so there is less to clean and less to break.",
+"what": "Bottlerocket is a free, open source Linux distribution from AWS. It has no package manager and no SSH by default, and updates are applied as one whole image that can roll back. That minimalism is the point, but it also means you cannot install agents the normal way.",
+"when": [
+"Running EKS or ECS nodes and wanting a smaller attack surface",
+"You want node updates that are atomic and reversible",
+"A security team asks for a hardened container host"
+],
+"nope": [
+"If you run normal software on the host, not containers, use Amazon Linux.",
+"If you use aws-fargate, there is no host to choose, so this is irrelevant.",
+"If your tooling depends on SSH and yum, expect friction."
+],
+"eg": "An EKS cluster runs Bottlerocket nodes, and a bad update rolls back automatically on reboot.",
+"pay": "The OS is free. You pay only the usual EC2 charges for the instances.",
+"rel": [
+"amazon-elastic-kubernetes-service",
+"amazon-elastic-container-service",
+"amazon-ec2",
+"aws-fargate"
+]
 },
 {
 "slug": "elastic-fabric-adapter",
@@ -2881,16 +3225,55 @@
 "name": "Amazon EKS Anywhere",
 "category": "Containers",
 "icon": "assets/icons/services/amazon-eks-anywhere.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Runs AWS style Kubernetes clusters on your own servers.",
+"like": "Getting the restaurant's recipe and kit so you can cook the same dish in your own kitchen.",
+"what": "EKS Anywhere is software you install on your own hardware or VMware to create and update Kubernetes clusters. AWS does not operate these clusters, you do. The control plane is not in AWS, so cluster uptime is your problem, and support is a paid add on.",
+"when": [
+"Kubernetes must run in your own data centre",
+"You want the same tooling on site and in AWS",
+"Air gapped or regulated environments"
+],
+"nope": [
+"If the workload can run in AWS, use amazon-elastic-kubernetes-service and let AWS run the control plane.",
+"If you only want the tested open source parts, use Amazon EKS Distro.",
+"If you do not already run Kubernetes, do not start here."
+],
+"eg": "A bank runs EKS Anywhere on vSphere in its own data centre and uses the same Helm charts as its AWS clusters.",
+"pay": "The software is free. Enterprise support for it costs per cluster per year. You also pay for your own hardware.",
+"rel": [
+"amazon-elastic-kubernetes-service",
+"aws-outposts-family",
+"amazon-elastic-container-service"
+]
 },
 {
 "slug": "amazon-eks-distro",
 "name": "Amazon EKS Distro",
 "category": "Containers",
 "icon": "assets/icons/services/amazon-eks-distro.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "The exact Kubernetes build AWS itself runs, handed to you as open source.",
+"like": "Buying the same flour and yeast the bakery uses, then baking the bread yourself.",
+"what": "EKS Distro is a set of tested Kubernetes binaries and container images on GitHub, with AWS security patches. It is parts, not a product. It does not install, run or upgrade anything for you, and there is no console and no support ticket.",
+"when": [
+"You already have your own cluster build process",
+"You want versions patched after upstream support ends",
+"Building a Kubernetes product of your own"
+],
+"nope": [
+"If you want clusters created and managed for you on your hardware, use EKS Anywhere.",
+"If you want a managed cluster, use amazon-elastic-kubernetes-service.",
+"This is for platform teams. Almost no application team should touch it."
+],
+"eg": "A platform team builds its own cluster images from EKS Distro so its on-site clusters match the AWS ones.",
+"pay": "Free. You pay only for wherever you run it.",
+"rel": [
+"amazon-elastic-kubernetes-service",
+"amazon-elastic-container-service"
+]
 },
 {
 "slug": "amazon-elastic-container-registry",
@@ -3478,8 +3861,30 @@
 "name": "Oracle Database at AWS",
 "category": "Databases",
 "icon": "assets/icons/services/oracle-database-at-aws.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Runs real Oracle Exadata databases inside an AWS data centre, next to your apps.",
+"like": "Oracle renting a locked room inside AWS's building, with a door straight into your office.",
+"what": "This is a joint Oracle and AWS offering, also branded Oracle AI Database@AWS. Oracle's own hardware sits in an AWS Availability Zone and you link it to your VPC over an ODB network. You create the network and infrastructure in AWS, but you manage the databases themselves in the Oracle Cloud console, so you work in two clouds.",
+"when": [
+"You have Oracle Exadata workloads that cannot be rewritten",
+"Apps on EC2 need very low latency to an Oracle database",
+"You want Oracle licence benefits without your own data centre"
+],
+"nope": [
+"If your database is not Oracle, ignore this completely.",
+"If you can move to PostgreSQL or MySQL, amazon-rds or Aurora is far cheaper and simpler.",
+"For plain Oracle Database without Exadata, RDS for Oracle is the normal choice.",
+"Buying is through a private offer, so this is enterprise only."
+],
+"eg": "An insurer keeps its Exadata core system in Oracle Database@AWS and points its EC2 application servers at it over a peered ODB network.",
+"pay": "Bought through AWS Marketplace as a private offer negotiated with Oracle, on committed terms. It is not pay as you go pricing, and it is expensive.",
+"rel": [
+"amazon-rds",
+"amazon-virtual-private-cloud",
+"amazon-ec2",
+"aws-direct-connect"
+]
 },
 {
 "slug": "aws-cloud-control-api",
@@ -3926,8 +4331,30 @@
 "name": "Amazon WorkSpaces",
 "category": "End User Computing",
 "icon": "assets/icons/services/amazon-workspaces.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "Gives each person a Windows or Linux desktop they open from any device.",
+"like": "A locker at work. Your things stay in it, and you can open it from any branch.",
+"what": "AWS runs the desktop in the cloud and streams the screen to a client app or browser. The desktop keeps your files and settings between sessions. Performance depends heavily on the user's internet, and Windows licensing rules can be awkward if you bring your own.",
+"when": [
+"Contractors need access without company laptops",
+"Staff must work from home on a locked down machine",
+"Data must never sit on a personal device"
+],
+"nope": [
+"If you only need one application, not a whole desktop, AppStream 2.0 is cheaper.",
+"If people only need a safe browser, use WorkSpaces Secure Browser.",
+"For developers who just need a Linux shell, an amazon-ec2 instance is simpler and cheaper.",
+"With bad or high latency internet, this feels terrible. Do not force it."
+],
+"eg": "A support team of 200 contractors in another country logs into WorkSpaces each morning, and no customer data leaves AWS.",
+"pay": "Monthly per desktop, or hourly plus a smaller monthly fee. The surprise is the monthly option charges a full month even if someone logs in once, and idle desktops keep billing until you delete them.",
+"rel": [
+"amazon-ec2",
+"aws-identity-and-access-management",
+"amazon-virtual-private-cloud",
+"amazon-efs"
+]
 },
 {
 "slug": "aws-amplify",
@@ -4016,8 +4443,29 @@
 "name": "Amazon GameLift Servers",
 "category": "Games",
 "icon": "assets/icons/services/amazon-gamelift-servers.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Runs and scales the game servers for a multiplayer game.",
+"like": "A sports centre that opens more courts as more players turn up, and closes them when people leave.",
+"what": "This is the current name for what was called Amazon GameLift. The GameLift brand now covers several products, and this one is the server hosting part. It places players into game sessions, scales fleets up and down, and includes FlexMatch matchmaking. Your game server has to be built against its SDK, so it is not a drop in.",
+"when": [
+"A session based multiplayer game needs servers near players",
+"Player numbers swing wildly between launch and quiet hours",
+"You want matchmaking without writing it yourself"
+],
+"nope": [
+"If the game is turn based or not real time, a normal API on amazon-api-gateway and aws-lambda is much cheaper.",
+"If you already run your own orchestration, use amazon-elastic-container-service or EKS and skip the SDK work.",
+"Only game studios need this."
+],
+"eg": "A shooter launches worldwide; fleets in 12 Regions scale on player demand and FlexMatch groups players by skill and ping.",
+"pay": "Per instance hour for the fleet, plus data transfer. Spot instances cut cost a lot. The surprise is that you pay for spare capacity you keep warm for demand spikes.",
+"rel": [
+"amazon-ec2",
+"amazon-elastic-container-service",
+"amazon-cloudwatch",
+"amazon-dynamodb"
+]
 },
 {
 "slug": "amazon-gamelift-streams",
@@ -4052,24 +4500,81 @@
 "name": "Open 3D Engine",
 "category": "Games",
 "icon": "assets/icons/services/open-3d-engine.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A free 3D game and simulation engine you download and build with.",
+"like": "A free workshop full of tools. Nobody charges rent, but you still have to build the furniture.",
+"what": "O3DE is not an AWS service. It is open source software under the Linux Foundation, built from the code of the retired AWS Lumberyard. AWS is one member of the foundation, not the owner. It is far less used than Unreal or Unity, so tutorials, assets and hiring are thin.",
+"when": [
+"You want a 3D engine with no royalties and full source",
+"Robotics simulation, where its ROS support is used",
+"You need to change engine internals"
+],
+"nope": [
+"For most games, Unreal or Unity has a far bigger ecosystem. Pick those unless royalties or source access are the deciding issue.",
+"There is nothing to buy or switch on in the AWS console.",
+"If you need hosted game servers, that is Amazon GameLift Servers, a different thing."
+],
+"eg": "A robotics team simulates a warehouse robot in O3DE before running the same code on real hardware.",
+"pay": "Free, with no royalties. You pay only for whatever machines you run it on.",
+"rel": [
+"amazon-ec2",
+"amazon-simple-storage-service"
+]
 },
 {
 "slug": "aws-marketplace-dark",
 "name": "AWS Marketplace Dark",
 "category": "General",
 "icon": "assets/icons/services/aws-marketplace-dark.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Not a service. It is the dark background version of the AWS Marketplace icon.",
+"like": "The white version of a company logo used on a black poster. Same logo, different sheet.",
+"what": "This is an entry from the AWS Architecture Icons set, where many icons ship in a light and a dark variant. There is no product called AWS Marketplace Dark, nothing to sign up for and nothing to pay. The real thing is AWS Marketplace, an online store for software you can buy and run on AWS, billed through your AWS account.",
+"when": [
+"Drawing an architecture diagram on a dark slide",
+"Building a diagram tool's icon library"
+],
+"nope": [
+"If you wanted the store, that is AWS Marketplace, not this icon file.",
+"Do not put this in a service list or a cost estimate. It is an image asset.",
+"Nobody needs to learn this."
+],
+"eg": "A solutions architect drops the dark Marketplace icon into a diagram that uses a black background.",
+"pay": "Nothing. It is an image. AWS Marketplace itself adds the vendor's software charges to your normal AWS bill.",
+"rel": [
+"aws-cost-explorer",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "aws-marketplace-light",
 "name": "AWS Marketplace Light",
 "category": "General",
 "icon": "assets/icons/services/aws-marketplace-light.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Not a product. It is the light-background version of the AWS Marketplace icon.",
+"like": "A shop sign printed in two colours, one for a white wall and one for a black wall.",
+"what": "This is not a service. It is an icon variant from the AWS architecture icon set, where AWS Marketplace is drawn twice, once light and once dark, so diagrams look right on either background. The real thing behind the icon is AWS Marketplace, an online store where you buy software and data from other companies and the cost lands on your AWS bill. Nothing runs when you 'use' this icon.",
+"when": [
+"Drawing an architecture diagram on a dark slide or a light slide",
+"Picking the correct icon file from the AWS icon pack",
+"Showing that part of your stack is bought software, not built in-house"
+],
+"nope": [
+"If you actually want to buy software, go to AWS Marketplace itself, not this icon.",
+"If you want to sell software on AWS, that is AWS Marketplace seller listings, managed through AWS Partner Central.",
+"Nobody needs to 'learn' this. It is a picture file."
+],
+"eg": "You are drawing your VPC diagram in a dark theme, so you drop in the dark icon and leave the light one alone.",
+"pay": "Nothing. Icons are free. AWS Marketplace purchases themselves are charged by the seller and appear on your normal AWS bill, often as a monthly or hourly software fee on top of the EC2 cost.",
+"rel": [
+"amazon-ec2",
+"aws-identity-and-access-management",
+"aws-cost-explorer"
+]
 },
 {
 "slug": "aws-iot-core",
@@ -4306,16 +4811,57 @@
 "name": "AWS IoT TwinMaker",
 "category": "Internet of Things",
 "icon": "assets/icons/services/aws-iot-twinmaker.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Builds a live 3D model of a real factory or building that updates from its sensors.",
+"like": "A doll's house of your factory where the tiny lights turn on when the real lights turn on.",
+"what": "It takes a 3D model you already have, then wires each part of it to live data from sensors, cameras and business systems. Operators see the building on screen with real readings attached. The honest limitation is that it does not create the 3D model or the sensors for you, and the viewing layer is a Grafana plugin, so you need both before it is useful.",
+"when": [
+"Plant operators need one screen showing equipment status in physical context",
+"You already have CAD or 3D models of a site and live sensor data",
+"Diagnosing which machine on a line is causing a problem"
+],
+"nope": [
+"If you only need charts and alarms, use Amazon CloudWatch or Amazon Managed Grafana. A 3D scene is a lot of work for a line graph.",
+"If you just need to collect and store sensor readings, use AWS IoT Core and a database.",
+"Most companies never need this. It suits large industrial sites with existing 3D models."
+],
+"eg": "A cookie factory shows its oven in 3D, and the oven turns red on screen when its real temperature sensor goes out of range.",
+"pay": "You pay per query against the digital twin and per GB of data stored, plus the cost of every underlying service. The surprise is that the bill is mostly the other services, the sensors, storage and the Grafana users, not TwinMaker itself.",
+"rel": [
+"aws-iot-core",
+"aws-iot-greengrass",
+"amazon-cloudwatch",
+"amazon-simple-storage-service"
+]
 },
 {
 "slug": "freertos",
 "name": "FreeRTOS",
 "category": "Internet of Things",
 "icon": "assets/icons/services/freertos.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A tiny free operating system that runs on very small chips inside devices.",
+"like": "The brain of a washing machine, not the brain of a laptop.",
+"what": "FreeRTOS is open source software you compile into a microcontroller, the sort of chip in a thermostat or a sensor. It handles running several small tasks on time. AWS looks after the project and adds libraries for talking to AWS IoT securely. It was briefly called Amazon FreeRTOS, then renamed back to FreeRTOS. It is not a cloud service and nothing of it runs in AWS.",
+"when": [
+"Writing firmware for a battery powered sensor or small device",
+"You need several jobs on one small chip to run on a fixed schedule",
+"Connecting a microcontroller to AWS IoT with TLS and over-the-air updates"
+],
+"nope": [
+"If your device runs Linux, such as a Raspberry Pi or a gateway, use AWS IoT Greengrass instead.",
+"If you are not writing embedded C, this has nothing for you.",
+"If you only want the cloud side of IoT, that is AWS IoT Core. FreeRTOS is the device side."
+],
+"eg": "A water meter with a small chip runs FreeRTOS, wakes hourly, reads the meter, and publishes one message to AWS IoT Core.",
+"pay": "Nothing. It is MIT licensed and free, including for commercial products. You pay only for the AWS services the device talks to, such as AWS IoT Core messages.",
+"rel": [
+"aws-iot-core",
+"aws-iot-greengrass",
+"aws-key-management-service"
+]
 },
 {
 "slug": "aws-appconfig",
@@ -4405,8 +4951,29 @@
 "name": "AWS Backint Agent",
 "category": "Management and Governance",
 "icon": "assets/icons/services/aws-backint-agent.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Backs up an SAP HANA database straight into S3 using SAP's own backup screens.",
+"like": "A plug adapter, so SAP's existing backup button works with an Amazon cupboard.",
+"what": "It is a small program you install on the EC2 machine running SAP HANA. It is certified by SAP and implements SAP's Backint interface, so backups triggered from SAP HANA Cockpit, Studio or SQL land in Amazon S3 or AWS Backup. It supports full, incremental, differential and log backups. It only works for SAP HANA. It does nothing for any other database.",
+"when": [
+"You run SAP HANA on EC2 and want backups in S3 rather than on disk",
+"Your SAP team wants to keep using their own backup tools and schedules",
+"You need log backups going to durable storage continuously"
+],
+"nope": [
+"If your database is not SAP HANA, this is the wrong tool. Use Amazon RDS backups or AWS Backup.",
+"If you use SAP HANA Cloud or RISE, backups are handled for you and this does not apply.",
+"If you only want EBS volume snapshots, use AWS Backup directly and skip the agent."
+],
+"eg": "Your SAP admin runs the usual nightly full backup from HANA Cockpit, and the files quietly arrive in an S3 bucket instead of a local disk.",
+"pay": "The agent itself is free. You pay for S3 storage, requests and any AWS Backup charges. The surprise is log backups, which are small but constant, so request counts add up.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-backup",
+"amazon-ec2",
+"aws-key-management-service"
+]
 },
 {
 "slug": "aws-chatbot",
@@ -4569,8 +5136,29 @@
 "name": "AWS DevOps Agent",
 "category": "Management and Governance",
 "icon": "assets/icons/services/aws-devops-agent.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "An AI assistant that digs into why your system broke and suggests the fix.",
+"like": "An on-call colleague who reads all the logs before you wake up.",
+"what": "It connects to your logs, metrics, code repositories and deployment pipelines, then works out what changed and what is failing. It went generally available in March 2026 and also looks at Azure and on-premises systems. It is new, so treat its conclusions as a strong first draft, not a verdict, and it needs real access to your telemetry and code before it is any use.",
+"when": [
+"An incident is live and nobody knows which deploy caused it",
+"You want preventive advice from past incidents rather than a fresh guess each time",
+"A small team has no dedicated SRE"
+],
+"nope": [
+"If you have no logs or metrics wired up yet, fix that first with Amazon CloudWatch. The agent has nothing to read otherwise.",
+"If you want simple threshold alerts, a CloudWatch alarm is cheaper and more predictable.",
+"If your rules require a human to approve every production change, keep it as an advisor and do not let it act."
+],
+"eg": "Latency jumps at 2am, and by morning it has pointed at a config change in yesterday's deploy and named the pull request.",
+"pay": "Charged for use, with monthly credits included depending on your AWS Support plan. The surprise is that heavy investigation of large log volumes also raises your CloudWatch and data transfer bills.",
+"rel": [
+"amazon-cloudwatch",
+"aws-cloudtrail",
+"amazon-bedrock",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "aws-distro-for-opentelemetry",
@@ -4740,8 +5328,27 @@
 "name": "AWS Partner Central",
 "category": "Management and Governance",
 "icon": "assets/icons/services/aws-partner-central.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "The website AWS resellers and software vendors use to manage their AWS partnership.",
+"like": "The staff entrance of a shopping centre, not a shop you buy from.",
+"what": "This is a business portal, not a technical service. Companies in the AWS Partner Network sign in here to list products on AWS Marketplace, register sales deals with AWS, claim partner benefits and get training. It has now absorbed the old AWS Marketplace Management Portal. It runs nothing and stores none of your application data.",
+"when": [
+"Your company sells software or consulting and wants to list it on AWS Marketplace",
+"You need to register a customer deal so AWS sales will co-sell with you",
+"Tracking your partner tier and required certifications"
+],
+"nope": [
+"If you are an AWS customer rather than an AWS partner, you will never open this.",
+"If you only want to buy software, use AWS Marketplace.",
+"If you want technical support on a service, use AWS Support, not this portal."
+],
+"eg": "A consultancy logs in to register a deal with a retail client so AWS sales does not compete with them on the same account.",
+"pay": "Free to use. Some partner programmes have their own annual fees or spend requirements, and Marketplace takes a cut of what you sell through it.",
+"rel": [
+"aws-identity-and-access-management",
+"aws-cost-explorer"
+]
 },
 {
 "slug": "aws-proton",
@@ -4858,16 +5465,56 @@
 "name": "AWS Service Management Connector",
 "category": "Management and Governance",
 "icon": "assets/icons/services/aws-service-management-connector.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Retiring. It let ServiceNow or Jira users request and see AWS resources from their own ticket tool.",
+"like": "A hatch between two offices, now being bricked up.",
+"what": "This is being shut down. It closed to new customers on 31 March 2026 and support ends on 31 March 2027, after which it stops working. It was a plugin for ServiceNow, Jira Service Management and Jira Cloud that surfaced AWS Service Catalog products, AWS Config data, Security Hub findings and Support cases inside those tools. AWS now tells customers to use partner ITSM integrations or write their own with the SDK.",
+"when": [
+"Nothing new. Existing users should be planning their exit",
+"Understanding an old diagram or runbook that mentions it",
+"Deciding what replaces it before March 2027"
+],
+"nope": [
+"Do not start a new project on it. It is being switched off. Use a partner ITSM integration or build a direct SDK integration.",
+"If you only need a self-service catalogue inside AWS, use AWS Service Catalog on its own, which is not affected.",
+"If you want AWS events pushed into a ticket tool, EventBridge plus a webhook does that and is not going away."
+],
+"eg": "A staff member used to raise a ServiceNow ticket for a test server and get an approved EC2 instance, and that path now needs rebuilding.",
+"pay": "The connector was free. You paid only for the AWS resources it created. The real cost now is the migration work before the 2027 cutoff.",
+"rel": [
+"aws-identity-and-access-management",
+"aws-cloudtrail",
+"amazon-cloudwatch"
+]
 },
 {
 "slug": "aws-sustainability",
 "name": "AWS Sustainability",
 "category": "Management and Governance",
 "icon": "assets/icons/services/aws-sustainability.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Not a service. It is AWS's environment programme, with one real tool for your carbon numbers.",
+"like": "A company's recycling policy, plus a single electricity meter you can actually read.",
+"what": "There is no service you can switch on called AWS Sustainability. The name covers AWS's own renewable energy commitments, the Sustainability pillar of the Well-Architected Framework, which is guidance, and one concrete tool, the Customer Carbon Footprint Tool in the Billing console. That tool shows estimated emissions from your AWS usage, by month, region and service.",
+"when": [
+"Your company has to report cloud emissions for an ESG disclosure",
+"You want to compare the carbon cost of regions before choosing one",
+"Reviewing a design against the Well-Architected sustainability guidance"
+],
+"nope": [
+"If you want live, detailed, per-resource carbon data, this is too coarse. It is monthly and estimated.",
+"If your real goal is to spend less money, use AWS Cost Explorer. Less waste usually means less carbon anyway.",
+"Do not expect an API to call. Most of it is documents and a billing dashboard."
+],
+"eg": "Your finance team downloads last quarter's carbon report from the Billing console for the annual ESG statement.",
+"pay": "Free. The surprise is the delay and the coarseness. Data appears about three weeks after month end, and anything under half a kilo of CO2e shows as zero.",
+"rel": [
+"aws-cost-explorer",
+"aws-budgets",
+"amazon-cloudwatch"
+]
 },
 {
 "slug": "aws-systems-manager",
@@ -5025,16 +5672,57 @@
 "name": "Amazon Managed Grafana",
 "category": "Management and Governance",
 "icon": "assets/icons/services/amazon-managed-grafana.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "Runs Grafana dashboards for you so nobody has to patch a Grafana server.",
+"like": "Renting a noticeboard that someone else keeps clean and locked.",
+"what": "Grafana is popular open source dashboard software. This is AWS hosting it, with logins through your existing identity provider and ready-made connections to CloudWatch, Prometheus, OpenSearch and outside sources. You get the normal Grafana experience. You do not get full server access, so some plugins and tweaks are not possible.",
+"when": [
+"Several teams share dashboards and you do not want to run the server",
+"You want one dashboard mixing AWS metrics with non-AWS sources",
+"You need single sign-on and per-team dashboard permissions"
+],
+"nope": [
+"If you only look at AWS metrics, CloudWatch dashboards are already there and cost less.",
+"If you have dozens of casual viewers, self-hosting Grafana on a small EC2 instance is usually cheaper.",
+"If you need an unusual plugin or deep server config, run your own Grafana."
+],
+"eg": "An on-call engineer opens one dashboard showing EKS pod health from Prometheus next to RDS metrics from CloudWatch.",
+"pay": "Per active user per workspace per month, roughly nine dollars for an editor and five for a viewer. The surprise is that anyone who logs in once in a month counts as active for the whole month, and API keys and service accounts are billed as users too.",
+"rel": [
+"amazon-cloudwatch",
+"amazon-elastic-kubernetes-service",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "amazon-managed-service-for-prometheus",
 "name": "Amazon Managed Service for Prometheus",
 "category": "Management and Governance",
 "icon": "assets/icons/services/amazon-managed-service-for-prometheus.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "Stores and queries Prometheus metrics for you, without running Prometheus servers.",
+"like": "A warehouse for your meter readings, instead of a filing cabinet you have to keep buying shelves for.",
+"what": "Prometheus is the standard way Kubernetes and containers expose metrics. Running it yourself means managing storage and scaling as metric volume grows. This takes the metrics in, keeps them, and answers PromQL queries. It stores and queries only. It draws no dashboards, so pair it with Grafana.",
+"when": [
+"You run EKS or ECS and already emit Prometheus metrics",
+"Your self-hosted Prometheus keeps running out of disk or memory",
+"You want metrics kept longer than a local Prometheus can hold"
+],
+"nope": [
+"If you are not using Prometheus metrics today, use Amazon CloudWatch. Do not adopt Prometheus just to have this.",
+"If you have a handful of containers, a single self-hosted Prometheus is simpler and cheaper.",
+"If you want dashboards, this is not it. Add Amazon Managed Grafana."
+],
+"eg": "Your EKS cluster ships pod metrics here, and Grafana queries them to show memory use per service over six months.",
+"pay": "You pay per metric sample taken in, per GB stored, and per billion samples processed by queries. The surprise is the query charge. A dashboard on auto-refresh in front of a wall screen can quietly cost more than the storage.",
+"rel": [
+"amazon-elastic-kubernetes-service",
+"amazon-cloudwatch",
+"amazon-elastic-container-service",
+"aws-fargate"
+]
 },
 {
 "slug": "aws-deadline-cloud",
@@ -5475,24 +6163,83 @@
 "name": "AWS Thinkbox Krakatoa",
 "category": "Media",
 "icon": "assets/icons/services/aws-thinkbox-krakatoa.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Free desktop software that renders huge clouds of particles, like smoke, dust and fire.",
+"like": "A camera that can photograph every grain in a sandstorm.",
+"what": "This is desktop software, not a cloud service. AWS bought Thinkbox and now gives all Thinkbox products away at no cost, with parts of Krakatoa released as open source. It is a renderer plugin for 3ds Max, Maya, Cinema 4D and similar tools, built for scenes with billions of particles. It is effectively in maintenance. Do not expect active development.",
+"when": [
+"Rendering dust, smoke, fire or magic effects in a film or advert",
+"Visualising very large point cloud or particle data sets",
+"You already work in 3ds Max or Maya and hit limits on particle counts"
+],
+"nope": [
+"If you are not doing 3D visual effects, this is irrelevant.",
+"If you want rendering to run on AWS machines, that is AWS Deadline Cloud, which schedules the jobs. Krakatoa is just the renderer.",
+"If you are starting fresh, check whether your DCC tool's own particle renderer is enough before adopting maintenance-mode software."
+],
+"eg": "A studio renders a collapsing building's dust cloud from a hundred million particles, spread over a render farm.",
+"pay": "Free to download and use, including the licences. You pay only for whatever machines you render on, such as EC2 instances or your own workstations.",
+"rel": [
+"amazon-ec2",
+"amazon-simple-storage-service",
+"amazon-efs"
+]
 },
 {
 "slug": "aws-thinkbox-stoke",
 "name": "AWS Thinkbox Stoke",
 "category": "Media",
 "icon": "assets/icons/services/aws-thinkbox-stoke.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Free 3ds Max plugin that simulates particles moving through fields of motion.",
+"like": "Dropping confetti into a wind tunnel and watching where it goes.",
+"what": "This is desktop software for Autodesk 3ds Max only, not a cloud service. It generates and simulates particles driven by velocity fields, and reads simulation data from FumeFX, Particle Flow, thinkingParticles and RealFlow. It is free now, along with every Thinkbox product, and is in maintenance rather than active development. It is usually used to feed Krakatoa.",
+"when": [
+"Adding drifting debris or spray on top of an existing smoke simulation in 3ds Max",
+"Reusing velocity field data from another simulation tool",
+"You need particle counts beyond what 3ds Max handles natively"
+],
+"nope": [
+"If you use Maya, Houdini or Blender, this does not apply. It is a 3ds Max plugin.",
+"If you need full fluid or smoke simulation, use a dedicated solver. Stoke moves particles, it does not simulate the fluid.",
+"Almost nobody outside 3ds Max visual effects work has a use for this."
+],
+"eg": "An artist takes a FumeFX explosion and uses Stoke to send sparks tumbling along its motion, then renders them with Krakatoa.",
+"pay": "Free, licence included. Your only cost is the 3ds Max licence and the machines you simulate and render on.",
+"rel": [
+"amazon-ec2",
+"amazon-simple-storage-service",
+"amazon-efs"
+]
 },
 {
 "slug": "aws-thinkbox-xmesh",
 "name": "AWS Thinkbox XMesh",
 "category": "Media",
 "icon": "assets/icons/services/aws-thinkbox-xmesh.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Saves moving 3D animation to disk so an artist can replay it fast.",
+"like": "Recording a stage rehearsal on video, so you can watch it again without calling the actors back.",
+"what": "This is not a cloud service. It is a plugin for 3ds Max and Maya on an artist's own computer, from Thinkbox, a company AWS bought. It writes animated geometry to XMesh files that load quickly, which helps with heavy crowd or simulation scenes. AWS made all Thinkbox tools free in 2022, and the Maya version was released as open source. It is a niche visual effects tool, and almost nobody outside a VFX or animation studio will ever touch it.",
+"when": [
+"A 3D scene is so heavy that scrubbing the timeline crawls",
+"A studio wants to hand a baked animation to render machines without the original rig",
+"Crowd or particle work needs to be cached once and reused"
+],
+"nope": [
+"You are not doing 3D animation in 3ds Max or Maya. Then this is simply not for you.",
+"You want cloud rendering. That is Deadline plus EC2, not XMesh.",
+"You want to store files in the cloud. Use amazon-simple-storage-service."
+],
+"eg": "An animator bakes a 200 million polygon crowd shot to XMesh so the scene opens in seconds.",
+"pay": "Nothing. The software is free with an AWS account, and the Maya plugin is open source.",
+"rel": [
+"amazon-ec2",
+"amazon-simple-storage-service"
+]
 },
 {
 "slug": "amazon-interactive-video-service",
@@ -5582,8 +6329,28 @@
 "name": "AWS Data Transfer Terminal",
 "category": "Migration and Transfer",
 "icon": "assets/icons/services/aws-data-transfer-terminal.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Lets you drive your hard drives to an AWS building and copy them in over a very fast cable.",
+"like": "Taking a suitcase of photos to a print shop instead of emailing them one by one.",
+"what": "It is a real physical room you book by the hour. You bring your own storage device, plug into two 100 Gbps fibre links, and copy data straight into AWS. It launched in late 2024 and there are only a few sites, starting with New York and Los Angeles, so it is useless unless you can physically reach one.",
+"when": [
+"You have tens or hundreds of terabytes and a slow office internet line",
+"Film footage or vehicle sensor logs need to land in AWS the same day",
+"You do not want to post a device and wait for it to be loaded"
+],
+"nope": [
+"There is no terminal near you. Then use aws-direct-connect or an online copy tool instead.",
+"The data is small, a few terabytes or less. A normal internet upload is cheaper and simpler.",
+"You need ongoing daily transfers. Book a permanent link with aws-direct-connect, not a one off visit."
+],
+"eg": "A film crew back from a shoot books two hours in Los Angeles and pushes 400 TB of camera files into S3.",
+"pay": "Per port per hour, roughly 300 USD for US uploads and more for cross continent. The surprise is that you also pay for travel and staff time, and you pay for the booked slot even if your copy runs slow.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-direct-connect",
+"aws-backup"
+]
 },
 {
 "slug": "aws-datasync",
@@ -5645,8 +6412,28 @@
 "name": "AWS Migration Evaluator",
 "category": "Migration and Transfer",
 "icon": "assets/icons/services/aws-migration-evaluator.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "Looks at the servers you own today and estimates what they would cost on AWS.",
+"like": "A removal company walking through your house and quoting the van size before you pack.",
+"what": "You run a small collector program in your own data centre for a few weeks. It measures how busy each server really is, then AWS produces a report matching each one to an EC2 size, with a cost estimate including licences. It is an assessment report, not something that moves any workload, and the useful version comes through an AWS team rather than fully self service. It came from TSO Logic, a company AWS bought in 2019.",
+"when": [
+"Management wants a number before approving a move to AWS",
+"You suspect your servers are far bigger than the work needs",
+"You need a licence cost comparison for Windows or SQL Server"
+],
+"nope": [
+"You only have a handful of servers. Price them by hand with aws-cost-explorer style guesses instead.",
+"You already decided to move and want the actual migration tooling. This only produces a business case.",
+"You want ongoing cost control after you are on AWS. Use aws-cost-explorer and aws-budgets."
+],
+"eg": "A company finds 300 servers averaging 8 percent CPU and the report shows a far smaller EC2 bill than expected.",
+"pay": "No charge for the assessment itself. The real cost is the weeks of data collection and the people time.",
+"rel": [
+"amazon-ec2",
+"aws-cost-explorer",
+"aws-budgets"
+]
 },
 {
 "slug": "aws-transfer-family",
@@ -5731,8 +6518,29 @@
 "name": "AWS Client VPN",
 "category": "Networking and Content Delivery",
 "icon": "assets/icons/services/aws-client-vpn.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "Lets staff on laptops anywhere dial into your private AWS network.",
+"like": "A staff side door with a key card, for people working from home.",
+"what": "You set up an endpoint, users install an OpenVPN style client, and once connected their laptop can reach private servers as if it were in the office. It handles logins through certificates, Active Directory or a federated identity provider. It is per user remote access, and it is not cheap once you have many people online.",
+"when": [
+"Developers need to reach a private database that has no public address",
+"Staff work from home and need internal tools",
+"A contractor needs limited access for a short project"
+],
+"nope": [
+"You are joining two networks, an office to AWS, not individual people. Use aws-site-to-site-vpn.",
+"You just want to reach one EC2 box for admin. Session Manager needs no VPN at all.",
+"You want per app access without a network tunnel. A zero trust proxy fits better than this."
+],
+"eg": "Twenty engineers connect each morning and can reach the private RDS instance from their laptops.",
+"pay": "About 10 cents per hour for the endpoint in each subnet, plus about 5 cents per connected user per hour. The surprise is the subnet charge ticks along all night even when nobody is connected.",
+"rel": [
+"amazon-virtual-private-cloud",
+"aws-site-to-site-vpn",
+"aws-direct-connect",
+"aws-identity-and-access-management"
+]
 },
 {
 "slug": "aws-cloud-map",
@@ -5851,8 +6659,28 @@
 "name": "AWS Interconnect",
 "category": "Networking and Content Delivery",
 "icon": "assets/icons/services/aws-interconnect.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Orders a private cable between AWS and another cloud or your office, in a few clicks.",
+"like": "Asking the phone company for a dedicated line instead of running the wire yourself.",
+"what": "It is a newer managed connectivity service that arranges private, fixed bandwidth links from AWS to Azure, Google Cloud, Oracle Cloud, or to your own sites through a network partner. The point is that AWS handles the paperwork and router setup that used to take weeks. It is aimed at large multicloud setups, so most teams will never open it.",
+"when": [
+"You run workloads in AWS and another cloud and want them talking privately",
+"Setting up a cross connect by hand with a carrier is taking weeks",
+"You need encrypted, predictable bandwidth between providers"
+],
+"nope": [
+"You only need AWS to your own data centre. Plain aws-direct-connect is the well worn path.",
+"Your traffic is small or occasional. A aws-site-to-site-vpn over the internet costs far less.",
+"You only use one cloud. Then there is nothing here for you."
+],
+"eg": "A bank links its AWS region to its Azure tenancy with a 10 Gbps private path instead of routing over the internet.",
+"pay": "By the link, on capacity and how long you keep it. Fixed bandwidth means you pay whether or not traffic flows.",
+"rel": [
+"aws-direct-connect",
+"amazon-virtual-private-cloud",
+"aws-site-to-site-vpn"
+]
 },
 {
 "slug": "aws-privatelink",
@@ -5887,8 +6715,28 @@
 "name": "AWS RTB Fabric",
 "category": "Networking and Content Delivery",
 "icon": "assets/icons/services/aws-rtb-fabric.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Carries advertising bid requests between ad companies in a few milliseconds.",
+"like": "A private courier lane between trading floors, because the public road is too slow.",
+"what": "A private network built for real time bidding, the auctions that decide which advert you see while a web page loads. Those auctions must finish in tens of milliseconds, so it connects ad platforms to partners like Amazon Ads directly. It is only useful if your business is programmatic advertising. Everyone else has no reason to look at it.",
+"when": [
+"You run a demand side or supply side ad platform",
+"Bid timeouts are losing you auctions",
+"Cross network data transfer for bid traffic is a large part of your bill"
+],
+"nope": [
+"You buy adverts but do not run bidding infrastructure. This is not for you.",
+"You want general low latency networking. Use amazon-virtual-private-cloud with placement groups, or amazon-cloudfront for content.",
+"Your traffic tolerates 100 ms or more. Ordinary networking is far cheaper."
+],
+"eg": "An ad exchange routes bid requests to partners over the fabric and sees fewer timed out bids.",
+"pay": "Per transaction, with no upfront commitment. It is pitched as much cheaper than paying normal cross network data transfer for the same bid volume.",
+"rel": [
+"amazon-virtual-private-cloud",
+"amazon-cloudfront",
+"elastic-load-balancing"
+]
 },
 {
 "slug": "aws-site-to-site-vpn",
@@ -6583,8 +7431,29 @@
 "name": "AWS Security Agent",
 "category": "Security and Identity",
 "icon": "assets/icons/services/aws-security-agent.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "An AI helper that attacks and reviews your own application to find holes.",
+"like": "Hiring someone to try the locks on your house and write you a list.",
+"what": "A very new AI agent, now presented under AWS Continuum. It does on demand penetration testing, which is generally available, plus code scanning and threat modelling which are still in preview. Because parts are preview and it is so recent, treat its findings as a first pass, not as a replacement for a human security review or a compliance audit.",
+"when": [
+"You want a security check before a release without booking a testing firm",
+"You need a threat model drafted for a new design",
+"You want repeated cheap scans between real audits"
+],
+"nope": [
+"You need a signed penetration test report for a customer or auditor. Use an accredited human firm.",
+"You want to find threats in your running account, like odd API calls. That is GuardDuty and aws-cloudtrail.",
+"You want to manage who can access what. That is aws-identity-and-access-management."
+],
+"eg": "A team runs it against a new API and gets a list of injection risks in hours instead of weeks.",
+"pay": "Not clearly published. Expect usage based charging, and expect preview features to change or be priced later.",
+"rel": [
+"aws-identity-and-access-management",
+"aws-cloudtrail",
+"amazon-cloudwatch",
+"aws-secrets-manager"
+]
 },
 {
 "slug": "aws-security-hub",
@@ -6725,8 +7594,27 @@
 "name": "Amazon Cloud Directory",
 "category": "Security and Identity",
 "icon": "assets/icons/services/amazon-cloud-directory.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Stores objects like people and devices in several overlapping trees at once.",
+"like": "A staff list you can view by manager, by office, or by project, from one set of records.",
+"what": "Closed to new customers and it reaches end of support on 24 July 2027. Do not start anything on it. It was a directory store where one object could sit in many hierarchies at the same time, useful for device registries and product catalogues. AWS points people to amazon-dynamodb or Neptune instead. It was never a login directory for IT admins.",
+"when": [
+"Nothing new. It is on its way out",
+"Only relevant if you already run it and need an exit plan before 2027"
+],
+"nope": [
+"You are building anything new. Use amazon-dynamodb, or a graph database, from the start.",
+"You want staff logins and Active Directory. That is AWS Directory Service or IAM Identity Center.",
+"You want app permissions. Use amazon-verified-permissions."
+],
+"eg": "An existing customer plans a move of its device registry from Cloud Directory to DynamoDB before the 2027 cutoff.",
+"pay": "Per gigabyte stored and per request, but the real cost now is the migration you must fund before support ends.",
+"rel": [
+"amazon-dynamodb",
+"aws-identity-and-access-management",
+"amazon-verified-permissions"
+]
 },
 {
 "slug": "amazon-cognito",
@@ -6895,8 +7783,29 @@
 "name": "Amazon Verified Permissions",
 "category": "Security and Identity",
 "icon": "assets/icons/services/amazon-verified-permissions.svg",
-"tier": 4,
-"written": false
+"tier": 2,
+"written": true,
+"one": "Decides whether a user is allowed to do a thing in your app, so you do not code it yourself.",
+"like": "A doorman with the guest list, instead of every room checking names itself.",
+"what": "You write the rules in a language called Cedar, store them here, and your app asks a yes or no question for each action. It keeps permission rules out of your application code, so they can be changed and reviewed on their own. It is for permissions inside your own application, not for who can touch AWS resources.",
+"when": [
+"A SaaS app where each customer sets their own sharing rules",
+"Rules keep changing and you are tired of editing if statements",
+"Auditors want to see the permission rules written down in one place"
+],
+"nope": [
+"You want to control access to AWS itself, like who may stop an EC2 instance. That is aws-identity-and-access-management.",
+"Your app has three simple roles. A table in your own database is simpler and free.",
+"You cannot afford an extra network call in a hot path. Cache decisions or check locally instead."
+],
+"eg": "A document app asks whether Priya may share a folder, and the answer comes back from a Cedar rule, not app code.",
+"pay": "Per authorization call, fractions of a cent each. The surprise is volume. If you check permissions on every item in a list, calls multiply fast, so use the batch call.",
+"rel": [
+"aws-identity-and-access-management",
+"amazon-api-gateway",
+"aws-lambda",
+"amazon-dynamodb"
+]
 },
 {
 "slug": "aws-backup",
@@ -6956,8 +7865,28 @@
 "name": "AWS Snowball Edge",
 "category": "Storage",
 "icon": "assets/icons/services/aws-snowball-edge.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "A rugged box AWS posts you, which you fill with data and post back.",
+"like": "Posting a hard drive instead of uploading over a slow line.",
+"what": "No longer available to new customers. AWS now points new users to DataSync for online copies, aws-data-transfer-terminal for physical drop off, and aws-outposts-family for edge computing. The device held large amounts of data, could run EC2 instances and Kubernetes offline, and shipped with an E Ink label. It is still supported for existing customers, but it is not something to plan around.",
+"when": [
+"Nothing new. New sign ups are closed",
+"Existing users finishing an in flight migration or edge deployment"
+],
+"nope": [
+"You are a new customer with a bulk transfer. Use aws-data-transfer-terminal or an online copy service.",
+"You need compute at a remote site. Use aws-outposts-family.",
+"You want normal cloud storage. Use amazon-simple-storage-service."
+],
+"eg": "A ship at sea collected sensor data on a device and the box was posted ashore on arrival.",
+"pay": "A per job device fee plus daily rental after a free window, plus shipping. The classic surprise was the daily charge while the device sat unused on a loading dock.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-outposts-family",
+"amazon-ec2",
+"aws-backup"
+]
 },
 {
 "slug": "aws-snowball",
@@ -7248,8 +8177,29 @@
 "name": "Amazon S3 on Outposts",
 "category": "Storage",
 "icon": "assets/icons/services/amazon-s3-on-outposts.svg",
-"tier": 4,
-"written": false
+"tier": 3,
+"written": true,
+"one": "Gives you S3 buckets on AWS hardware sitting in your own building.",
+"like": "Having the same brand of filing cabinet at home as the one at head office.",
+"what": "It is S3 buckets running on an Outposts rack in your data centre, so the data never leaves your premises. Your code uses the normal S3 API through an access point. The limits matter, there is only one storage class, capacity is fixed by the hardware you bought, and features like versioning and cross region replication are not the same as in a Region.",
+"when": [
+"A law or contract says the data must stay in your building",
+"An application on the Outpost needs local storage with very low latency",
+"You want one S3 style codebase across cloud and on premises"
+],
+"nope": [
+"You have no regulatory or latency reason to keep data local. Plain amazon-simple-storage-service is cheaper and has far more features.",
+"You need shared file access rather than object storage. Use amazon-efs style file storage on the Outpost.",
+"You just want a one off bulk transfer. That is not what this is."
+],
+"eg": "A hospital keeps scan images in an S3 bucket on an Outpost rack in its own basement.",
+"pay": "You pay for the Outpost rack up front or over a term, and the storage capacity is bought with it. The surprise is that you pay for the whole capacity whether or not you fill it.",
+"rel": [
+"aws-outposts-family",
+"amazon-simple-storage-service",
+"amazon-efs",
+"amazon-ec2"
+]
 },
 {
 "slug": "amazon-simple-storage-service-glacier",

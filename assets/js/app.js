@@ -2,6 +2,16 @@
 (function () {
   'use strict';
   var S = [], CATS = [], st = { q: '', cat: '', lv: 'all' };
+  var READ_KEY = 'aws-read';
+  var read = {};
+  try { read = JSON.parse(localStorage.getItem(READ_KEY) || '{}') || {}; } catch (e) {}
+  function saveRead() { try { localStorage.setItem(READ_KEY, JSON.stringify(read)); } catch (e) {} }
+  function isRead(slug) { return !!read[slug]; }
+  function setRead(slug, on) {
+    if (on) read[slug] = Date.now(); else delete read[slug];
+    saveRead();
+  }
+
   var COLLAPSED_KEY = 'aws-collapsed';
   var collapsed = {};
   try { collapsed = JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '{}') || {}; } catch (e) {}
@@ -76,6 +86,8 @@
     if (st.cat && s.category !== st.cat) return false;
     if (st.lv === '1' && s.tier !== 1) return false;
     if (st.lv === 'written' && !s.written) return false;
+    if (st.lv === 'unread' && (isRead(s.slug) || !s.written)) return false;
+    if (st.lv === 'done' && !isRead(s.slug)) return false;
     if (st.q) {
       var h = hay(s), t = st.q.toLowerCase().split(/\s+/).filter(Boolean);
       for (var i = 0; i < t.length; i++) if (h.indexOf(t[i]) === -1) return false;
@@ -100,19 +112,31 @@
       var rows = groups[cat].sort(function (a, b) {
         return (a.tier - b.tier) || a.name.localeCompare(b.name);
       });
-      var shut = !st.q && collapsed[cat];
+      var filtering = !!(st.q || st.cat || st.lv !== 'all');
+      var shut = !filtering && collapsed[cat];
       return '<details class="grp" style="--dot:' + dot(cat) + '" data-cat="' + esc(cat) + '"' +
         (shut ? '' : ' open') + '>' +
         '<summary class="grphd"><span class="bar"></span><h2>' + esc(cat) + '</h2>' +
         '<span class="n">' + rows.length + '</span>' +
+        (function () {
+          var w = rows.filter(function (x) { return x.written; });
+          if (!w.length) return '';
+          var d = w.filter(function (x) { return isRead(x.slug); }).length;
+          return '<span class="gprog' + (d === w.length ? ' full' : '') + '" title="' + d + ' of ' + w.length + ' read">' +
+            '<span class="gbar"><span style="width:' + Math.round(d / w.length * 100) + '%"></span></span>' +
+            '<span class="gnum">' + d + '/' + w.length + '</span></span>';
+        })() +
         '<span class="chev" aria-hidden="true"></span></summary><div class="rows">' +
         rows.map(function (s) {
           var tag = s.written ? (s.tier === 1 ? 'learn first' : s.tier === 2 ? 'common' : 'advanced') : 'not written';
-          return '<button class="row' + (s.written ? '' : ' todo') + '" data-slug="' + esc(s.slug) + '">' +
+          var done = isRead(s.slug);
+          return '<button class="row' + (s.written ? '' : ' todo') + (done ? ' read' : '') +
+            '" data-slug="' + esc(s.slug) + '">' +
             '<span class="tile"><img src="' + esc(s.icon) + '" alt="" loading="lazy" width="26" height="26"></span>' +
             '<span class="body"><span class="head">' +
               '<span class="nm">' + esc(s.name) + '</span>' +
-              '<span class="tag" data-t="' + (s.written ? s.tier : '') + '">' + tag + '</span>' +
+              (done ? '<span class="tick" title="You marked this as read">&#10003;</span>'
+                  : '<span class="tag" data-t="' + (s.written ? s.tier : '') + '">' + tag + '</span>') +
             '</span>' +
             '<span class="de">' + esc(s.one || 'Plain English write up still to come.') + '</span></span>' +
             '</button>';
@@ -151,11 +175,14 @@
         '</dl></div>';
       if (s.rel && s.rel.length) {
         var rel = s.rel.map(function (r) { return S.find(function (x) { return x.slug === r; }); }).filter(Boolean);
-        if (rel.length) h += '<div class="blk"><h3>Usually sits next to</h3><div class="rel">' +
+        if (rel.length) h += '<div class="blk"><h3>Usually sits next to</h3><div class="relgrid">' +
           rel.map(function (r) {
             return '<button data-go="' + esc(r.slug) + '"><img src="' + esc(r.icon) + '" alt="">' + esc(r.name) + '</button>';
           }).join('') + '</div></div>';
       }
+    }
+    if (s.written) {
+      h += '<div class="readbar" id="readbar"></div>';
     }
     h += '<div class="blk"><h3>The real source</h3><p>This is a simplified summary. The ' +
       '<a href="https://docs.aws.amazon.com/" target="_blank" rel="nofollow noopener" style="text-decoration:underline">AWS documentation</a>' +
@@ -167,17 +194,70 @@
     try { history.replaceState(null, '', '#' + slug); } catch (e) {}
     $('#shut').addEventListener('click', close);
     $('#shut').focus();
+    paintReadBar(s.slug);
     Array.prototype.forEach.call($('#sheet').querySelectorAll('[data-go]'), function (b) {
       b.addEventListener('click', function () { open(b.getAttribute('data-go')); });
     });
   }
+  function paintReadBar(slug) {
+    var el = $('#readbar'); if (!el) return;
+    var done = isRead(slug);
+    el.innerHTML = '<button type="button" id="readBtn" class="' + (done ? 'on' : '') + '">' +
+      (done ? '&#10003; Read' : 'Mark as read') + '</button>' +
+      '<span class="rhint">' + (done ? 'Marked on ' + new Date(read[slug]).toLocaleDateString() +
+        '. Click to undo.' : 'Keeps your place. Stored in this browser only, never sent anywhere.') + '</span>';
+    el.querySelector('#readBtn').addEventListener('click', function () {
+      setRead(slug, !isRead(slug));
+      paintReadBar(slug);
+      render();
+      progress();
+    });
+  }
+  function progress() {
+    var w = S.filter(function (s) { return s.written; });
+    var d = w.filter(function (s) { return isRead(s.slug); });
+    var core = w.filter(function (s) { return s.tier === 1; });
+    var coreDone = core.filter(function (s) { return isRead(s.slug); });
+    var el = $('#progress'); if (!el) return;
+    var pc = w.length ? Math.round(d.length / w.length * 100) : 0;
+    var corePc = core.length ? Math.round(coreDone.length / core.length * 100) : 0;
+    el.innerHTML =
+      '<div class="pmain">' +
+        '<div class="pnum"><b>' + d.length + '</b><span>of ' + w.length + ' read</span></div>' +
+        '<div class="pbars">' +
+          '<div class="prow"><span class="plab">Everything</span>' +
+            '<span class="ptrack"><span style="width:' + pc + '%"></span></span>' +
+            '<span class="ppc">' + pc + '%</span></div>' +
+          '<div class="prow core"><span class="plab">The 42 to learn first</span>' +
+            '<span class="ptrack"><span style="width:' + corePc + '%"></span></span>' +
+            '<span class="ppc">' + coreDone.length + '/' + core.length + '</span></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="pfoot">' +
+        '<span>' + (d.length
+          ? 'Kept in this browser only. Nothing is sent anywhere.'
+          : 'Open any service, then press <kbd>R</kbd> or the button to mark it read.') + '</span>' +
+        (d.length ? '<button type="button" id="resetRead">Clear progress</button>' : '') +
+      '</div>';
+    var rb = el.querySelector('#resetRead');
+    if (rb) rb.addEventListener('click', function () {
+      if (!confirm('Clear your reading progress? This cannot be undone.')) return;
+      read = {}; saveRead(); render(); progress();
+    });
+  }
+
   function close() {
     $('#sheet').removeAttribute('data-on'); $('#sheet').setAttribute('aria-hidden', 'true');
     $('#scrim').removeAttribute('data-on');
     try { history.replaceState(null, '', location.pathname); } catch (e) {}
   }
   $('#scrim').addEventListener('click', close);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { close(); return; }
+    if ((e.key === 'r' || e.key === 'R') && $('#sheet').hasAttribute('data-on')) {
+      var b = document.getElementById('readBtn'); if (b) { e.preventDefault(); b.click(); }
+    }
+  });
   $('#list').addEventListener('click', function (e) {
     var r = e.target.closest('.row'); if (r) { open(r.dataset.slug); return; }
   });
@@ -268,7 +348,7 @@
       $('#cats').querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
       b.setAttribute('aria-pressed', 'true'); st.cat = b.dataset.cat; render();
     });
-    render(); schematic();
+    render(); schematic(); progress();
     if (location.hash) open(location.hash.slice(1));
   }).catch(function (err) {
     $('#list').innerHTML = '<p class="none">Could not load the service data. If you opened the file directly, ' +
