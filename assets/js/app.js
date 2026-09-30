@@ -100,7 +100,7 @@
         rows.map(function (s) {
           var tag = s.written ? (s.tier === 1 ? 'learn first' : s.tier === 2 ? 'common' : 'advanced') : 'not written';
           return '<button class="row' + (s.written ? '' : ' todo') + '" data-slug="' + esc(s.slug) + '">' +
-            '<img src="' + esc(s.icon) + '" alt="" loading="lazy" width="30" height="30">' +
+            '<span class="tile"><img src="' + esc(s.icon) + '" alt="" loading="lazy" width="26" height="26"></span>' +
             '<span><span class="nm">' + esc(s.name) + '</span>' +
             '<span class="de">' + esc(s.one || 'Plain English write up still to come.') + '</span></span>' +
             '<span class="tag" data-t="' + (s.written ? s.tier : '') + '">' + tag + '</span>' +
