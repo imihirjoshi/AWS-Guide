@@ -30,7 +30,7 @@
 <link rel="icon" href="assets/icons/brand/aws-cloud.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=f07538e3">
+<link rel="stylesheet" href="assets/css/style.css?v=4f9e63a4">
 <style>
 .legal{max-width:74ch;margin:0 auto;padding:44px 20px 80px}
 .legal h1{font-family:var(--wide);font-variation-settings:"wdth" 118;font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.1;letter-spacing:-.015em}
@@ -95,15 +95,37 @@
 <h2>The playground creates nothing</h2>
 <p>The sandbox is a drawing tool. It has no AWS credentials, makes no AWS API calls, and cannot create, change or delete anything in any AWS account. Nothing you draw here exists anywhere.</p>
 
-<h2>Privacy</h2>
-<p>There is nothing to sign up for and nothing is collected.</p>
+<h2 id="analytics">Privacy and analytics</h2>
+<p>There is nothing to sign up for and no personal account of any kind.</p>
 <ul>
   <li>No accounts, no login, no email capture.</li>
-  <li>No analytics, no advertising, no tracking pixels, no third party scripts beyond the web font files.</li>
-  <li>No cookies are set by this site.</li>
-  <li>Your chosen currency, exchange rate, theme and saved diagram are kept in your own browser's local storage. They stay on your device and are never transmitted. Clearing your browser data removes them.</li>
-  <li>Fonts are loaded from Google Fonts, which will see your IP address as part of serving the file. If that matters to you, the site works fine with the fonts blocked.</li>
+  <li>No advertising and no advertising networks.</li>
+  <li><strong>Google Analytics 4 is on by default</strong>, so that the author can see which pages
+    people actually read and what is worth writing next. Advertising signals and ad personalisation
+    are switched off, and IP addresses are anonymised.</li>
+  <li>Google Analytics sets its own cookies in your browser and sends page view data to Google.
+    If you would rather it did not, switch it off below. The switch takes effect immediately and the
+    page reloads so nothing further is sent.</li>
+  <li>Your currency, theme, reading progress and saved diagram are kept in your own browser's local
+    storage. They stay on your device and are never transmitted. Clearing your browser data removes them.</li>
+  <li>Fonts are loaded from Google Fonts, which will see your IP address as part of serving the file.
+    The site works fine with the fonts blocked.</li>
 </ul>
+
+<div class="togglebox">
+  <div class="tgrow">
+    <div>
+      <b>Google Analytics</b>
+      <p id="anState">Checking...</p>
+    </div>
+    <button type="button" id="anToggle" role="switch" aria-checked="true" aria-labelledby="anState">
+      <span class="knob"></span>
+    </button>
+  </div>
+  <p class="tgnote">Your choice is stored in this browser only, under <code>aws-analytics</code>.
+    It is not sent anywhere and it is not tied to you. If you use another browser or another device,
+    set it there too.</p>
+</div>
 
 <h2>No warranty</h2>
 <p>This site is provided as is, without warranty of any kind. The author accepts no liability for any loss, cost or damage arising from its use, including any AWS charges you incur.</p>
@@ -114,8 +136,28 @@
 <h2>Contact</h2>
 <p>If you own a trademark used here, or you have found a factual error, email <a href="mailto:info@4bittechnology.com">info@4bittechnology.com</a> and it will be corrected or removed promptly.</p>
 </main>
+<script src="assets/js/analytics.js?v=940aec8e"></script>
+<script>
+(function () {
+  var btn = document.getElementById('anToggle'), lbl = document.getElementById('anState');
+  if (!btn) return;
+  function paint(on) {
+    btn.setAttribute('aria-checked', on ? 'true' : 'false');
+    lbl.textContent = on
+      ? 'On. Page views are counted so the author knows what to write next.'
+      : 'Off. Nothing is sent to Google Analytics from this browser.';
+  }
+  paint(window.AWSAnalytics ? AWSAnalytics.isOn() : true);
+  btn.addEventListener('click', function () {
+    var next = btn.getAttribute('aria-checked') !== 'true';
+    if (window.AWSAnalytics) AWSAnalytics.set(next);
+    paint(next);
+    location.reload();
+  });
+})();
+</script>
 </body>
 <script src="assets/js/currency.js?v=2e9bf22e"></script>
 <script src="assets/js/ui.js?v=ee39b266"></script>
-<script src="assets/js/notice.js?v=f8947909"></script>
+<script src="assets/js/notice.js?v=134b3e0b"></script>
 </html>

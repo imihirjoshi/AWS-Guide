@@ -3,7 +3,7 @@
    Nothing is sent anywhere. The acknowledgement lives in this browser only. */
 (function () {
   'use strict';
-  var NOTICE_VERSION = '2026-09-30';
+  var NOTICE_VERSION = '2026-09-30b';
   var KEY = 'aws-notice-ack';
 
   var seen = null;
@@ -22,7 +22,7 @@
           (isUpdate ? 'notice updated' : 'notice') + '</span>' +
         '<p>Independent educational project, <b>not affiliated with AWS</b>. ' +
           'Prices here are teaching estimates, <b>never quotes</b>. ' +
-          'Explanations are simplified and can fall behind AWS changes.</p>' +
+          '<b>Google Analytics is on by default</b>, and you can switch it off on the notice page.</p>' +
         '<a href="legal.html">Read it in full</a>' +
         '<button type="button" id="noticeOk">I understand</button>' +
         '<span class="ver">v' + NOTICE_VERSION + '</span>' +

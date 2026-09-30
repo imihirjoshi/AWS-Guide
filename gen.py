@@ -112,11 +112,11 @@ def foot(depth=1):
     <div class="fcol"><h3>Written by a person</h3>
       <p>Every explanation here was written and checked by <a href="{up}about.html" rel="author">Mihir Joshi</a>, verifiable on <a href="https://www.linkedin.com/in/imihirjoshi/" rel="me noopener" target="_blank">LinkedIn</a>.</p></div>
     <div class="fcol"><h3>Your data</h3>
-      <p>No accounts, no ads, no tracking, no cookies. <a href="{up}legal.html">Full notice</a>.</p></div>
+      <p>No accounts and no ads. Google Analytics is on by default and you can switch it off on the <a href="{up}legal.html#analytics">notice page</a>.</p></div>
   </div>
   <p class="fbase">Written by <a href="{up}about.html" rel="author">Mihir Joshi</a>, verifiable on <a href="https://www.linkedin.com/in/imihirjoshi/" rel="me noopener" target="_blank">LinkedIn</a>. Distributed by 4Bit Technology.</p>
 </div></footer>
-<script src="{up}assets/js/currency.js"></script>
+<script src="{up}assets/js/analytics.js"></script>\n<script src="{up}assets/js/currency.js"></script>
 <script src="{up}assets/js/ui.js"></script>
 <script src="{up}assets/js/notice.js"></script>'''
 
