@@ -114,8 +114,27 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- the index ---------- */
 .index{padding-block:14px 76px}
-.grp{margin-top:34px}
+.grp{margin-top:30px}
 .grp:first-child{margin-top:18px}
+.listbar{display:flex;align-items:center;gap:14px;padding-top:18px;flex-wrap:wrap}
+.allbtns{margin-left:auto;display:flex;gap:6px}
+.allbtns button{background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);
+  font:12px var(--sans);padding:6px 12px;border-radius:99px;cursor:pointer;
+  transition:border-color .13s,color .13s}
+.allbtns button:hover{border-color:var(--signal);color:var(--ink)}
+.allbtns button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+.grp>summary{display:flex;align-items:center;gap:11px;margin-bottom:14px;cursor:pointer;
+  list-style:none;padding:3px 2px;border-radius:8px;user-select:none}
+.grp>summary::-webkit-details-marker{display:none}
+.grp>summary:hover{background:color-mix(in srgb, var(--dot,#6B7C91) 7%, transparent)}
+.grp>summary:focus-visible{outline:2px solid var(--signal);outline-offset:1px}
+.chev{width:9px;height:9px;border-right:1.8px solid var(--ink-3);border-bottom:1.8px solid var(--ink-3);
+  transform:rotate(45deg);margin-left:10px;margin-top:-4px;transition:transform .16s;flex:0 0 auto}
+.grp:not([open])>summary .chev{transform:rotate(-45deg);margin-top:2px}
+.grp:not([open])>summary{margin-bottom:0;opacity:.78}
+.grp:not([open]):hover>summary{opacity:1}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}}
 .grphd{display:flex;align-items:center;gap:11px;margin-bottom:14px}
 .grphd .bar{height:22px;width:4px;border-radius:2px;background:var(--dot,var(--c-other))}
 .grphd h2{font-family:var(--wide);font-variation-settings:"wdth" 112;font-weight:600;
@@ -151,7 +170,7 @@ a{color:inherit;text-decoration:none}
 .row.todo .tag{background:transparent;border:1px dashed var(--rule);color:var(--ink-3)}
 .row.todo:hover{border-style:solid;box-shadow:none;transform:none}
 
-.count{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:18px}
+.count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin:0}
 .none{padding:70px 0;text-align:center;color:var(--ink-3)}
 
 /* ---------- spec sheet panel ---------- */
@@ -202,9 +221,17 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- foot ---------- */
 .foot{border-top:1px solid var(--rule);background:var(--surface)}
-.foot .wrap{padding-block:26px 40px;font-size:12.5px;line-height:1.7;color:var(--ink-3);max-width:74ch}
-.foot a{text-decoration:underline;text-underline-offset:2px}
+.foot .wrap{padding-block:30px 26px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px 36px}
+.fcol h3{font-family:var(--wide);font-variation-settings:"wdth" 112;font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:7px;
+  padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.fcol p{font-size:12.3px;line-height:1.65;color:var(--ink-3)}
+.foot a{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
+.foot a:hover{color:var(--ink)}
 .foot strong{color:var(--ink-2)}
+.fbase{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--ink-3)}
 
 @media(max-width:1180px){
   .rows{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
@@ -243,8 +270,10 @@ a{color:inherit;text-decoration:none}
   .row .nm{font-size:14px;padding-right:76px}
   .row .de{font-size:12.5px}
   .row:hover{transform:none;box-shadow:none}
-  .grp{margin-top:26px}
+  .grp{margin-top:22px}
   .index{padding-block:8px 56px}
+  .listbar{padding-top:14px;gap:10px}
+  .allbtns button{padding:6px 10px;font-size:11.5px}
 }
 
 @media(max-width:620px){
@@ -259,7 +288,8 @@ a{color:inherit;text-decoration:none}
   .ctl{margin-left:7px;padding-left:7px;gap:5px}
   .ctl select{padding:4px 3px;font-size:11px}
   .ctl button{width:25px;height:23px;font-size:12px}
-  .foot .wrap{padding-block:22px 34px}
+  .foot .wrap{padding-block:24px 22px}
+  .fgrid{gap:20px}
   .sbody,.shd{padding-inline:16px}
   .sheet{width:100%}
   .shd{grid-template-columns:44px 1fr auto;gap:12px}

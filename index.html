@@ -52,7 +52,13 @@
 </div></section>
 
 <main class="wrap index">
-  <p class="count" id="count"></p>
+  <div class="listbar">
+    <p class="count" id="count"></p>
+    <div class="allbtns">
+      <button type="button" id="expandAll">Expand all</button>
+      <button type="button" id="collapseAll">Collapse all</button>
+    </div>
+  </div>
   <div id="list"></div>
 </main>
 
@@ -60,11 +66,25 @@
 <aside class="sheet" id="sheet" aria-hidden="true" aria-label="Service detail"></aside>
 
 <footer class="foot"><div class="wrap">
-  <p><strong>Not affiliated with Amazon Web Services.</strong> This is an independent educational project. It is not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p>
-  <p>Amazon Web Services, AWS, and all AWS service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Service icons are the official <a href="https://aws.amazon.com/architecture/icons/" rel="nofollow noopener" target="_blank">AWS Architecture Icons</a>, used unmodified, as permitted for technical and architectural material. All written explanations are original.</p>
-  <p>Every price shown here is a rough teaching estimate, not a quote and not advice. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers and the <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">AWS documentation</a> for real decisions.</p>
-  <p>No accounts, no ads, no tracking, no cookies. Your currency and theme are stored in your own browser and never sent anywhere. <a href="legal.html">Full notice</a>.</p>
-  <p>Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+  <div class="fgrid">
+    <div class="fcol">
+      <h3>Independent project</h3>
+      <p><strong>Not affiliated with Amazon Web Services.</strong> Not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p>
+    </div>
+    <div class="fcol">
+      <h3>Trademarks and icons</h3>
+      <p>AWS and all service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Icons are the official <a href="https://aws.amazon.com/architecture/icons/" rel="nofollow noopener" target="_blank">AWS Architecture Icons</a>, used unmodified. All writing here is original.</p>
+    </div>
+    <div class="fcol">
+      <h3>Prices are estimates</h3>
+      <p>Every figure is a rough teaching estimate, never a quote. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers and the <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">AWS documentation</a> for real decisions.</p>
+    </div>
+    <div class="fcol">
+      <h3>Your data</h3>
+      <p>No accounts, no ads, no tracking, no cookies. Currency and theme stay in your own browser. <a href="legal.html">Full notice</a>.</p>
+    </div>
+  </div>
+  <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
 </div></footer>
 
 <script src="assets/js/currency.js"></script>

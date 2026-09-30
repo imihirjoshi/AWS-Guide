@@ -2,6 +2,12 @@
 (function () {
   'use strict';
   var S = [], CATS = [], st = { q: '', cat: '', lv: 'all' };
+  var COLLAPSED_KEY = 'aws-collapsed';
+  var collapsed = {};
+  try { collapsed = JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '{}') || {}; } catch (e) {}
+  function saveCollapsed() {
+    try { localStorage.setItem(COLLAPSED_KEY, JSON.stringify(collapsed)); } catch (e) {}
+  }
   var $ = function (s) { return document.querySelector(s); };
   function esc(t) {
     return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) {
@@ -94,9 +100,12 @@
       var rows = groups[cat].sort(function (a, b) {
         return (a.tier - b.tier) || a.name.localeCompare(b.name);
       });
-      return '<section class="grp" style="--dot:' + dot(cat) + '">' +
-        '<div class="grphd"><span class="bar"></span><h2>' + esc(cat) + '</h2>' +
-        '<span class="n">' + rows.length + '</span></div><div class="rows">' +
+      var shut = !st.q && collapsed[cat];
+      return '<details class="grp" style="--dot:' + dot(cat) + '" data-cat="' + esc(cat) + '"' +
+        (shut ? '' : ' open') + '>' +
+        '<summary class="grphd"><span class="bar"></span><h2>' + esc(cat) + '</h2>' +
+        '<span class="n">' + rows.length + '</span>' +
+        '<span class="chev" aria-hidden="true"></span></summary><div class="rows">' +
         rows.map(function (s) {
           var tag = s.written ? (s.tier === 1 ? 'learn first' : s.tier === 2 ? 'common' : 'advanced') : 'not written';
           return '<button class="row' + (s.written ? '' : ' todo') + '" data-slug="' + esc(s.slug) + '">' +
@@ -105,7 +114,7 @@
             '<span class="de">' + esc(s.one || 'Plain English write up still to come.') + '</span></span>' +
             '<span class="tag" data-t="' + (s.written ? s.tier : '') + '">' + tag + '</span>' +
             '</button>';
-        }).join('') + '</div></section>';
+        }).join('') + '</div></details>';
     }).join('');
   }
 
@@ -168,8 +177,25 @@
   $('#scrim').addEventListener('click', close);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   $('#list').addEventListener('click', function (e) {
-    var r = e.target.closest('.row'); if (r) open(r.dataset.slug);
+    var r = e.target.closest('.row'); if (r) { open(r.dataset.slug); return; }
   });
+  $('#list').addEventListener('toggle', function (e) {
+    var d = e.target; if (!d.classList || !d.classList.contains('grp')) return;
+    var cat = d.getAttribute('data-cat');
+    if (d.open) delete collapsed[cat]; else collapsed[cat] = 1;
+    saveCollapsed();
+  }, true);
+
+  function setAll(openThem) {
+    Array.prototype.forEach.call($('#list').querySelectorAll('details.grp'), function (d) {
+      d.open = openThem;
+      var cat = d.getAttribute('data-cat');
+      if (openThem) delete collapsed[cat]; else collapsed[cat] = 1;
+    });
+    saveCollapsed();
+  }
+  $('#expandAll').addEventListener('click', function () { setAll(true); });
+  $('#collapseAll').addEventListener('click', function () { setAll(false); });
 
   var t;
   $('#q').addEventListener('input', function (e) {
