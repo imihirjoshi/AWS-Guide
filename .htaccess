@@ -21,7 +21,7 @@ DirectoryIndex index.html
   RewriteRule ^index\.html$ / [R=301,L]
 
   # the services list used to live at /index.html before basics became the front door
-  RewriteRule ^basics\.html$ /index.html [R=301,L]
+  RewriteRule ^basics\.html$ / [R=301,L]
 </IfModule>
 
 # ---------- correct types ----------
