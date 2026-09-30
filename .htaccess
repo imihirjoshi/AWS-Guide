@@ -3,6 +3,11 @@
 # ---------- the front door ----------
 DirectoryIndex index.html
 
+# NOTE: this host blocks known AI crawler user agents (GPTBot, ClaudeBot,
+# PerplexityBot and others) at LiteSpeed server level, above .htaccess.
+# Tested 30 Sep 2026: a Require/SetEnvIf allow rule here has no effect.
+# Only the hosting provider can lift it. See AI-CRAWLER-BLOCK.md.
+
 # ---------- canonical host and scheme ----------
 <IfModule mod_rewrite.c>
   RewriteEngine On
