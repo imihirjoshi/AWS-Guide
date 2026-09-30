@@ -57,13 +57,22 @@ Then open `http://localhost:8777`.
 
 ## Deploying
 
-Any static host works. It is only files.
+It is only static files, so any web host works. No build step, no Node, no backend.
 
-**GitHub Pages:** push the repo, then Settings, Pages, deploy from branch, root folder.
-**Custom domain:** add a `CNAME` file containing `aws.4bittechnology.com`, then point a CNAME
-record at the GitHub Pages address.
+**Where this actually runs:** `aws.4bittechnology.com`, served from the project's own cPanel
+hosting. GitHub holds the source code only. GitHub Pages is deliberately not used for this
+domain.
 
-Nothing here talks to AWS. There is no API key, no account, no backend.
+To deploy, copy the folder to the web root:
+
+```
+rsync -az --delete \
+  --exclude '.git' --exclude '_work' --exclude 'GITHUB-SETUP.txt' \
+  ./ user@host:~/aws-guide/
+```
+
+Nothing here talks to AWS. There is no API key, no AWS account, no backend and no database.
+The playground cannot create, change or delete anything in any AWS account.
 
 ## Adding a service write up
 
