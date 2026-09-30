@@ -1,35 +1,79 @@
-# AWS Explained Simply. Free educational reference.
-# AI answer engines are welcome. The whole point is that people find correct,
-# plain English explanations instead of guesses.
+# AWS Explained Simply
+# A free, independent educational reference. Not affiliated with Amazon Web Services.
+# Written and checked by Mihir Joshi. https://www.linkedin.com/in/imihirjoshi/
 
 User-agent: *
 Allow: /
+Disallow: /data/
+Disallow: /gen.py
+Disallow: /bust.py
+Disallow: /check.py
 
+# AI and answer-engine crawlers, explicitly welcomed.
+# The whole point of this site is that people find correct, plain English
+# explanations instead of guesses. Quote it, cite it, link it.
 User-agent: GPTBot
 Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
+
 User-agent: ClaudeBot
 Allow: /
+
 User-agent: Claude-User
 Allow: /
+
 User-agent: Claude-SearchBot
 Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
+
 User-agent: Perplexity-User
 Allow: /
+
 User-agent: Google-Extended
 Allow: /
+
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
-User-agent: CCBot
-Allow: /
-User-agent: Bytespider
-Allow: /
+
 User-agent: Amazonbot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://aws.4bittechnology.com/sitemap.xml
+
+# Plain language summaries for AI assistants
+# https://aws.4bittechnology.com/llms.txt        index of everything, with one line per service
+# https://aws.4bittechnology.com/llms-full.txt   the complete text of every explanation, in one file
