@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AWS Explained Simply | Every AWS service in plain English</title>
+<meta name="description" content="A plain English index of every AWS service, with a sandbox for sketching architectures and seeing rough costs. Free, educational, no signup.">
+<link rel="icon" href="assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html"><span class="awsmark"><img src="assets/icons/brand/aws-cloud.svg" alt="" width="26" height="26"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="index.html">Services</a><a href="playground.html">Playground</a><a href="learn.html">Start here</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>The cloud, without the vocabulary problem</h1>
+    <p class="say">Every AWS service gets one sentence, an everyday comparison, and a straight answer on when not to use it. Search it in plain words. Sketch it on the board. See what it would cost.</p>
+    <div class="tally">
+      <div><b id="tSvc">303</b><span>services indexed</span></div>
+      <div><b id="tWr">62</b><span>written in full</span></div>
+      <div><b id="tCat">24</b><span>categories</span></div>
+    </div>
+  </div>
+  <svg id="schema" viewBox="0 0 520 306" role="img" aria-label="A simple web architecture: domain, cache, load balancer, two servers and a database">
+    <defs>
+      <marker id="tip" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0 0 L8 4 L0 8 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <g id="schemaG" color="#8B98A8"></g>
+  </svg>
+</div></section>
+
+<section class="filters"><div class="wrap">
+  <div class="fr">
+    <input id="q" type="search" placeholder="Search in plain words: store files, send email, run my code" autocomplete="off" spellcheck="false">
+    <div class="seg" role="group" aria-label="Filter by depth">
+      <button data-lv="all" aria-pressed="true">Everything</button>
+      <button data-lv="1" aria-pressed="false">Learn first</button>
+      <button data-lv="written" aria-pressed="false">Written up</button>
+    </div>
+  </div>
+  <div class="cats" id="cats" role="group" aria-label="Filter by category"></div>
+</div></section>
+
+<main class="wrap index">
+  <p class="count" id="count"></p>
+  <div id="list"></div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" aria-hidden="true" aria-label="Service detail"></aside>
+
+<footer class="foot"><div class="wrap">
+  <p><strong>Not affiliated with Amazon Web Services.</strong> This is an independent educational project. It is not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p>
+  <p>Amazon Web Services, AWS, and all AWS service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Service icons are the official <a href="https://aws.amazon.com/architecture/icons/" rel="nofollow noopener" target="_blank">AWS Architecture Icons</a>, used unmodified, as permitted for technical and architectural material. All written explanations are original.</p>
+  <p>Every price shown here is a rough teaching estimate, not a quote and not advice. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers and the <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">AWS documentation</a> for real decisions.</p>
+  <p>No accounts, no ads, no tracking, no cookies. Your currency and theme are stored in your own browser and never sent anywhere. <a href="legal.html">Full notice</a>.</p>
+  <p>Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

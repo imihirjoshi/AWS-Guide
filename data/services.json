@@ -1,0 +1,3453 @@
+[
+{
+"slug": "aws-clean-rooms",
+"name": "AWS Clean Rooms",
+"category": "Analytics",
+"icon": "assets/icons/services/aws-clean-rooms.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-data-exchange",
+"name": "AWS Data Exchange",
+"category": "Analytics",
+"icon": "assets/icons/services/aws-data-exchange.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-entity-resolution",
+"name": "AWS Entity Resolution",
+"category": "Analytics",
+"icon": "assets/icons/services/aws-entity-resolution.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-glue-databrew",
+"name": "AWS Glue DataBrew",
+"category": "Analytics",
+"icon": "assets/icons/services/aws-glue-databrew.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-glue",
+"name": "AWS Glue",
+"category": "Analytics",
+"icon": "assets/icons/services/aws-glue.svg",
+"tier": 2,
+"one": "Cleans and moves data between places.",
+"like": "The kitchen prep station. Wash, chop and arrange before the cooking starts.",
+"what": "Glue extracts data, transforms it and loads it somewhere useful. Its catalogue records what your data looks like so Athena and Redshift can read it. It is serverless, so nothing to run.",
+"when": [
+"Messy data from several sources",
+"Preparing data for analysis"
+],
+"nope": [
+"A single simple copy job. A script may be enough."
+],
+"pay": "Per data processing unit hour.",
+"eg": "Nightly job turning raw CSV exports into clean Parquet for Athena.",
+"rel": [
+"amazon-athena",
+"amazon-redshift",
+"amazon-simple-storage-service"
+],
+"written": true
+},
+{
+"slug": "aws-lake-formation",
+"name": "AWS Lake Formation",
+"category": "Analytics",
+"icon": "assets/icons/services/aws-lake-formation.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-athena",
+"name": "Amazon Athena",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-athena.svg",
+"tier": 2,
+"one": "Run SQL directly on files sitting in S3.",
+"like": "Reading the files in your cupboard without first moving them into a filing system.",
+"what": "Athena queries CSV, JSON or Parquet files in S3 using normal SQL. Nothing to set up. Store data as Parquet and partition it, or queries get slow and expensive.",
+"when": [
+"Occasional analysis of files",
+"Log analysis",
+"You do not want a data warehouse yet"
+],
+"nope": [
+"Fast dashboards many people refresh all day. Use Redshift."
+],
+"pay": "Per TB of data scanned. Bad file formats cost real money here.",
+"eg": "Asking how many orders came from Gujarat last month, straight from log files.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-glue",
+"amazon-redshift"
+],
+"written": true
+},
+{
+"slug": "amazon-cloudsearch",
+"name": "Amazon CloudSearch",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-cloudsearch.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-data-firehose",
+"name": "Amazon Data Firehose",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-data-firehose.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-datazone",
+"name": "Amazon DataZone",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-datazone.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-emr",
+"name": "Amazon EMR",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-emr.svg",
+"tier": 3,
+"one": "Big data processing with Spark and Hadoop.",
+"like": "Hiring a hundred workers for one week to sort a mountain of paperwork.",
+"what": "EMR runs Spark, Hive and Hadoop clusters for heavy processing. It is powerful and needs real expertise. Most teams should try Athena or Glue first.",
+"when": [
+"Terabytes of data",
+"You already have Spark jobs"
+],
+"nope": [
+"Anything Athena can answer."
+],
+"pay": "Per instance hour plus an EMR fee.",
+"eg": "Reprocessing five years of raw logs in one run.",
+"rel": [
+"aws-glue",
+"amazon-athena"
+],
+"written": true
+},
+{
+"slug": "amazon-finspace",
+"name": "Amazon FinSpace",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-finspace.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-kinesis-data-streams",
+"name": "Amazon Kinesis Data Streams",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-kinesis-data-streams.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-kinesis-video-streams",
+"name": "Amazon Kinesis Video Streams",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-kinesis-video-streams.svg",
+"tier": 4,
+"written": false,
+"alsoIn": "Media"
+},
+{
+"slug": "amazon-kinesis",
+"name": "Amazon Kinesis",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-kinesis.svg",
+"tier": 2,
+"one": "Handles data that never stops arriving.",
+"like": "A conveyor belt running all day. You take things off as they pass.",
+"what": "Kinesis takes continuous streams of events and lets several consumers read them in order. Unlike a queue, data stays for a set window so more than one reader can process it.",
+"when": [
+"Clickstreams, sensor data, live logs",
+"Real time dashboards"
+],
+"nope": [
+"A handful of events per day. Use SQS or EventBridge."
+],
+"pay": "Per shard hour, or per GB with on demand.",
+"eg": "Every page view on a site, flowing in live for a real time counter.",
+"rel": [
+"amazon-simple-queue-service",
+"amazon-simple-storage-service"
+],
+"written": true
+},
+{
+"slug": "amazon-managed-service-for-apache-flink",
+"name": "Amazon Managed Service for Apache Flink",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-managed-service-for-apache-flink.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-managed-streaming-for-apache-kafka",
+"name": "Amazon Managed Streaming for Apache Kafka",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-managed-streaming-for-apache-kafka.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-opensearch-service",
+"name": "Amazon OpenSearch Service",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-opensearch-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-redshift",
+"name": "Amazon Redshift",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-redshift.svg",
+"tier": 2,
+"one": "A warehouse built for asking big questions of big data.",
+"like": "A library with a proper index, built for research rather than for borrowing one book.",
+"what": "Redshift is a data warehouse. It answers analytical queries over billions of rows fast. It is not for running your app. You load data into it from S3 or your database.",
+"when": [
+"Business intelligence dashboards",
+"Reporting across years of data"
+],
+"nope": [
+"The live database behind your app",
+"Small data. Athena is cheaper."
+],
+"pay": "Per node hour, or per unit with Serverless.",
+"eg": "A dashboard showing revenue by city by month across four years.",
+"rel": [
+"amazon-athena",
+"aws-glue"
+],
+"written": true
+},
+{
+"slug": "amazon-sagemaker",
+"name": "Amazon SageMaker",
+"category": "Analytics",
+"icon": "assets/icons/services/amazon-sagemaker.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-appsync",
+"name": "AWS AppSync",
+"category": "Application Integration",
+"icon": "assets/icons/services/aws-appsync.svg",
+"tier": 3,
+"one": "A managed GraphQL API.",
+"like": "One waiter who brings exactly the dishes you asked for, in one trip.",
+"what": "AppSync serves a GraphQL API backed by DynamoDB, Lambda or your own database. It supports real time subscriptions and offline sync, which suits mobile apps.",
+"when": [
+"You use GraphQL",
+"Real time updates",
+"Mobile apps that go offline"
+],
+"nope": [
+"You are happy with REST. API Gateway is simpler."
+],
+"pay": "Per million queries, plus real time minutes.",
+"eg": "A chat screen that updates live without polling.",
+"rel": [
+"amazon-api-gateway",
+"amazon-dynamodb",
+"aws-amplify"
+],
+"written": true
+},
+{
+"slug": "aws-b2b-data-interchange",
+"name": "AWS B2B Data Interchange",
+"category": "Application Integration",
+"icon": "assets/icons/services/aws-b2b-data-interchange.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-express-workflows",
+"name": "AWS Express Workflows",
+"category": "Application Integration",
+"icon": "assets/icons/services/aws-express-workflows.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-step-functions",
+"name": "AWS Step Functions",
+"category": "Application Integration",
+"icon": "assets/icons/services/aws-step-functions.svg",
+"tier": 2,
+"one": "Draws your multi step process as a flowchart that actually runs.",
+"like": "A checklist that ticks itself, remembers where it stopped, and retries the step that failed.",
+"what": "Step Functions coordinates several Lambdas or services in order, with branches, retries and waits. It remembers state, so a long process survives failures. You can see exactly which step failed.",
+"when": [
+"A process with several steps",
+"Steps that must retry",
+"Anything that takes minutes or days"
+],
+"nope": [
+"A single function call."
+],
+"pay": "Per state transition. The Express type is cheaper for high volume.",
+"eg": "Order, then payment, then invoice, then email, with a retry if payment times out.",
+"rel": [
+"aws-lambda",
+"amazon-eventbridge"
+],
+"written": true
+},
+{
+"slug": "amazon-appflow",
+"name": "Amazon AppFlow",
+"category": "Application Integration",
+"icon": "assets/icons/services/amazon-appflow.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-eventbridge",
+"name": "Amazon EventBridge",
+"category": "Application Integration",
+"icon": "assets/icons/services/amazon-eventbridge.svg",
+"tier": 2,
+"one": "A router for events between services.",
+"like": "A post office that reads the address and delivers only to the right houses.",
+"what": "EventBridge takes events and sends them to targets based on rules you write. AWS services and some SaaS tools publish into it. It can also run things on a schedule, like a cron.",
+"when": [
+"Many events with rules about who cares",
+"Scheduled jobs",
+"Reacting to AWS events"
+],
+"nope": [
+"A single simple hand off. SQS is simpler."
+],
+"pay": "Per million events. Scheduled rules are free.",
+"eg": "Run a report every night at 2am IST.",
+"rel": [
+"aws-lambda",
+"amazon-simple-queue-service",
+"aws-step-functions"
+],
+"written": true
+},
+{
+"slug": "amazon-mq",
+"name": "Amazon MQ",
+"category": "Application Integration",
+"icon": "assets/icons/services/amazon-mq.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-managed-workflows-for-apache-airflow",
+"name": "Amazon Managed Workflows for Apache Airflow",
+"category": "Application Integration",
+"icon": "assets/icons/services/amazon-managed-workflows-for-apache-airflow.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-simple-notification-service",
+"name": "Amazon Simple Notification Service",
+"category": "Application Integration",
+"icon": "assets/icons/services/amazon-simple-notification-service.svg",
+"tier": 1,
+"one": "Sends one message to many listeners at once.",
+"like": "A WhatsApp group broadcast. One post, everyone in the group sees it.",
+"what": "SNS publishes a message to a topic. Everything subscribed gets a copy: queues, Lambda functions, emails, SMS. SQS is one to one, SNS is one to many.",
+"when": [
+"One event must trigger several things",
+"Alerts to a team"
+],
+"nope": [
+"You need a durable work queue. Use SQS."
+],
+"pay": "Per million publishes, plus SMS charges which are not cheap.",
+"eg": "A payment succeeds, so an email goes out, stock updates and analytics record it.",
+"rel": [
+"amazon-simple-queue-service",
+"amazon-eventbridge",
+"amazon-simple-email-service"
+],
+"written": true
+},
+{
+"slug": "amazon-simple-queue-service",
+"name": "Amazon Simple Queue Service",
+"category": "Application Integration",
+"icon": "assets/icons/services/amazon-simple-queue-service.svg",
+"tier": 1,
+"one": "A waiting line for tasks.",
+"like": "A ticket counter. Work is dropped in the queue and picked up when someone is free.",
+"what": "SQS holds messages until a worker takes them. If the worker crashes the message comes back. It protects you from traffic spikes. Standard queues can deliver a message twice, so your worker must handle that.",
+"when": [
+"Slow work that should not block the user",
+"Absorbing spikes",
+"Separating parts of a system"
+],
+"nope": [
+"You need an instant answer back to the user."
+],
+"pay": "Per million requests. Very cheap.",
+"eg": "Order placed, a message goes in the queue, invoices are generated in the background.",
+"rel": [
+"aws-lambda",
+"amazon-simple-notification-service",
+"amazon-eventbridge"
+],
+"written": true
+},
+{
+"slug": "aws-app-studio",
+"name": "AWS App Studio",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-app-studio.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-deep-learning-amis",
+"name": "AWS Deep Learning AMIs",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-deep-learning-amis.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-deep-learning-containers",
+"name": "AWS Deep Learning Containers",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-deep-learning-containers.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-deepracer",
+"name": "AWS DeepRacer",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-deepracer.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-inference",
+"name": "AWS Elemental Inference",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-elemental-inference.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-healthimaging",
+"name": "AWS HealthImaging",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-healthimaging.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-healthlake",
+"name": "AWS HealthLake",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-healthlake.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-healthomics",
+"name": "AWS HealthOmics",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-healthomics.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-healthscribe",
+"name": "AWS HealthScribe",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-healthscribe.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-neuron",
+"name": "AWS Neuron",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-neuron.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-panorama",
+"name": "AWS Panorama",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/aws-panorama.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-augmented-ai-a2i",
+"name": "Amazon Augmented AI A2I",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-augmented-ai-a2i.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-bedrock-agentcore",
+"name": "Amazon Bedrock AgentCore",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-bedrock-agentcore.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-bedrock",
+"name": "Amazon Bedrock",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-bedrock.svg",
+"tier": 1,
+"one": "Use ready made AI models, including Claude, through one API.",
+"like": "A tap. The water treatment plant already exists, you just open the tap.",
+"what": "Bedrock gives access to foundation models from several providers without managing any servers. Your data is not used to train the models. It supports retrieval from your own documents and agents that take actions.",
+"when": [
+"Adding AI to an app",
+"Summarising, extracting, chatting, classifying"
+],
+"nope": [
+"A simple rule would do the job.",
+"You need to train on your own data from scratch. Use SageMaker."
+],
+"pay": "Per thousand input and output tokens. Provisioned capacity is also available.",
+"eg": "Reading a scanned invoice and pulling out the amount and date.",
+"rel": [
+"amazon-sagemaker-ai",
+"amazon-textract",
+"aws-lambda"
+],
+"written": true
+},
+{
+"slug": "amazon-codeguru",
+"name": "Amazon CodeGuru",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-codeguru.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-codewhisperer",
+"name": "Amazon CodeWhisperer",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-codewhisperer.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-comprehend-medical",
+"name": "Amazon Comprehend Medical",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-comprehend-medical.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-comprehend",
+"name": "Amazon Comprehend",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-comprehend.svg",
+"tier": 2,
+"one": "Finds meaning inside plain text.",
+"like": "A reader who highlights the names, places and mood in a letter.",
+"what": "Comprehend pulls out entities, key phrases, sentiment and language from text. It also detects personal data, which is useful for privacy work.",
+"when": [
+"Sorting support tickets",
+"Sentiment on reviews",
+"Finding personal data in text"
+],
+"nope": [
+"Complex reasoning. Use Bedrock."
+],
+"pay": "Per unit of text processed.",
+"eg": "Flagging angry support messages so they are answered first.",
+"rel": [
+"amazon-bedrock",
+"amazon-translate"
+],
+"written": true
+},
+{
+"slug": "amazon-devops-guru",
+"name": "Amazon DevOps Guru",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-devops-guru.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-elastic-inference",
+"name": "Amazon Elastic Inference",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-elastic-inference.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-forecast",
+"name": "Amazon Forecast",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-forecast.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-fraud-detector",
+"name": "Amazon Fraud Detector",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-fraud-detector.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-kendra",
+"name": "Amazon Kendra",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-kendra.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-lex",
+"name": "Amazon Lex",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-lex.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-lookout-for-equipment",
+"name": "Amazon Lookout for Equipment",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-lookout-for-equipment.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-lookout-for-vision",
+"name": "Amazon Lookout for Vision",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-lookout-for-vision.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-monitron",
+"name": "Amazon Monitron",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-monitron.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-nova",
+"name": "Amazon Nova",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-nova.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-personalize",
+"name": "Amazon Personalize",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-personalize.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-polly",
+"name": "Amazon Polly",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-polly.svg",
+"tier": 2,
+"one": "Turns written text into a natural sounding voice.",
+"like": "A newsreader who will read anything you hand over.",
+"what": "Polly converts text to speech in many languages and voices, including Indian English and Hindi. Neural voices sound noticeably better than the standard ones.",
+"when": [
+"Audio versions of lessons",
+"Accessibility",
+"Voice notifications"
+],
+"nope": [
+"You need a specific human's voice."
+],
+"pay": "Per million characters.",
+"eg": "Turning a written lesson into an audio file students can listen to.",
+"rel": [
+"amazon-transcribe",
+"amazon-translate"
+],
+"written": true
+},
+{
+"slug": "amazon-q",
+"name": "Amazon Q",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-q.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-rekognition",
+"name": "Amazon Rekognition",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-rekognition.svg",
+"tier": 2,
+"one": "Understands what is in a picture or video.",
+"like": "A person who can glance at a photo and tell you what is in it.",
+"what": "Rekognition detects objects, text, unsafe content and faces in images and video. Face features carry real privacy and legal weight, so check the law before using them on people.",
+"when": [
+"Moderating uploaded images",
+"Finding text in photos",
+"Counting objects"
+],
+"nope": [
+"Reading a structured document. Use Textract."
+],
+"pay": "Per image or per minute of video.",
+"eg": "Automatically rejecting an uploaded profile photo that is not a face.",
+"rel": [
+"amazon-textract",
+"amazon-simple-storage-service"
+],
+"written": true
+},
+{
+"slug": "amazon-sagemaker-ai",
+"name": "Amazon SageMaker AI",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-sagemaker-ai.svg",
+"tier": 3,
+"one": "Build and train your own machine learning models.",
+"like": "A full workshop with tools, benches and machines, for making something custom.",
+"what": "SageMaker covers the whole machine learning lifecycle: prepare data, train, tune, deploy, monitor. It is for building your own model. If you just want to use an existing AI model, Bedrock is far simpler.",
+"when": [
+"You have your own data and a real ML problem",
+"You need a custom model"
+],
+"nope": [
+"You want to use a ready made model. Use Bedrock."
+],
+"pay": "Per instance hour for notebooks, training and endpoints. Idle endpoints are a classic waste.",
+"eg": "Training a model on your own sales data to predict next month's demand.",
+"rel": [
+"amazon-bedrock",
+"amazon-simple-storage-service"
+],
+"written": true
+},
+{
+"slug": "amazon-sagemaker-ground-truth",
+"name": "Amazon SageMaker Ground Truth",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-sagemaker-ground-truth.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-sagemaker-studio-lab",
+"name": "Amazon SageMaker Studio Lab",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-sagemaker-studio-lab.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-textract",
+"name": "Amazon Textract",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-textract.svg",
+"tier": 2,
+"one": "Pulls text and tables out of scanned documents.",
+"like": "A clerk who types up a scanned form into a spreadsheet, including the table.",
+"what": "Textract reads printed and handwritten text, and understands forms and tables, unlike basic OCR. It returns structured data with a confidence score for each field.",
+"when": [
+"Invoices, forms, ID documents, receipts"
+],
+"nope": [
+"A clean digital PDF you can already read."
+],
+"pay": "Per page, more for forms and tables.",
+"eg": "Reading a scanned purchase order into your system.",
+"rel": [
+"amazon-bedrock",
+"amazon-rekognition"
+],
+"written": true
+},
+{
+"slug": "amazon-transcribe",
+"name": "Amazon Transcribe",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-transcribe.svg",
+"tier": 2,
+"one": "Turns speech into written text.",
+"like": "A stenographer who types everything that is said.",
+"what": "Transcribe converts audio and video to text, with timestamps and speaker labels. It handles Indian English. Accuracy drops with heavy background noise or heavy code switching.",
+"when": [
+"Subtitles for lessons",
+"Meeting notes",
+"Making audio searchable"
+],
+"nope": [
+"Very poor audio. Fix the recording first."
+],
+"pay": "Per second of audio.",
+"eg": "Auto subtitles on a recorded class.",
+"rel": [
+"amazon-polly",
+"amazon-translate"
+],
+"written": true
+},
+{
+"slug": "amazon-translate",
+"name": "Amazon Translate",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/amazon-translate.svg",
+"tier": 2,
+"one": "Translates text between languages.",
+"like": "An interpreter who works instantly and never tires.",
+"what": "Translate converts text between many languages including Hindi and Gujarati. Quality is good for general text and weaker on specialised jargon unless you give it a custom glossary.",
+"when": [
+"Multi language content",
+"Translating user messages"
+],
+"nope": [
+"Legal or medical text where a mistake is serious. Use a human."
+],
+"pay": "Per million characters.",
+"eg": "Showing course descriptions in Gujarati as well as English.",
+"rel": [
+"amazon-transcribe",
+"amazon-comprehend"
+],
+"written": true
+},
+{
+"slug": "apache-mxnet-on-aws",
+"name": "Apache MXNet on AWS",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/apache-mxnet-on-aws.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "pytorch-on-aws",
+"name": "PyTorch on AWS",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/pytorch-on-aws.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "tensorflow-on-aws",
+"name": "TensorFlow on AWS",
+"category": "AI and Machine Learning",
+"icon": "assets/icons/services/tensorflow-on-aws.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-managed-blockchain",
+"name": "Amazon Managed Blockchain",
+"category": "Blockchain",
+"icon": "assets/icons/services/amazon-managed-blockchain.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-appfabric",
+"name": "AWS AppFabric",
+"category": "Business Applications",
+"icon": "assets/icons/services/aws-appfabric.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-end-user-messaging",
+"name": "AWS End User Messaging",
+"category": "Business Applications",
+"icon": "assets/icons/services/aws-end-user-messaging.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-supply-chain",
+"name": "AWS Supply Chain",
+"category": "Business Applications",
+"icon": "assets/icons/services/aws-supply-chain.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-wickr",
+"name": "AWS Wickr",
+"category": "Business Applications",
+"icon": "assets/icons/services/aws-wickr.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-chime-sdk",
+"name": "Amazon Chime SDK",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-chime-sdk.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-chime",
+"name": "Amazon Chime",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-chime.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-connect",
+"name": "Amazon Connect",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-connect.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-pinpoint-apis",
+"name": "Amazon Pinpoint APIs",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-pinpoint-apis.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-pinpoint",
+"name": "Amazon Pinpoint",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-pinpoint.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-quick",
+"name": "Amazon Quick",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-quick.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-simple-email-service",
+"name": "Amazon Simple Email Service",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-simple-email-service.svg",
+"tier": 1,
+"one": "Sends email from your app, cheaply and at scale.",
+"like": "A bulk post office for letters your system writes.",
+"what": "SES sends transactional and bulk email. New accounts start in a sandbox and must be approved for real sending. You must set up SPF, DKIM and DMARC or your mail lands in spam.",
+"when": [
+"Invoices, receipts, password resets",
+"Newsletters"
+],
+"nope": [
+"A handful of manual emails a week."
+],
+"pay": "Per thousand emails. Very cheap.",
+"eg": "Emailing an invoice PDF the moment a payment succeeds.",
+"rel": [
+"amazon-simple-notification-service",
+"aws-lambda"
+],
+"written": true
+},
+{
+"slug": "amazon-workdocs-sdk",
+"name": "Amazon WorkDocs SDK",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-workdocs-sdk.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-workdocs",
+"name": "Amazon WorkDocs",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-workdocs.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-workmail",
+"name": "Amazon WorkMail",
+"category": "Business Applications",
+"icon": "assets/icons/services/amazon-workmail.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-billing-conductor",
+"name": "AWS Billing Conductor",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/aws-billing-conductor.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-budgets",
+"name": "AWS Budgets",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/aws-budgets.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cost-explorer",
+"name": "AWS Cost Explorer",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/aws-cost-explorer.svg",
+"tier": 1,
+"one": "Shows where your AWS money is going.",
+"like": "A bank statement with charts, so you can see what you actually spend on.",
+"what": "Cost Explorer breaks the bill down by service, tag and time, and forecasts next month. Tag everything from day one or the breakdown is useless. Set a budget alert on day one too.",
+"when": [
+"Always. From the first day."
+],
+"nope": [],
+"pay": "The console view is free. The API has a small per request charge.",
+"eg": "Spotting that a forgotten test server has cost 4,000 rupees this month.",
+"rel": [
+"aws-budgets",
+"aws-trusted-advisor"
+],
+"written": true
+},
+{
+"slug": "aws-cost-and-usage-report",
+"name": "AWS Cost and Usage Report",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/aws-cost-and-usage-report.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-finops-agent",
+"name": "AWS FinOps Agent",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/aws-finops-agent.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "reserved-instance-reporting",
+"name": "Reserved Instance Reporting",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/reserved-instance-reporting.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "savings-plans",
+"name": "Savings Plans",
+"category": "Cost and Billing",
+"icon": "assets/icons/services/savings-plans.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-app-runner",
+"name": "AWS App Runner",
+"category": "Compute",
+"icon": "assets/icons/services/aws-app-runner.svg",
+"tier": 2,
+"one": "Give it your code or container, it runs a web service.",
+"like": "A vending machine for web apps. Put the code in, a running URL comes out.",
+"what": "App Runner builds from your repository or image, runs it, scales it and gives you HTTPS. No VPC or load balancer to configure. Less control than ECS, far less to learn.",
+"when": [
+"A containerised web app, quickly",
+"Small teams with no ops person"
+],
+"nope": [
+"Complex networking needs."
+],
+"pay": "Per vCPU and GB while running, with a lower idle rate.",
+"eg": "A Node API live from a GitHub repo in minutes.",
+"rel": [
+"aws-fargate",
+"amazon-elastic-container-service"
+],
+"written": true
+},
+{
+"slug": "aws-batch",
+"name": "AWS Batch",
+"category": "Compute",
+"icon": "assets/icons/services/aws-batch.svg",
+"tier": 3,
+"one": "Runs large numbers of background jobs.",
+"like": "A night shift that works through a pile of tasks while you sleep.",
+"what": "Batch queues your jobs and starts the right amount of compute to work through them, then shuts it down. It handles dependencies and retries. Good with Spot instances for cheap compute.",
+"when": [
+"Rendering, simulations, bulk processing",
+"Thousands of independent jobs"
+],
+"nope": [
+"A few small tasks. Use Lambda."
+],
+"pay": "Free service. You pay for the compute it starts.",
+"eg": "Generating ten thousand certificate PDFs overnight.",
+"rel": [
+"aws-fargate",
+"amazon-ec2"
+],
+"written": true
+},
+{
+"slug": "aws-compute-optimizer",
+"name": "AWS Compute Optimizer",
+"category": "Compute",
+"icon": "assets/icons/services/aws-compute-optimizer.svg",
+"tier": 4,
+"written": false,
+"alsoIn": "Management and Governance"
+},
+{
+"slug": "aws-elastic-beanstalk",
+"name": "AWS Elastic Beanstalk",
+"category": "Compute",
+"icon": "assets/icons/services/aws-elastic-beanstalk.svg",
+"tier": 2,
+"one": "Upload your code and AWS sets up the servers for you.",
+"like": "A serviced office. Bring your laptop, the desk and internet are ready.",
+"what": "Beanstalk takes your application and creates the EC2 servers, load balancer and scaling behind the scenes. You can still reach in and change things. It is an older service and newer options often fit better.",
+"when": [
+"A traditional app you want online fast",
+"You want servers without configuring them"
+],
+"nope": [
+"A brand new project. Look at App Runner or containers first."
+],
+"pay": "Free. You pay for the resources it creates.",
+"eg": "Deploying a Django app without touching a load balancer setting.",
+"rel": [
+"aws-app-runner",
+"amazon-ec2",
+"amazon-elastic-container-service"
+],
+"written": true
+},
+{
+"slug": "aws-lambda",
+"name": "AWS Lambda",
+"category": "Compute",
+"icon": "assets/icons/services/aws-lambda.svg",
+"tier": 1,
+"one": "Run a small piece of code without owning a server.",
+"like": "A taxi instead of a car. You pay for the trip, not for parking it all night.",
+"what": "You upload a function. AWS runs it when something triggers it, then shuts it down. Nothing to patch, nothing running idle. It sleeps between requests, so the first call after a quiet spell can be slower.",
+"when": [
+"Short jobs that run on an event",
+"Traffic that comes in bursts",
+"You do not want to manage a server at all"
+],
+"nope": [
+"Jobs that run longer than 15 minutes",
+"Something that must respond instantly every single time"
+],
+"pay": "Per request and per millisecond of run time. Nothing when idle.",
+"eg": "Someone uploads a photo, a function makes a thumbnail, then stops.",
+"rel": [
+"amazon-api-gateway",
+"amazon-eventbridge",
+"amazon-simple-queue-service",
+"aws-step-functions"
+],
+"written": true
+},
+{
+"slug": "aws-local-zones",
+"name": "AWS Local Zones",
+"category": "Compute",
+"icon": "assets/icons/services/aws-local-zones.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-nitro-enclaves",
+"name": "AWS Nitro Enclaves",
+"category": "Compute",
+"icon": "assets/icons/services/aws-nitro-enclaves.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-outposts-family",
+"name": "AWS Outposts family",
+"category": "Compute",
+"icon": "assets/icons/services/aws-outposts-family.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-outposts-rack",
+"name": "AWS Outposts rack",
+"category": "Compute",
+"icon": "assets/icons/services/aws-outposts-rack.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-outposts-servers",
+"name": "AWS Outposts servers",
+"category": "Compute",
+"icon": "assets/icons/services/aws-outposts-servers.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-parallel-cluster",
+"name": "AWS Parallel Cluster",
+"category": "Compute",
+"icon": "assets/icons/services/aws-parallel-cluster.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-parallel-computing-service",
+"name": "AWS Parallel Computing Service",
+"category": "Compute",
+"icon": "assets/icons/services/aws-parallel-computing-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-serverless-application-repository",
+"name": "AWS Serverless Application Repository",
+"category": "Compute",
+"icon": "assets/icons/services/aws-serverless-application-repository.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-simspace-weaver",
+"name": "AWS SimSpace Weaver",
+"category": "Compute",
+"icon": "assets/icons/services/aws-simspace-weaver.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-wavelength",
+"name": "AWS Wavelength",
+"category": "Compute",
+"icon": "assets/icons/services/aws-wavelength.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-dcv",
+"name": "Amazon DCV",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-dcv.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-ec2-auto-scaling",
+"name": "Amazon EC2 Auto Scaling",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-ec2-auto-scaling.svg",
+"tier": 1,
+"one": "Adds servers when busy, removes them when quiet.",
+"like": "Calling in extra staff on a festival weekend and sending them home on Monday.",
+"what": "You set a minimum, a maximum and a rule. Auto Scaling adds or removes EC2 machines to match. It also replaces any machine that fails a health check.",
+"when": [
+"Traffic rises and falls",
+"You want automatic recovery from a dead server"
+],
+"nope": [
+"Steady, predictable traffic on one machine."
+],
+"pay": "The feature is free. You pay for the servers it starts.",
+"eg": "Two servers normally, six during a live class, back to two after.",
+"rel": [
+"elastic-load-balancing",
+"amazon-ec2",
+"amazon-cloudwatch"
+],
+"written": true
+},
+{
+"slug": "amazon-ec2-image-builder",
+"name": "Amazon EC2 Image Builder",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-ec2-image-builder.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-ec2",
+"name": "Amazon EC2",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-ec2.svg",
+"tier": 1,
+"one": "A computer you rent in Amazon's data centre.",
+"like": "Renting a flat instead of buying a house. You pick the size, you get the keys, you install what you want.",
+"what": "EC2 gives you a full server. You choose how much CPU, memory and disk. You install the operating system and your software. You control everything, so you also maintain everything.",
+"when": [
+"You need full control of the machine",
+"You are moving an existing server to the cloud",
+"Your software must run all the time"
+],
+"nope": [
+"You just want to run a small piece of code now and then. Use Lambda.",
+"You do not want to patch servers. Use Fargate or App Runner."
+],
+"pay": "Per second the machine is on, by size. Stopped machines cost nothing for compute but the disk still costs.",
+"eg": "A shop's billing software that must run 24 hours a day on one server.",
+"rel": [
+"amazon-elastic-block-store",
+"amazon-ec2-auto-scaling",
+"elastic-load-balancing",
+"amazon-virtual-private-cloud"
+],
+"written": true
+},
+{
+"slug": "amazon-elastic-vmware-service",
+"name": "Amazon Elastic VMware Service",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-elastic-vmware-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-lightsail-for-research",
+"name": "Amazon Lightsail for Research",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-lightsail-for-research.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-lightsail",
+"name": "Amazon Lightsail",
+"category": "Compute",
+"icon": "assets/icons/services/amazon-lightsail.svg",
+"tier": 1,
+"one": "A simple server at a fixed monthly price.",
+"like": "A prepaid mobile plan. One price, known limits, no bill shock.",
+"what": "Lightsail gives a small server, a fixed price and a simple console. It hides most of AWS. Good for learning and small sites. You outgrow it once you need real AWS features.",
+"when": [
+"A small website or WordPress",
+"Learning",
+"You want a predictable bill"
+],
+"nope": [
+"Anything that will need to scale properly."
+],
+"pay": "A fixed price per month, from a few dollars.",
+"eg": "A WordPress site for a small business.",
+"rel": [
+"amazon-ec2",
+"aws-app-runner"
+],
+"written": true
+},
+{
+"slug": "bottlerocket",
+"name": "Bottlerocket",
+"category": "Compute",
+"icon": "assets/icons/services/bottlerocket.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "elastic-fabric-adapter",
+"name": "Elastic Fabric Adapter",
+"category": "Compute",
+"icon": "assets/icons/services/elastic-fabric-adapter.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-fargate",
+"name": "AWS Fargate",
+"category": "Containers",
+"icon": "assets/icons/services/aws-fargate.svg",
+"tier": 1,
+"one": "Runs containers without you owning any servers.",
+"like": "Ordering food instead of renting a kitchen. You get the meal, not the gas bill.",
+"what": "Fargate is not a separate service you visit. It is a way to run ECS or EKS where AWS supplies the machine. No patching, no capacity planning. It costs more per unit than raw EC2.",
+"when": [
+"You want containers with no servers to manage",
+"Uneven workloads"
+],
+"nope": [
+"Very heavy steady workloads where EC2 is cheaper."
+],
+"pay": "Per vCPU and per GB of memory, per second.",
+"eg": "A background worker that runs for ten minutes each night.",
+"rel": [
+"amazon-elastic-container-service",
+"amazon-elastic-kubernetes-service"
+],
+"written": true
+},
+{
+"slug": "amazon-ecs-anywhere",
+"name": "Amazon ECS Anywhere",
+"category": "Containers",
+"icon": "assets/icons/services/amazon-ecs-anywhere.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-eks-anywhere",
+"name": "Amazon EKS Anywhere",
+"category": "Containers",
+"icon": "assets/icons/services/amazon-eks-anywhere.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-eks-distro",
+"name": "Amazon EKS Distro",
+"category": "Containers",
+"icon": "assets/icons/services/amazon-eks-distro.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-elastic-container-registry",
+"name": "Amazon Elastic Container Registry",
+"category": "Containers",
+"icon": "assets/icons/services/amazon-elastic-container-registry.svg",
+"tier": 2,
+"one": "A private store for your container images.",
+"like": "Your own locked shelf for the blueprints your factory builds from.",
+"what": "ECR keeps Docker images privately in your account. ECS, EKS and Lambda pull from it. It can scan images for known vulnerabilities.",
+"when": [
+"You build containers and do not want them public"
+],
+"nope": [
+"Open source images that are fine on Docker Hub."
+],
+"pay": "Per GB stored, plus data transfer.",
+"eg": "Pushing a new build image, then telling ECS to use it.",
+"rel": [
+"amazon-elastic-container-service",
+"amazon-inspector"
+],
+"written": true
+},
+{
+"slug": "amazon-elastic-container-service",
+"name": "Amazon Elastic Container Service",
+"category": "Containers",
+"icon": "assets/icons/services/amazon-elastic-container-service.svg",
+"tier": 1,
+"one": "Runs your app in containers, the simple AWS way.",
+"like": "Standard shipping containers. Any port can handle them because the shape is always the same.",
+"what": "ECS runs Docker containers for you. It restarts them if they crash and can scale them. It is simpler than Kubernetes and only works on AWS.",
+"when": [
+"You already use Docker",
+"You want containers without learning Kubernetes"
+],
+"nope": [
+"You need to run the same setup on other clouds too. Use EKS."
+],
+"pay": "Free control plane. You pay for the EC2 or Fargate capacity underneath.",
+"eg": "A Node.js API running as three containers behind a load balancer.",
+"rel": [
+"aws-fargate",
+"amazon-elastic-container-registry",
+"amazon-elastic-kubernetes-service"
+],
+"written": true
+},
+{
+"slug": "amazon-elastic-kubernetes-service",
+"name": "Amazon Elastic Kubernetes Service",
+"category": "Containers",
+"icon": "assets/icons/services/amazon-elastic-kubernetes-service.svg",
+"tier": 2,
+"one": "Managed Kubernetes.",
+"like": "The international standard plug socket. It works the same everywhere, and the wiring is complicated.",
+"what": "EKS runs Kubernetes so you do not have to run the control plane. Kubernetes is powerful and genuinely hard. It is the right answer for large teams and the wrong answer for small ones.",
+"when": [
+"You already know Kubernetes",
+"You must stay portable across clouds",
+"Large, complex systems"
+],
+"nope": [
+"A small team shipping one app. ECS or App Runner will hurt less."
+],
+"pay": "An hourly fee for each cluster, plus the compute underneath.",
+"eg": "A company running forty microservices across several teams.",
+"rel": [
+"amazon-elastic-container-service",
+"aws-fargate"
+],
+"written": true
+},
+{
+"slug": "red-hat-openshift-service-on-aws",
+"name": "Red Hat OpenShift Service on AWS",
+"category": "Containers",
+"icon": "assets/icons/services/red-hat-openshift-service-on-aws.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-activate",
+"name": "AWS Activate",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-activate.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iq",
+"name": "AWS IQ",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-iq.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-managed-services",
+"name": "AWS Managed Services",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-managed-services.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-professional-services",
+"name": "AWS Professional Services",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-professional-services.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-support",
+"name": "AWS Support",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-support.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-training-certification",
+"name": "AWS Training Certification",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-training-certification.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-repost-private",
+"name": "AWS rePost Private",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-repost-private.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-repost",
+"name": "AWS rePost",
+"category": "Customer Enablement",
+"icon": "assets/icons/services/aws-repost.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-database-migration-service",
+"name": "AWS Database Migration Service",
+"category": "Databases",
+"icon": "assets/icons/services/aws-database-migration-service.svg",
+"tier": 3,
+"one": "Moves a database into AWS with almost no downtime.",
+"like": "Shifting house while still living in it. Things move across one room at a time.",
+"what": "DMS copies an existing database into AWS and keeps replicating changes until you switch over. It can also change engine, for example Oracle to PostgreSQL, paired with the conversion tool.",
+"when": [
+"Moving an on premise database to AWS",
+"Changing database engine"
+],
+"nope": [
+"A small database you can dump and restore in an hour."
+],
+"pay": "Per replication instance hour.",
+"eg": "Moving a live MySQL server to RDS with minutes of downtime, not days.",
+"rel": [
+"amazon-rds",
+"amazon-aurora"
+],
+"written": true
+},
+{
+"slug": "amazon-aurora",
+"name": "Amazon Aurora",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-aurora.svg",
+"tier": 1,
+"one": "Amazon's faster version of MySQL and PostgreSQL.",
+"like": "The same car, tuned. It drives the same way, it just goes faster and recovers better.",
+"what": "Aurora speaks MySQL and PostgreSQL, so your code usually works unchanged. Storage grows on its own and copies data across three availability zones. Serverless versions can scale down when quiet.",
+"when": [
+"You outgrew RDS",
+"You need more read copies",
+"Traffic goes up and down a lot"
+],
+"nope": [
+"A tiny app. Plain RDS is cheaper."
+],
+"pay": "Per hour, plus storage used, plus reads and writes. Serverless charges by capacity used.",
+"eg": "A growing LMS where thousands of students log in at exam time.",
+"rel": [
+"amazon-rds",
+"amazon-dynamodb"
+],
+"written": true
+},
+{
+"slug": "amazon-documentdb",
+"name": "Amazon DocumentDB",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-documentdb.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-dynamodb",
+"name": "Amazon DynamoDB",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-dynamodb.svg",
+"tier": 1,
+"one": "A very fast database with no tables to join.",
+"like": "A cloakroom. You hand over a ticket, you get your coat instantly. You cannot ask it which coats are blue.",
+"what": "DynamoDB gives single digit millisecond reads at any scale. You must know how you will look data up before you design it. Queries it was not designed for are slow or impossible.",
+"when": [
+"Huge scale, simple lookups",
+"Sessions, carts, device data",
+"You want zero database administration"
+],
+"nope": [
+"You need flexible reporting queries",
+"Your access patterns keep changing"
+],
+"pay": "Per read and write, or a fixed capacity. Plus storage.",
+"eg": "Storing which lesson each student is currently on, looked up by student id.",
+"rel": [
+"aws-lambda",
+"amazon-aurora"
+],
+"written": true
+},
+{
+"slug": "amazon-elasticache",
+"name": "Amazon ElastiCache",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-elasticache.svg",
+"tier": 2,
+"one": "Keeps frequently used data in memory so it is fast.",
+"like": "Keeping the tools you use most on the bench, not in the store room.",
+"what": "ElastiCache runs Redis or Memcached. It holds results in memory so your database is not asked the same question a thousand times. Memory is not permanent, so never keep the only copy here.",
+"when": [
+"Slow repeated queries",
+"Session storage",
+"Leaderboards and counters"
+],
+"nope": [
+"Data you cannot afford to lose."
+],
+"pay": "Per node hour.",
+"eg": "Caching the course list so the database is hit once a minute, not once a click.",
+"rel": [
+"amazon-rds",
+"amazon-dynamodb"
+],
+"written": true
+},
+{
+"slug": "amazon-keyspaces",
+"name": "Amazon Keyspaces",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-keyspaces.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-memorydb",
+"name": "Amazon MemoryDB",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-memorydb.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-neptune",
+"name": "Amazon Neptune",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-neptune.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-rds",
+"name": "Amazon RDS",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-rds.svg",
+"tier": 1,
+"one": "A normal SQL database, run for you.",
+"like": "A rented flat with a cleaner included. It is still your flat, someone else does the chores.",
+"what": "RDS runs MySQL, PostgreSQL, MariaDB, Oracle or SQL Server. AWS handles backups, patching and standby copies. You still design the tables and write the queries.",
+"when": [
+"You already know SQL",
+"Normal business data: orders, users, invoices"
+],
+"nope": [
+"You need one database serving the whole world at once. Look at Aurora or DynamoDB."
+],
+"pay": "Per hour the database is on, by size, plus storage and backups.",
+"eg": "The orders table for a shop, with an automatic nightly backup.",
+"rel": [
+"amazon-aurora",
+"amazon-elasticache",
+"aws-database-migration-service"
+],
+"written": true
+},
+{
+"slug": "amazon-timestream",
+"name": "Amazon Timestream",
+"category": "Databases",
+"icon": "assets/icons/services/amazon-timestream.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "oracle-database-at-aws",
+"name": "Oracle Database at AWS",
+"category": "Databases",
+"icon": "assets/icons/services/oracle-database-at-aws.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloud-control-api",
+"name": "AWS Cloud Control API",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-cloud-control-api.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloud-development-kit",
+"name": "AWS Cloud Development Kit",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-cloud-development-kit.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloud9",
+"name": "AWS Cloud9",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-cloud9.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloudshell",
+"name": "AWS CloudShell",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-cloudshell.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-codeartifact",
+"name": "AWS CodeArtifact",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-codeartifact.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-codebuild",
+"name": "AWS CodeBuild",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-codebuild.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-codecommit",
+"name": "AWS CodeCommit",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-codecommit.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-codedeploy",
+"name": "AWS CodeDeploy",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-codedeploy.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-codepipeline",
+"name": "AWS CodePipeline",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-codepipeline.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-command-line-interface",
+"name": "AWS Command Line Interface",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-command-line-interface.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-fault-injection-service",
+"name": "AWS Fault Injection Service",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-fault-injection-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-infrastructure-composer",
+"name": "AWS Infrastructure Composer",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-infrastructure-composer.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-tools-and-sdks",
+"name": "AWS Tools and SDKs",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-tools-and-sdks.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-x-ray",
+"name": "AWS X Ray",
+"category": "Developer Tools",
+"icon": "assets/icons/services/aws-x-ray.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-codecatalyst",
+"name": "Amazon CodeCatalyst",
+"category": "Developer Tools",
+"icon": "assets/icons/services/amazon-codecatalyst.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-corretto",
+"name": "Amazon Corretto",
+"category": "Developer Tools",
+"icon": "assets/icons/services/amazon-corretto.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-workspaces",
+"name": "Amazon WorkSpaces",
+"category": "End User Computing",
+"icon": "assets/icons/services/amazon-workspaces.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-amplify",
+"name": "AWS Amplify",
+"category": "Front End Web and Mobile",
+"icon": "assets/icons/services/aws-amplify.svg",
+"tier": 2,
+"one": "The quickest way to put a web or mobile front end online.",
+"like": "A ready made kitchen fitted in a day, instead of building one.",
+"what": "Amplify hosts your front end, connects to GitHub and deploys on every push. It can also generate a backend with auth, API and storage. Great to start, restrictive once your needs grow.",
+"when": [
+"React, Next.js or Vue front ends",
+"Quick prototypes and MVPs"
+],
+"nope": [
+"Complex custom backends."
+],
+"pay": "Per build minute and per GB served, with a free tier.",
+"eg": "Pushing to GitHub and the site is live two minutes later.",
+"rel": [
+"amazon-cloudfront",
+"amazon-cognito",
+"aws-appsync"
+],
+"written": true
+},
+{
+"slug": "aws-device-farm",
+"name": "AWS Device Farm",
+"category": "Front End Web and Mobile",
+"icon": "assets/icons/services/aws-device-farm.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-location-service",
+"name": "Amazon Location Service",
+"category": "Front End Web and Mobile",
+"icon": "assets/icons/services/amazon-location-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-gamelift-servers",
+"name": "Amazon GameLift Servers",
+"category": "Games",
+"icon": "assets/icons/services/amazon-gamelift-servers.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-gamelift-streams",
+"name": "Amazon GameLift Streams",
+"category": "Games",
+"icon": "assets/icons/services/amazon-gamelift-streams.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "open-3d-engine",
+"name": "Open 3D Engine",
+"category": "Games",
+"icon": "assets/icons/services/open-3d-engine.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-marketplace-dark",
+"name": "AWS Marketplace Dark",
+"category": "General",
+"icon": "assets/icons/services/aws-marketplace-dark.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-marketplace-light",
+"name": "AWS Marketplace Light",
+"category": "General",
+"icon": "assets/icons/services/aws-marketplace-light.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-core",
+"name": "AWS IoT Core",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-core.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-device-defender",
+"name": "AWS IoT Device Defender",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-device-defender.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-device-management",
+"name": "AWS IoT Device Management",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-device-management.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-events",
+"name": "AWS IoT Events",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-events.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-expresslink",
+"name": "AWS IoT ExpressLink",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-expresslink.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-fleetwise",
+"name": "AWS IoT FleetWise",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-fleetwise.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-greengrass",
+"name": "AWS IoT Greengrass",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-greengrass.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-sitewise",
+"name": "AWS IoT SiteWise",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-sitewise.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iot-twinmaker",
+"name": "AWS IoT TwinMaker",
+"category": "Internet of Things",
+"icon": "assets/icons/services/aws-iot-twinmaker.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "freertos",
+"name": "FreeRTOS",
+"category": "Internet of Things",
+"icon": "assets/icons/services/freertos.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-appconfig",
+"name": "AWS AppConfig",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-appconfig.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-application-auto-scaling",
+"name": "AWS Application Auto Scaling",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-application-auto-scaling.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-auto-scaling",
+"name": "AWS Auto Scaling",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-auto-scaling.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-backint-agent",
+"name": "AWS Backint Agent",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-backint-agent.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-chatbot",
+"name": "AWS Chatbot",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-chatbot.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloudformation",
+"name": "AWS CloudFormation",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-cloudformation.svg",
+"tier": 2,
+"one": "Writes your whole setup as a file, so you can rebuild it exactly.",
+"like": "An IKEA instruction sheet for your infrastructure. Same sheet, same result, every time.",
+"what": "You describe what you want in YAML or JSON. CloudFormation creates it, updates it, and can delete it all cleanly. No more clicking in the console and forgetting what you did.",
+"when": [
+"You want staging and production to match",
+"You want a record of your infrastructure"
+],
+"nope": [
+"A one off experiment you will delete tomorrow."
+],
+"pay": "Free. You pay for what it creates.",
+"eg": "One file that builds a VPC, two servers, a load balancer and a database.",
+"rel": [
+"aws-systems-manager",
+"aws-config"
+],
+"written": true
+},
+{
+"slug": "aws-cloudtrail",
+"name": "AWS CloudTrail",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-cloudtrail.svg",
+"tier": 1,
+"one": "Records who did what in your AWS account.",
+"like": "A CCTV log of the building. Not what the machines did, what the people did.",
+"what": "CloudTrail records every API call: who, when, from where. It is how you answer 'who deleted that database'. CloudWatch watches your app. CloudTrail watches your account.",
+"when": [
+"Always. Turn it on the first day.",
+"Any compliance requirement"
+],
+"nope": [],
+"pay": "One free trail of management events. Extra trails and data events cost.",
+"eg": "Finding out which user turned off a security setting last Tuesday.",
+"rel": [
+"amazon-cloudwatch",
+"aws-config",
+"aws-identity-and-access-management"
+],
+"written": true
+},
+{
+"slug": "aws-config",
+"name": "AWS Config",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-config.svg",
+"tier": 2,
+"one": "Records how your AWS setup changes over time.",
+"like": "A logbook of every change made to the building, with the rules it must follow.",
+"what": "Config records the configuration of your resources and checks them against rules. It can tell you what changed and when, and flag anything that drifts out of policy.",
+"when": [
+"Compliance",
+"You need change history",
+"Many people have access"
+],
+"nope": [
+"A single tiny project."
+],
+"pay": "Per configuration item recorded and per rule evaluation. It adds up.",
+"eg": "Alerting the moment a security group is opened to the whole internet.",
+"rel": [
+"aws-cloudtrail",
+"aws-security-hub"
+],
+"written": true
+},
+{
+"slug": "aws-console-mobile-application",
+"name": "AWS Console Mobile Application",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-console-mobile-application.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-control-tower",
+"name": "AWS Control Tower",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-control-tower.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-devops-agent",
+"name": "AWS DevOps Agent",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-devops-agent.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-distro-for-opentelemetry",
+"name": "AWS Distro for OpenTelemetry",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-distro-for-opentelemetry.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-health-dashboard",
+"name": "AWS Health Dashboard",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-health-dashboard.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-launch-wizard",
+"name": "AWS Launch Wizard",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-launch-wizard.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-license-manager",
+"name": "AWS License Manager",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-license-manager.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-management-console",
+"name": "AWS Management Console",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-management-console.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-organizations",
+"name": "AWS Organizations",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-organizations.svg",
+"tier": 2,
+"one": "Manages many AWS accounts as one company.",
+"like": "A head office with branch offices. One policy, one bill, separate premises.",
+"what": "Organizations groups accounts under one payer, applies rules that even account admins cannot override, and keeps production separate from development. Separate accounts are the strongest blast radius control AWS offers.",
+"when": [
+"More than one project or client",
+"You want production isolated"
+],
+"nope": [
+"A single personal learning account."
+],
+"pay": "Free.",
+"eg": "Separate accounts for dev, staging and production, one combined bill.",
+"rel": [
+"aws-identity-and-access-management",
+"aws-control-tower"
+],
+"written": true
+},
+{
+"slug": "aws-partner-central",
+"name": "AWS Partner Central",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-partner-central.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-proton",
+"name": "AWS Proton",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-proton.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-resilience-hub",
+"name": "AWS Resilience Hub",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-resilience-hub.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-resource-explorer",
+"name": "AWS Resource Explorer",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-resource-explorer.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-service-catalog",
+"name": "AWS Service Catalog",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-service-catalog.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-service-management-connector",
+"name": "AWS Service Management Connector",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-service-management-connector.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-sustainability",
+"name": "AWS Sustainability",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-sustainability.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-systems-manager",
+"name": "AWS Systems Manager",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-systems-manager.svg",
+"tier": 2,
+"one": "Manage all your servers from one place.",
+"like": "A facilities team with a master key and a maintenance schedule.",
+"what": "Systems Manager patches servers, runs commands on all of them at once, stores configuration in Parameter Store, and gives shell access without opening SSH to the internet.",
+"when": [
+"More than a couple of servers",
+"You want to stop opening port 22"
+],
+"nope": [
+"Fully serverless setups with no servers to manage."
+],
+"pay": "Most of it is free. Some advanced features are paid.",
+"eg": "Applying a security patch to twenty servers with one command.",
+"rel": [
+"amazon-ec2",
+"aws-secrets-manager"
+],
+"written": true
+},
+{
+"slug": "aws-telco-network-builder",
+"name": "AWS Telco Network Builder",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-telco-network-builder.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-trusted-advisor",
+"name": "AWS Trusted Advisor",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-trusted-advisor.svg",
+"tier": 2,
+"one": "Checks your account and suggests fixes.",
+"like": "A yearly service for your car. It lists what needs attention.",
+"what": "Trusted Advisor checks for wasted money, security holes, missing redundancy and hitting limits. A few checks are free on every account, the full set needs a paid support plan.",
+"when": [
+"Regular account health checks"
+],
+"nope": [],
+"pay": "Some checks free. Full set needs Business support or above.",
+"eg": "Flagging an S3 bucket that is open to the public.",
+"rel": [
+"aws-cost-explorer",
+"aws-config",
+"aws-security-hub"
+],
+"written": true
+},
+{
+"slug": "aws-user-notifications",
+"name": "AWS User Notifications",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-user-notifications.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-well-architected-tool",
+"name": "AWS Well Architected Tool",
+"category": "Management and Governance",
+"icon": "assets/icons/services/aws-well-architected-tool.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-cloudwatch",
+"name": "Amazon CloudWatch",
+"category": "Management and Governance",
+"icon": "assets/icons/services/amazon-cloudwatch.svg",
+"tier": 1,
+"one": "Watches your systems and tells you when something is wrong.",
+"like": "The dashboard of a car. Speed, fuel, engine warning light.",
+"what": "CloudWatch collects metrics, logs and alarms. An alarm can email you or trigger scaling. Log storage grows quietly, so set a retention period or the bill creeps up.",
+"when": [
+"Always. If you cannot see it, you cannot run it."
+],
+"nope": [],
+"pay": "Per metric, per GB of logs, per alarm. Log retention is the usual surprise.",
+"eg": "Alert on WhatsApp when CPU stays above 80 percent for five minutes.",
+"rel": [
+"aws-cloudtrail",
+"aws-x-ray",
+"amazon-ec2-auto-scaling"
+],
+"written": true
+},
+{
+"slug": "amazon-managed-grafana",
+"name": "Amazon Managed Grafana",
+"category": "Management and Governance",
+"icon": "assets/icons/services/amazon-managed-grafana.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-managed-service-for-prometheus",
+"name": "Amazon Managed Service for Prometheus",
+"category": "Management and Governance",
+"icon": "assets/icons/services/amazon-managed-service-for-prometheus.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-deadline-cloud",
+"name": "AWS Deadline Cloud",
+"category": "Media",
+"icon": "assets/icons/services/aws-deadline-cloud.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-appliances-software",
+"name": "AWS Elemental Appliances & Software",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-appliances-software.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-conductor",
+"name": "AWS Elemental Conductor",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-conductor.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-delta",
+"name": "AWS Elemental Delta",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-delta.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-link",
+"name": "AWS Elemental Link",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-link.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-live",
+"name": "AWS Elemental Live",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-live.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-mediaconnect",
+"name": "AWS Elemental MediaConnect",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-mediaconnect.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-mediaconvert",
+"name": "AWS Elemental MediaConvert",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-mediaconvert.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-medialive",
+"name": "AWS Elemental MediaLive",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-medialive.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-mediapackage",
+"name": "AWS Elemental MediaPackage",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-mediapackage.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-mediastore",
+"name": "AWS Elemental MediaStore",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-mediastore.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-mediatailor",
+"name": "AWS Elemental MediaTailor",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-mediatailor.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-elemental-server",
+"name": "AWS Elemental Server",
+"category": "Media",
+"icon": "assets/icons/services/aws-elemental-server.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-thinkbox-deadline",
+"name": "AWS Thinkbox Deadline",
+"category": "Media",
+"icon": "assets/icons/services/aws-thinkbox-deadline.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-thinkbox-frost",
+"name": "AWS Thinkbox Frost",
+"category": "Media",
+"icon": "assets/icons/services/aws-thinkbox-frost.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-thinkbox-krakatoa",
+"name": "AWS Thinkbox Krakatoa",
+"category": "Media",
+"icon": "assets/icons/services/aws-thinkbox-krakatoa.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-thinkbox-stoke",
+"name": "AWS Thinkbox Stoke",
+"category": "Media",
+"icon": "assets/icons/services/aws-thinkbox-stoke.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-thinkbox-xmesh",
+"name": "AWS Thinkbox XMesh",
+"category": "Media",
+"icon": "assets/icons/services/aws-thinkbox-xmesh.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-interactive-video-service",
+"name": "Amazon Interactive Video Service",
+"category": "Media",
+"icon": "assets/icons/services/amazon-interactive-video-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-application-discovery-service",
+"name": "AWS Application Discovery Service",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-application-discovery-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-application-migration-service",
+"name": "AWS Application Migration Service",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-application-migration-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-data-transfer-terminal",
+"name": "AWS Data Transfer Terminal",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-data-transfer-terminal.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-datasync",
+"name": "AWS DataSync",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-datasync.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-mainframe-modernization",
+"name": "AWS Mainframe Modernization",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-mainframe-modernization.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-migration-evaluator",
+"name": "AWS Migration Evaluator",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-migration-evaluator.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-transfer-family",
+"name": "AWS Transfer Family",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-transfer-family.svg",
+"tier": 3,
+"one": "An SFTP server that saves files straight into S3.",
+"like": "An old style letterbox bolted onto a modern warehouse.",
+"what": "Transfer Family gives partners a normal SFTP, FTPS or AS2 endpoint, while the files actually land in S3. Useful when a bank or vendor will only send files the old way.",
+"when": [
+"A partner insists on SFTP",
+"Bank or government file exchange"
+],
+"nope": [
+"You control both ends. Use the S3 API."
+],
+"pay": "Per hour the endpoint exists, plus per GB. The hourly charge runs even when idle.",
+"eg": "A bank drops a daily settlement file by SFTP, it appears in S3.",
+"rel": [
+"amazon-simple-storage-service"
+],
+"written": true
+},
+{
+"slug": "aws-transform",
+"name": "AWS Transform",
+"category": "Migration and Transfer",
+"icon": "assets/icons/services/aws-transform.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-app-mesh",
+"name": "AWS App Mesh",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-app-mesh.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-client-vpn",
+"name": "AWS Client VPN",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-client-vpn.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloud-map",
+"name": "AWS Cloud Map",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-cloud-map.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-cloud-wan",
+"name": "AWS Cloud WAN",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-cloud-wan.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-direct-connect",
+"name": "AWS Direct Connect",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-direct-connect.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-global-accelerator",
+"name": "AWS Global Accelerator",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-global-accelerator.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-interconnect",
+"name": "AWS Interconnect",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-interconnect.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-privatelink",
+"name": "AWS PrivateLink",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-privatelink.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-rtb-fabric",
+"name": "AWS RTB Fabric",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-rtb-fabric.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-site-to-site-vpn",
+"name": "AWS Site to Site VPN",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-site-to-site-vpn.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-transit-gateway",
+"name": "AWS Transit Gateway",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-transit-gateway.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-verified-access",
+"name": "AWS Verified Access",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/aws-verified-access.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-api-gateway",
+"name": "Amazon API Gateway",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/amazon-api-gateway.svg",
+"tier": 1,
+"one": "The front door for your API.",
+"like": "A reception desk. It checks who you are, stops rude visitors, then sends you to the right room.",
+"what": "API Gateway takes HTTP requests and passes them to Lambda or your servers. It handles authentication, rate limits, keys and versions. It adds a little delay and a per request cost.",
+"when": [
+"A public API",
+"You are building with Lambda",
+"You need rate limiting"
+],
+"nope": [
+"A simple website. A load balancer is cheaper."
+],
+"pay": "Per million requests, plus data out.",
+"eg": "A mobile app calling /orders, which triggers a Lambda function.",
+"rel": [
+"aws-lambda",
+"amazon-cognito",
+"aws-waf"
+],
+"written": true
+},
+{
+"slug": "amazon-application-recovery-controller",
+"name": "Amazon Application Recovery Controller",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/amazon-application-recovery-controller.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-cloudfront",
+"name": "Amazon CloudFront",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/amazon-cloudfront.svg",
+"tier": 1,
+"one": "Keeps copies of your files near your users so pages load fast.",
+"like": "A local warehouse in every city instead of shipping everything from one factory.",
+"what": "CloudFront is a CDN. It caches your content at locations around the world. Users get served from the nearest one. It also absorbs traffic spikes and shields your servers.",
+"when": [
+"Any public website",
+"Images and video",
+"Global audience"
+],
+"nope": [
+"An internal tool used by ten people in one office."
+],
+"pay": "Per GB delivered and per request. There is a generous free tier.",
+"eg": "A course video watched from Ahmedabad is served from an Indian location, not from Virginia.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-waf",
+"amazon-route-53"
+],
+"written": true
+},
+{
+"slug": "amazon-route-53",
+"name": "Amazon Route 53",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/amazon-route-53.svg",
+"tier": 1,
+"one": "The phone book that turns your domain name into an address.",
+"like": "Saving a contact by name so you never memorise the number.",
+"what": "Route 53 is DNS. It points yourdomain.com to your server or CloudFront. It can also register domains, check if your site is healthy, and send users to the closest region.",
+"when": [
+"You own a domain and it points at AWS"
+],
+"nope": [
+"Your DNS is already fine at GoDaddy or Cloudflare and you have no reason to move."
+],
+"pay": "A small monthly fee per hosted zone, plus per million queries.",
+"eg": "kwickprep.com points at CloudFront, which points at S3.",
+"rel": [
+"amazon-cloudfront",
+"elastic-load-balancing"
+],
+"written": true
+},
+{
+"slug": "amazon-vpc-lattice",
+"name": "Amazon VPC Lattice",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/amazon-vpc-lattice.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-virtual-private-cloud",
+"name": "Amazon Virtual Private Cloud",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/amazon-virtual-private-cloud.svg",
+"tier": 1,
+"one": "Your own private section of the AWS network.",
+"like": "A gated plot inside a big township. You decide the roads, the gates and who gets in.",
+"what": "A VPC is where your servers live. You split it into subnets. Public subnets can reach the internet, private ones cannot. Security groups act as a firewall on each machine.",
+"when": [
+"Always. Anything you run sits in a VPC."
+],
+"nope": [],
+"pay": "The VPC is free. NAT gateways and data transfer cost money and surprise people.",
+"eg": "Web servers in a public subnet, the database in a private one so it can never be reached from the internet.",
+"rel": [
+"amazon-ec2",
+"elastic-load-balancing",
+"amazon-route-53"
+],
+"written": true
+},
+{
+"slug": "elastic-load-balancing",
+"name": "Elastic Load Balancing",
+"category": "Networking and Content Delivery",
+"icon": "assets/icons/services/elastic-load-balancing.svg",
+"tier": 1,
+"one": "Shares incoming traffic across several servers.",
+"like": "A queue manager at a bank sending you to whichever counter is free.",
+"what": "A load balancer sits in front of your servers. If one dies, it stops sending traffic there. It also handles HTTPS so your servers do not have to.",
+"when": [
+"More than one server",
+"You want zero downtime deploys",
+"You want HTTPS handled in one place"
+],
+"nope": [
+"A single small server with little traffic. It is an extra monthly cost."
+],
+"pay": "Per hour, plus a usage unit based on traffic.",
+"eg": "Three web servers behind one address. One reboots, nobody notices.",
+"rel": [
+"amazon-ec2",
+"amazon-ec2-auto-scaling",
+"aws-certificate-manager"
+],
+"written": true
+},
+{
+"slug": "amazon-braket",
+"name": "Amazon Braket",
+"category": "Quantum",
+"icon": "assets/icons/services/amazon-braket.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-ground-station",
+"name": "AWS Ground Station",
+"category": "Satellite",
+"icon": "assets/icons/services/aws-ground-station.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-artifact",
+"name": "AWS Artifact",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-artifact.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-audit-manager",
+"name": "AWS Audit Manager",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-audit-manager.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-certificate-manager",
+"name": "AWS Certificate Manager",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-certificate-manager.svg",
+"tier": 1,
+"one": "Free HTTPS certificates that renew themselves.",
+"like": "A licence that renews automatically so it never expires on you.",
+"what": "ACM issues and renews TLS certificates at no cost for use with CloudFront, load balancers and API Gateway. Automatic renewal removes the classic outage of a certificate expiring at midnight.",
+"when": [
+"Any site with HTTPS on AWS"
+],
+"nope": [
+"You need the certificate file to install on your own server. ACM public certs cannot be exported."
+],
+"pay": "Free for public certificates used with AWS services.",
+"eg": "HTTPS on your domain through CloudFront, renewing itself forever.",
+"rel": [
+"amazon-cloudfront",
+"elastic-load-balancing",
+"amazon-route-53"
+],
+"written": true
+},
+{
+"slug": "aws-cloudhsm",
+"name": "AWS CloudHSM",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-cloudhsm.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-directory-service",
+"name": "AWS Directory Service",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-directory-service.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-firewall-manager",
+"name": "AWS Firewall Manager",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-firewall-manager.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-iam-identity-center",
+"name": "AWS IAM Identity Center",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-iam-identity-center.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-identity-and-access-management",
+"name": "AWS Identity and Access Management",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-identity-and-access-management.svg",
+"tier": 1,
+"one": "Decides who can do what in your AWS account.",
+"like": "Keys for a building. The cleaner's key opens the store room, not the safe.",
+"what": "IAM holds users, roles and policies. A policy is a list of allowed actions. Give the least access that still works. Never use the root account for daily work, and turn on MFA.",
+"when": [
+"Always. From day one."
+],
+"nope": [],
+"pay": "Free.",
+"eg": "A role that lets one Lambda function read one S3 bucket and nothing else.",
+"rel": [
+"aws-organizations",
+"aws-secrets-manager",
+"amazon-cognito"
+],
+"written": true
+},
+{
+"slug": "aws-key-management-service",
+"name": "AWS Key Management Service",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-key-management-service.svg",
+"tier": 2,
+"one": "Creates and guards the keys that encrypt your data.",
+"like": "The master key cutting machine, kept in a locked room. You can use the keys, you can never take them out.",
+"what": "KMS holds encryption keys. S3, RDS, EBS and others call it to encrypt your data. The key never leaves KMS. Every use is logged in CloudTrail.",
+"when": [
+"Encrypting anything",
+"Compliance requirements"
+],
+"nope": [],
+"pay": "Per key per month, plus per request.",
+"eg": "All backups encrypted with a key only two roles may use.",
+"rel": [
+"aws-secrets-manager",
+"aws-cloudtrail"
+],
+"written": true
+},
+{
+"slug": "aws-network-firewall",
+"name": "AWS Network Firewall",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-network-firewall.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-payment-cryptography",
+"name": "AWS Payment Cryptography",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-payment-cryptography.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-private-certificate-authority",
+"name": "AWS Private Certificate Authority",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-private-certificate-authority.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-resource-access-manager",
+"name": "AWS Resource Access Manager",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-resource-access-manager.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-secrets-manager",
+"name": "AWS Secrets Manager",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-secrets-manager.svg",
+"tier": 1,
+"one": "A safe for passwords and API keys.",
+"like": "A bank locker. Only the right person gets in, and there is a record of every visit.",
+"what": "Secrets Manager stores database passwords and keys encrypted. Your app fetches them at runtime instead of keeping them in code. It can rotate database passwords automatically.",
+"when": [
+"Any password or key",
+"Anything you would hate to see on GitHub"
+],
+"nope": [
+"Plain non secret settings. Parameter Store is cheaper."
+],
+"pay": "Per secret per month, plus API calls.",
+"eg": "The database password is fetched at startup, never written in the repo.",
+"rel": [
+"aws-key-management-service",
+"aws-systems-manager"
+],
+"written": true
+},
+{
+"slug": "aws-security-agent",
+"name": "AWS Security Agent",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-security-agent.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-security-hub",
+"name": "AWS Security Hub",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-security-hub.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-security-incident-response",
+"name": "AWS Security Incident Response",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-security-incident-response.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-shield",
+"name": "AWS Shield",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-shield.svg",
+"tier": 3,
+"one": "Protection against attacks that try to flood your site.",
+"like": "Flood barriers around the building.",
+"what": "Shield Standard is automatic and free on CloudFront and load balancers. Shield Advanced is a paid tier with a response team and bill protection. Most small projects only ever need Standard.",
+"when": [
+"You are a likely target",
+"You need the bill protection"
+],
+"nope": [
+"A small site. Standard is already on and free."
+],
+"pay": "Standard is free. Advanced is a large fixed monthly fee.",
+"eg": "A flood of fake traffic is absorbed before it reaches your servers.",
+"rel": [
+"aws-waf",
+"amazon-cloudfront"
+],
+"written": true
+},
+{
+"slug": "aws-signer",
+"name": "AWS Signer",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-signer.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-waf",
+"name": "AWS WAF",
+"category": "Security and Identity",
+"icon": "assets/icons/services/aws-waf.svg",
+"tier": 2,
+"one": "A filter that blocks bad web traffic before it reaches you.",
+"like": "A security guard at the gate who turns away known troublemakers.",
+"what": "WAF sits in front of CloudFront, a load balancer or API Gateway. It blocks SQL injection attempts, bad bots and abusive IPs, and can rate limit. It is a filter, not a fix for insecure code.",
+"when": [
+"Any public site",
+"Login pages being attacked"
+],
+"nope": [
+"Internal tools behind a VPN."
+],
+"pay": "Per rule per month, plus per million requests.",
+"eg": "Blocking an IP that tries two hundred logins a minute.",
+"rel": [
+"amazon-cloudfront",
+"aws-shield",
+"amazon-api-gateway"
+],
+"written": true
+},
+{
+"slug": "amazon-cloud-directory",
+"name": "Amazon Cloud Directory",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-cloud-directory.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-cognito",
+"name": "Amazon Cognito",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-cognito.svg",
+"tier": 1,
+"one": "Sign up and log in for your app's users, ready made.",
+"like": "Hiring a receptionist who checks ID, instead of building your own front desk.",
+"what": "Cognito handles user sign up, login, password reset, MFA and Google or Apple login. Your app gets a token. Do not confuse it with IAM. IAM is for your team, Cognito is for your customers.",
+"when": [
+"Your app needs customer accounts",
+"You do not want to store passwords yourself"
+],
+"nope": [
+"You only need internal staff access. Use IAM Identity Center."
+],
+"pay": "Per monthly active user, with a free tier.",
+"eg": "Students logging into a learning app with email or Google.",
+"rel": [
+"aws-identity-and-access-management",
+"amazon-api-gateway"
+],
+"written": true
+},
+{
+"slug": "amazon-detective",
+"name": "Amazon Detective",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-detective.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-guardduty",
+"name": "Amazon GuardDuty",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-guardduty.svg",
+"tier": 2,
+"one": "Watches for signs that someone has broken in.",
+"like": "A burglar alarm that has learned what normal looks like in your house.",
+"what": "GuardDuty reads your logs and flags suspicious activity: a key used from a strange country, a server talking to a known bad address, crypto mining. It only tells you, it does not block.",
+"when": [
+"Any account holding real data",
+"You want intrusion detection without effort"
+],
+"nope": [
+"A throwaway learning account, unless you want to see how it works."
+],
+"pay": "By the volume of logs analysed. Watch this one.",
+"eg": "An alert that your access key is suddenly being used from another continent.",
+"rel": [
+"aws-cloudtrail",
+"aws-security-hub"
+],
+"written": true
+},
+{
+"slug": "amazon-inspector",
+"name": "Amazon Inspector",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-inspector.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-macie",
+"name": "Amazon Macie",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-macie.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-security-lake",
+"name": "Amazon Security Lake",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-security-lake.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-verified-permissions",
+"name": "Amazon Verified Permissions",
+"category": "Security and Identity",
+"icon": "assets/icons/services/amazon-verified-permissions.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-backup",
+"name": "AWS Backup",
+"category": "Storage",
+"icon": "assets/icons/services/aws-backup.svg",
+"tier": 2,
+"one": "One place to schedule backups of everything.",
+"like": "One alarm clock for the whole house instead of one in every room.",
+"what": "AWS Backup sets backup rules across EBS, RDS, DynamoDB, EFS and more, from a single policy. It handles retention and can copy backups to another region. A backup you have never restored is not a backup.",
+"when": [
+"More than one thing needs backing up",
+"Any compliance rule"
+],
+"nope": [
+"A single database whose own backups are enough."
+],
+"pay": "Per GB of backup stored.",
+"eg": "Daily backups kept 30 days, monthly kept a year, copied to Mumbai.",
+"rel": [
+"amazon-elastic-block-store",
+"amazon-rds"
+],
+"written": true
+},
+{
+"slug": "aws-elastic-disaster-recovery",
+"name": "AWS Elastic Disaster Recovery",
+"category": "Storage",
+"icon": "assets/icons/services/aws-elastic-disaster-recovery.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-snowball-edge",
+"name": "AWS Snowball Edge",
+"category": "Storage",
+"icon": "assets/icons/services/aws-snowball-edge.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-snowball",
+"name": "AWS Snowball",
+"category": "Storage",
+"icon": "assets/icons/services/aws-snowball.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "aws-storage-gateway",
+"name": "AWS Storage Gateway",
+"category": "Storage",
+"icon": "assets/icons/services/aws-storage-gateway.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-efs",
+"name": "Amazon EFS",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-efs.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-elastic-block-store",
+"name": "Amazon Elastic Block Store",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-elastic-block-store.svg",
+"tier": 1,
+"one": "The hard disk attached to your EC2 server.",
+"like": "The hard drive inside a computer, except you can unplug it and attach it to another computer.",
+"what": "EBS is a disk volume for one EC2 instance. It survives when the instance stops. You can take snapshots for backup. Type gp3 is the sensible default.",
+"when": [
+"Any EC2 server needs a disk",
+"Databases running on EC2"
+],
+"nope": [
+"Sharing one disk across many servers. Use EFS.",
+"Storing files for a website. Use S3."
+],
+"pay": "Per GB per month, whether or not you use the space. Snapshots cost extra.",
+"eg": "A 100 GB disk holding the application and its data.",
+"rel": [
+"amazon-ec2",
+"aws-backup",
+"amazon-simple-storage-service"
+],
+"written": true
+},
+{
+"slug": "amazon-fsx-for-lustre",
+"name": "Amazon FSx for Lustre",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-fsx-for-lustre.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-fsx-for-netapp-ontap",
+"name": "Amazon FSx for NetApp ONTAP",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-fsx-for-netapp-ontap.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-fsx-for-openzfs",
+"name": "Amazon FSx for OpenZFS",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-fsx-for-openzfs.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-fsx-for-wfs",
+"name": "Amazon FSx for WFS",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-fsx-for-wfs.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-fsx",
+"name": "Amazon FSx",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-fsx.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-file-cache",
+"name": "Amazon File Cache",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-file-cache.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-s3-on-outposts",
+"name": "Amazon S3 on Outposts",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-s3-on-outposts.svg",
+"tier": 4,
+"written": false
+},
+{
+"slug": "amazon-simple-storage-service-glacier",
+"name": "Amazon Simple Storage Service Glacier",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-simple-storage-service-glacier.svg",
+"tier": 2,
+"one": "Very cheap storage for files you almost never open.",
+"like": "A deep basement archive. Cheap to keep things, slow to fetch them.",
+"what": "Glacier classes store data at a fraction of normal S3 cost. Retrieval can take minutes or hours depending on the tier, and costs extra. It is for archives, not for anything you serve live.",
+"when": [
+"Records you must keep for years",
+"Old backups"
+],
+"nope": [
+"Anything a user might open today."
+],
+"pay": "Very low per GB per month. You pay to retrieve.",
+"eg": "Seven years of invoices kept for audit.",
+"rel": [
+"amazon-simple-storage-service",
+"aws-backup"
+],
+"written": true
+},
+{
+"slug": "amazon-simple-storage-service",
+"name": "Amazon Simple Storage Service",
+"category": "Storage",
+"icon": "assets/icons/services/amazon-simple-storage-service.svg",
+"tier": 1,
+"one": "A place to keep files, as many as you want.",
+"like": "An unlimited cupboard. You put a file in, you get a link to it.",
+"what": "S3 stores files, called objects, in buckets. It is built for very high durability. It is not a disk you can mount and edit in place. You put a whole file and get a whole file.",
+"when": [
+"Images, videos, PDFs, backups",
+"Website files",
+"Data before you analyse it"
+],
+"nope": [
+"A database. It cannot search inside your data.",
+"A file share your server edits live. Use EFS."
+],
+"pay": "Per GB stored per month, plus requests, plus data going out.",
+"eg": "All product photos for an online shop, served through CloudFront.",
+"rel": [
+"amazon-cloudfront",
+"amazon-simple-storage-service-glacier",
+"amazon-athena",
+"aws-backup"
+],
+"written": true
+}
+]

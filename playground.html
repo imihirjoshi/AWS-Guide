@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AWS Playground | Build a cloud setup and see what it costs</title>
+<meta name="description" content="Drag AWS services onto a canvas, connect them, change the sizes and see a rough monthly cost. A free learning sandbox. Nothing is created in a real AWS account.">
+<link rel="icon" href="assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/playground.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html"><span class="awsmark"><img src="assets/icons/brand/aws-cloud.svg" alt="" width="26" height="26"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="index.html">Services</a><a href="playground.html">Playground</a><a href="learn.html">Start here</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+
+<div class="pgwrap">
+  <aside class="pal">
+    <div class="palhead"><input id="palq" type="search" placeholder="Find a service" autocomplete="off"></div>
+    <div id="pallist"></div>
+    <p class="pgnote">Drag a service onto the board. Or click it to drop it in the middle.</p>
+  </aside>
+
+  <div class="stagewrap">
+    <div class="bar">
+      <select id="tpl">
+        <option value="">Start from a template</option>
+        <option value="static">Static website</option>
+        <option value="web">Classic web app</option>
+        <option value="serverless">Serverless API</option>
+        <option value="data">Data pipeline</option>
+      </select>
+      <button id="linkbtn" aria-pressed="false">Connect</button>
+      <button id="fit">Centre</button>
+      <button id="save">Save</button>
+      <button id="load">Load</button>
+      <button id="expPng">PNG</button>
+      <button id="expSvg">SVG</button>
+      <button id="expPdf">PDF</button>
+      <button id="exp">JSON</button>
+      <button id="clear" class="danger">Clear</button>
+    </div>
+    <div class="stage" id="stage">
+      <div class="canvas" id="canvas"><svg id="wires"></svg></div>
+    </div>
+  </div>
+
+  <aside class="insp">
+    <div class="isec">
+      <h3>Rough monthly cost</h3>
+      <div class="big" id="total">$0</div>
+      <div class="sub2" id="totalUsd"></div>
+      <div class="rateline" id="rateline"></div>
+      <div class="sub2" style="margin-top:8px">Teaching estimate only. Roughly US East on demand, ignoring free tier, data transfer, tax and discounts. Never use this for a quote.</div>
+    </div>
+    <div class="isec"><h3>Cost breakdown</h3><div id="breakdown"><p class="hint">Add something to the board.</p></div></div>
+    <div class="isec"><h3>Settings</h3><div id="cfg"><p class="hint">Click a service on the board to change its size.</p></div></div>
+    <div class="isec"><h3>Review</h3><div id="issues"><p class="hint">The board is empty.</p></div></div>
+  </aside>
+</div>
+
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/export.js"></script>
+<script src="assets/js/playground.js"></script>
+<footer class="foot"><div class="wrap">
+  <p><strong>Not affiliated with Amazon Web Services.</strong> This is an independent educational project. It is not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p>
+  <p>Amazon Web Services, AWS, and all AWS service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Service icons are the official <a href="https://aws.amazon.com/architecture/icons/" rel="nofollow noopener" target="_blank">AWS Architecture Icons</a>, used unmodified, as permitted for technical and architectural material. All written explanations are original.</p>
+  <p>Every price shown here is a rough teaching estimate, not a quote and not advice. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers and the <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">AWS documentation</a> for real decisions.</p>
+  <p>No accounts, no ads, no tracking, no cookies. Your currency and theme are stored in your own browser and never sent anywhere. <a href="legal.html">Full notice</a>.</p>
+  <p>Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+</body>
+</html>
