@@ -1,12 +1,50 @@
+# ============================================================
+# Crawlers this site welcomes.
+# The host blocks known AI crawlers by setting a bad_bot flag at server level.
+# Each line below clears that flag for one agent. Per hostns.io support,
+# 30 September 2026.
+#
+# Deliberately NOT included: their template began with
+#   SetEnvIfNoCase User-Agent .*.* !bad_bot
+# which matches every agent and would switch the protection off completely.
+# Only the agents named here are let through.
+# ============================================================
+
+# Answer engines and AI assistants
+SetEnvIfNoCase User-Agent .*GPTBot.*            !bad_bot
+SetEnvIfNoCase User-Agent .*OAI-SearchBot.*     !bad_bot
+SetEnvIfNoCase User-Agent .*ChatGPT-User.*      !bad_bot
+SetEnvIfNoCase User-Agent .*ChatGPT.*           !bad_bot
+SetEnvIfNoCase User-Agent .*OpenAI.*            !bad_bot
+SetEnvIfNoCase User-Agent .*ClaudeBot.*         !bad_bot
+SetEnvIfNoCase User-Agent .*Claude-User.*       !bad_bot
+SetEnvIfNoCase User-Agent .*Claude-SearchBot.*  !bad_bot
+SetEnvIfNoCase User-Agent .*anthropic-ai.*      !bad_bot
+SetEnvIfNoCase User-Agent .*PerplexityBot.*     !bad_bot
+SetEnvIfNoCase User-Agent .*Perplexity-User.*   !bad_bot
+SetEnvIfNoCase User-Agent .*Perplexity.*        !bad_bot
+SetEnvIfNoCase User-Agent .*GrokBot.*           !bad_bot
+SetEnvIfNoCase User-Agent .*Google-Extended.*   !bad_bot
+SetEnvIfNoCase User-Agent .*Applebot-Extended.* !bad_bot
+SetEnvIfNoCase User-Agent .*Amazonbot.*         !bad_bot
+SetEnvIfNoCase User-Agent .*cohere-ai.*         !bad_bot
+SetEnvIfNoCase User-Agent .*Meta-ExternalAgent.* !bad_bot
+SetEnvIfNoCase User-Agent .*CCBot.*             !bad_bot
+SetEnvIfNoCase User-Agent .*YouBot.*            !bad_bot
+SetEnvIfNoCase User-Agent .*Diffbot.*           !bad_bot
+SetEnvIfNoCase User-Agent .*Timpibot.*          !bad_bot
+
+# SEO tools, so this site can be audited
+SetEnvIfNoCase User-Agent .*Screaming\ Frog\ SEO\ Spider.* !bad_bot
+SetEnvIfNoCase User-Agent .*AhrefsBot.*         !bad_bot
+SetEnvIfNoCase User-Agent .*Ahrefs.*            !bad_bot
+SetEnvIfNoCase User-Agent .*SemrushBot.*        !bad_bot
+SetEnvIfNoCase User-Agent .*Semrush.*           !bad_bot
+
 # AWS Explained Simply
 
 # ---------- the front door ----------
 DirectoryIndex index.html
-
-# NOTE: this host blocks known AI crawler user agents (GPTBot, ClaudeBot,
-# PerplexityBot and others) at LiteSpeed server level, above .htaccess.
-# Tested 30 Sep 2026: a Require/SetEnvIf allow rule here has no effect.
-# Only the hosting provider can lift it. See AI-CRAWLER-BLOCK.md.
 
 # ---------- canonical host and scheme ----------
 <IfModule mod_rewrite.c>

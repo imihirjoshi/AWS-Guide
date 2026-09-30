@@ -1,66 +1,62 @@
-# The host blocks AI crawlers
+# AI crawler access: blocked, then fixed
 
-Tested 30 September 2026 against `https://aws.4bittechnology.com/robots.txt`.
+## What was wrong
 
-| User agent | Result |
+Tested 30 September 2026. The host returned **403 Forbidden** to every AI crawler
+while letting browsers, Googlebot, Bingbot and Applebot through.
+
+Blocked: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot,
+Amazonbot, CCBot.
+
+It was not a general "block anything called a bot" rule. A made up agent called
+`somebot` got 200, and the bare word `Claude` got 200. It was a specific
+blocklist of the real AI crawler names.
+
+An explicit allow in `.htaccess` had no effect at that point, so the rule sat
+above user configuration.
+
+## The fix
+
+hostns.io support updated the server rules so that a `bad_bot` flag decides the
+block, and a site can clear that flag per user agent from its own `.htaccess`.
+The allow list now sits at the top of this site's `.htaccess`.
+
+**One line from their template was deliberately left out:**
+
+```
+SetEnvIfNoCase User-Agent .*.* !bad_bot
+```
+
+`.*.*` matches every user agent, so that line would switch the protection off
+completely and make the other rules pointless. Only named agents are allowed.
+
+## Verified after the fix
+
+Run from the server itself, because testing repeatedly from one home IP with bot
+user agents gets that IP firewalled.
+
+| Agent | Result |
 |---|---|
-| Ordinary browser | **200** |
-| Googlebot | **200** |
-| Googlebot Smartphone | **200** |
-| Bingbot | **200** |
-| Applebot | **200** |
-| A made up bot, `somebot` | **200** |
-| **GPTBot** | **403** |
-| **OAI-SearchBot** | **403** |
-| **ChatGPT-User** | **403** |
-| **ClaudeBot** | **403** |
-| **PerplexityBot** | **403** |
-| **Amazonbot** | **403** |
-| **CCBot** | **403** |
+| GPTBot, OAI-SearchBot, ChatGPT-User | **200**, real content |
+| ClaudeBot, Claude-User | **200**, real content |
+| PerplexityBot | **200**, real content |
+| Amazonbot, CCBot, Google-Extended, GrokBot | **200**, real content |
+| Googlebot, Bingbot, Applebot, browser | **200**, real content |
+| AhrefsBot, SemrushBot, Screaming Frog | **200**, real content |
+| MJ12bot, PetalBot (not on the list) | **403**, still blocked |
 
-The 403 body is the LiteSpeed default error page, and the response still carries
-this site's own security headers, so the block happens after `.htaccess` is read
-but the request is refused before the file is served.
+The AI files are reachable too: `robots.txt`, `llms.txt` (49 KB),
+`llms-full.txt` (542 KB) and `sitemap.xml` all return 200 to GPTBot.
 
-A made up agent called `somebot` gets 200, and the bare word `Claude` gets 200,
-so this is not a general "block anything with bot in the name" rule. It is a
-specific blocklist of the known AI crawler names.
+So the crawlers we want are in, and the protection still holds against the ones
+we did not name.
 
-## What does not fix it
+## A note for anyone testing this later
 
-Adding an explicit allow in `.htaccess` was tried and has no effect:
+The server firewalls your IP if it sees several blocked bot user agents from you
+in quick succession. Connections then fail at TLS with no HTTP status at all,
+which looks like the site being down. It is not. Test from a different host, or
+leave several seconds between requests.
 
-```
-SetEnvIfNoCase User-Agent "(GPTBot|ClaudeBot|PerplexityBot|...)" ai_crawler=1
-<RequireAny>
-  Require all granted
-  Require env ai_crawler
-</RequireAny>
-```
-
-GPTBot and ClaudeBot still returned 403. The rule lives above user configuration,
-in the LiteSpeed server config or a WHM level setting, which a cPanel user cannot
-override.
-
-## Why it matters here
-
-This site exists to be quoted. `llms.txt` and `llms-full.txt` were written for
-exactly these crawlers, `robots.txt` welcomes twenty of them by name, and 303
-static pages were generated so answer engines can read the content without
-running JavaScript. None of that reaches them while the server returns 403.
-
-Google and Bing are unaffected, so ordinary search indexing is fine today.
-
-## The two ways out
-
-**1. Ask the host to lift it.** One support ticket. Draft is in
-`SUPPORT-TICKET.txt`. This is the smallest change and keeps everything else as is.
-
-**2. Put Cloudflare in front.** Free plan. Cloudflare then answers the request
-and decides the policy, not the origin. Two things to check after switching:
-turn OFF `Security` then `Bots` then `AI Scrapers and Crawlers`, because
-Cloudflare now blocks AI crawlers by default, and keep the origin pull working.
-This also gives real CDN caching, which the site would benefit from anyway.
-
-Option 1 first. If the host refuses or cannot do it per domain, option 2 works
-regardless of what the origin thinks.
+Also worth knowing: support described the change as an Apache rule, but the
+server reports itself as LiteSpeed. The fix works regardless.
