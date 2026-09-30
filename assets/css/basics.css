@@ -76,9 +76,10 @@
   width:22px;height:22px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
 .journey .bcols{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
 
-.bprog{position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--rule);
-  padding:11px 0;margin-top:18px;z-index:5}
-.bprog .inner{display:flex;align-items:center;gap:14px}
+.bprog{position:sticky;bottom:0;z-index:20;margin-top:24px;
+  background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  box-shadow:0 -6px 20px -14px rgba(14,22,32,.5)}
+.bprog .inner{display:flex;align-items:center;gap:14px;padding:12px 18px}
 .bprog .ptrack{flex:1 1 auto}
 .bprog>.inner>span:first-child{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);flex:0 0 auto}
 .bprog button{flex:0 0 auto;background:transparent;border:1px solid var(--rule);color:var(--ink-3);

@@ -1,0 +1,398 @@
+# AWS Explained Simply
+
+> A free, independent educational reference that explains every Amazon Web Services
+> product in plain English, with an honest note on when NOT to use each one. It also
+> holds 51 reference architectures from a one page site up to global scale, a sandbox
+> for sketching a setup and seeing a rough cost, and a catalogue of AWS certifications.
+
+Not affiliated with, endorsed by, or sponsored by Amazon Web Services.
+All prices quoted are rough teaching estimates, never quotes.
+Written by Mihir Joshi. Distributed by 4Bit Technology.
+Last updated 2026-09-30.
+
+## Start here
+
+- [Before AWS: the words nobody explained](https://aws.4bittechnology.com/): 31 fundamentals, from what a server is to what DNS does, explained with nothing assumed.
+- [How AWS itself works](https://aws.4bittechnology.com/learn.html): why there are 300 services, the eight to learn first, and how the billing actually works.
+- [What should I actually build](https://aws.4bittechnology.com/architecture.html): 51 architectures keyed to the reader's own situation, with cost, capacity ceiling, what breaks first and what not to build yet.
+- [All services](https://aws.4bittechnology.com/services.html): the full index.
+- [Playground](https://aws.4bittechnology.com/playground.html): sketch an architecture and see a rough monthly cost.
+- [AWS certifications](https://aws.4bittechnology.com/certifications.html): every current exam with code, price, domains and status.
+
+## Every service, explained
+
+
+### AI and Machine Learning
+
+- [AWS App Studio](https://aws.4bittechnology.com/s/aws-app-studio.html): Describe a business app in plain words and it builds a working one for you.
+- [AWS Deep Learning AMIs](https://aws.4bittechnology.com/s/aws-deep-learning-amis.html): A ready-made server image with the AI tools already installed.
+- [AWS Deep Learning Containers](https://aws.4bittechnology.com/s/aws-deep-learning-containers.html): Prebuilt Docker images with PyTorch and its GPU parts already working.
+- [AWS DeepRacer](https://aws.4bittechnology.com/s/aws-deepracer.html): A toy race car game that taught people reinforcement learning, now shut down as an AWS service.
+- [AWS Elemental Inference](https://aws.4bittechnology.com/s/aws-elemental-inference.html): A media focused machine learning capability. We could not confirm the current details.
+- [AWS HealthImaging](https://aws.4bittechnology.com/s/aws-healthimaging.html): Storage for hospital scan images that keeps them fast to open.
+- [AWS HealthLake](https://aws.4bittechnology.com/s/aws-healthlake.html): A place to put patient records so you can search and analyse them.
+- [AWS HealthOmics](https://aws.4bittechnology.com/s/aws-healthomics.html): Runs genetics analysis pipelines and stores the huge files they produce.
+- [AWS HealthScribe](https://aws.4bittechnology.com/s/aws-healthscribe.html): Listens to a doctor and patient talking and writes up the clinical note.
+- [AWS Neuron](https://aws.4bittechnology.com/s/aws-neuron.html): The free software kit that lets your model run on AWS's own AI chips.
+- [AWS Panorama](https://aws.4bittechnology.com/s/aws-panorama.html): A discontinued box that ran computer vision on existing security cameras.
+- [Amazon Augmented AI A2I](https://aws.4bittechnology.com/s/amazon-augmented-ai-a2i.html): Sends the AI's unsure answers to a human to check.
+- [Amazon Bedrock](https://aws.4bittechnology.com/s/amazon-bedrock.html): Use ready made AI models, including Claude, through one API.
+- [Amazon Bedrock AgentCore](https://aws.4bittechnology.com/s/amazon-bedrock-agentcore.html): Runs an AI agent as a live service, with memory and tools attached.
+- [Amazon CodeGuru](https://aws.4bittechnology.com/s/amazon-codeguru.html): Reviewed your code and found slow spots in running apps, and is now mostly closed.
+- [Amazon CodeWhisperer](https://aws.4bittechnology.com/s/amazon-codewhisperer.html): The old name for AWS code autocomplete, now folded into Amazon Q Developer.
+- [Amazon Comprehend](https://aws.4bittechnology.com/s/amazon-comprehend.html): Finds meaning inside plain text.
+- [Amazon Comprehend Medical](https://aws.4bittechnology.com/s/amazon-comprehend-medical.html): Pulls medicines, doses, conditions and symptoms out of doctors' notes.
+- [Amazon DevOps Guru](https://aws.4bittechnology.com/s/amazon-devops-guru.html): Watches your AWS metrics and tells you when something looks wrong and probably why.
+- [Amazon Elastic Inference](https://aws.4bittechnology.com/s/amazon-elastic-inference.html): A retired way to bolt a slice of a GPU onto a normal server.
+- [Amazon Forecast](https://aws.4bittechnology.com/s/amazon-forecast.html): Predicted future numbers from your past numbers, and is closed to new customers.
+- [Amazon Fraud Detector](https://aws.4bittechnology.com/s/amazon-fraud-detector.html): Scores an online action as likely fraud or not, using your own past cases.
+- [Amazon Kendra](https://aws.4bittechnology.com/s/amazon-kendra.html): A search box for your company's documents that understands questions, not just keywords.
+- [Amazon Lex](https://aws.4bittechnology.com/s/amazon-lex.html): Builds a chatbot or phone bot that works out what the caller wants.
+- [Amazon Lookout for Equipment](https://aws.4bittechnology.com/s/amazon-lookout-for-equipment.html): Learns the normal readings of a machine and warns when they drift, and it is being shut down.
+- [Amazon Lookout for Vision](https://aws.4bittechnology.com/s/amazon-lookout-for-vision.html): Spotted defects in photos of products on a line, and has been discontinued.
+- [Amazon Monitron](https://aws.4bittechnology.com/s/amazon-monitron.html): A sensor you stick on a motor that warns when it starts running badly, no longer sold to new customers.
+- [Amazon Nova](https://aws.4bittechnology.com/s/amazon-nova.html): Amazon's own family of AI models, sold through Bedrock.
+- [Amazon Personalize](https://aws.4bittechnology.com/s/amazon-personalize.html): Builds the "you might also like" list for your site from what your users actually did.
+- [Amazon Polly](https://aws.4bittechnology.com/s/amazon-polly.html): Turns written text into a natural sounding voice.
+- [Amazon Q](https://aws.4bittechnology.com/s/amazon-q.html): An AI assistant for AWS work, split into one for developers and one for business users.
+- [Amazon Rekognition](https://aws.4bittechnology.com/s/amazon-rekognition.html): Understands what is in a picture or video.
+- [Amazon SageMaker AI](https://aws.4bittechnology.com/s/amazon-sagemaker-ai.html): Build and train your own machine learning models.
+- [Amazon SageMaker Ground Truth](https://aws.4bittechnology.com/s/amazon-sagemaker-ground-truth.html): Gets humans to label your training data, and manages the whole labelling job.
+- [Amazon SageMaker Studio Lab](https://aws.4bittechnology.com/s/amazon-sagemaker-studio-lab.html): A free notebook for learning machine learning, with no AWS account, now closing to new users.
+- [Amazon Textract](https://aws.4bittechnology.com/s/amazon-textract.html): Pulls text and tables out of scanned documents.
+- [Amazon Transcribe](https://aws.4bittechnology.com/s/amazon-transcribe.html): Turns speech into written text.
+- [Amazon Translate](https://aws.4bittechnology.com/s/amazon-translate.html): Translates text between languages.
+- [Apache MXNet on AWS](https://aws.4bittechnology.com/s/apache-mxnet-on-aws.html): AWS support for an old deep learning framework that is no longer maintained.
+- [PyTorch on AWS](https://aws.4bittechnology.com/s/pytorch-on-aws.html): Not a service, just the many ways to run the PyTorch framework on AWS.
+- [TensorFlow on AWS](https://aws.4bittechnology.com/s/tensorflow-on-aws.html): Not a service. It is the ways you can run the TensorFlow library on AWS.
+
+### Analytics
+
+- [AWS Clean Rooms](https://aws.4bittechnology.com/s/aws-clean-rooms.html): Two companies compare their customer data without either one handing the data over.
+- [AWS Data Exchange](https://aws.4bittechnology.com/s/aws-data-exchange.html): A shop inside AWS where you buy or sell data sets and keep them updated automatically.
+- [AWS Entity Resolution](https://aws.4bittechnology.com/s/aws-entity-resolution.html): Works out which records in different files are the same person or company.
+- [AWS Glue](https://aws.4bittechnology.com/s/aws-glue.html): Cleans and moves data between places.
+- [AWS Glue DataBrew](https://aws.4bittechnology.com/s/aws-glue-databrew.html): A point-and-click tool for cleaning up messy data without writing code.
+- [AWS Lake Formation](https://aws.4bittechnology.com/s/aws-lake-formation.html): Decides who is allowed to see which tables, columns and rows of your data in S3.
+- [Amazon Athena](https://aws.4bittechnology.com/s/amazon-athena.html): Run SQL directly on files sitting in S3.
+- [Amazon CloudSearch](https://aws.4bittechnology.com/s/amazon-cloudsearch.html): An old search box service for websites, now closed to new customers.
+- [Amazon Data Firehose](https://aws.4bittechnology.com/s/amazon-data-firehose.html): Takes a constant trickle of records and drops them into storage for you, in batches.
+- [Amazon DataZone](https://aws.4bittechnology.com/s/amazon-datazone.html): A catalogue where staff can find the company's data and ask for permission to use it.
+- [Amazon EMR](https://aws.4bittechnology.com/s/amazon-emr.html): Big data processing with Spark and Hadoop.
+- [Amazon FinSpace](https://aws.4bittechnology.com/s/amazon-finspace.html): A data store built for finance firms, now being shut down.
+- [Amazon Kinesis](https://aws.4bittechnology.com/s/amazon-kinesis.html): Handles data that never stops arriving.
+- [Amazon Kinesis Data Streams](https://aws.4bittechnology.com/s/amazon-kinesis-data-streams.html): A pipe that holds a stream of events for a while so several programs can read them.
+- [Amazon Kinesis Video Streams](https://aws.4bittechnology.com/s/amazon-kinesis-video-streams.html): It takes video from cameras and stores it so software can watch it back or analyse it.
+- [Amazon Managed Service for Apache Flink](https://aws.4bittechnology.com/s/amazon-managed-service-for-apache-flink.html): Runs code that does sums over a live stream of events, like a running total per minute.
+- [Amazon Managed Streaming for Apache Kafka](https://aws.4bittechnology.com/s/amazon-managed-streaming-for-apache-kafka.html): AWS runs Apache Kafka for you so you do not have to babysit the servers.
+- [Amazon OpenSearch Service](https://aws.4bittechnology.com/s/amazon-opensearch-service.html): A search engine you can point at your logs or your website content.
+- [Amazon Redshift](https://aws.4bittechnology.com/s/amazon-redshift.html): A warehouse built for asking big questions of big data.
+- [Amazon SageMaker](https://aws.4bittechnology.com/s/amazon-sagemaker.html): The place to build, train and run your own machine learning models on AWS.
+
+### Application Integration
+
+- [AWS AppSync](https://aws.4bittechnology.com/s/aws-appsync.html): A managed GraphQL API.
+- [AWS B2B Data Interchange](https://aws.4bittechnology.com/s/aws-b2b-data-interchange.html): It turns the old-fashioned trading files big companies exchange into JSON your software can read, and back again.
+- [AWS Express Workflows](https://aws.4bittechnology.com/s/aws-express-workflows.html): A fast, cheap mode of AWS Step Functions for very high volume, short jobs.
+- [AWS Step Functions](https://aws.4bittechnology.com/s/aws-step-functions.html): Draws your multi step process as a flowchart that actually runs.
+- [Amazon AppFlow](https://aws.4bittechnology.com/s/amazon-appflow.html): A managed way to move data between business apps like Salesforce or SAP and AWS, without writing the plumbing.
+- [Amazon EventBridge](https://aws.4bittechnology.com/s/amazon-eventbridge.html): A router for events between services.
+- [Amazon MQ](https://aws.4bittechnology.com/s/amazon-mq.html): It runs ActiveMQ or RabbitMQ for you, so old applications keep talking the way they already do.
+- [Amazon Managed Workflows for Apache Airflow](https://aws.4bittechnology.com/s/amazon-managed-workflows-for-apache-airflow.html): It runs Apache Airflow for you, so scheduled data pipelines have somewhere to live.
+- [Amazon Simple Notification Service](https://aws.4bittechnology.com/s/amazon-simple-notification-service.html): Sends one message to many listeners at once.
+- [Amazon Simple Queue Service](https://aws.4bittechnology.com/s/amazon-simple-queue-service.html): A waiting line for tasks.
+
+### Blockchain
+
+- [Amazon Managed Blockchain](https://aws.4bittechnology.com/s/amazon-managed-blockchain.html): Runs blockchain networks so you do not have to operate the nodes yourself.
+
+### Business Applications
+
+- [AWS AppFabric](https://aws.4bittechnology.com/s/aws-appfabric.html): It pulls the activity logs out of your SaaS apps and puts them in one place.
+- [AWS End User Messaging](https://aws.4bittechnology.com/s/aws-end-user-messaging.html): It sends SMS, voice calls and phone push notifications from your code.
+- [AWS Supply Chain](https://aws.4bittechnology.com/s/aws-supply-chain.html): It reads your existing ERP data and warns you when stock is about to run short.
+- [AWS Wickr](https://aws.4bittechnology.com/s/aws-wickr.html): An end-to-end encrypted chat and calling app for organisations that need messages to stay secret.
+- [Amazon Chime](https://aws.4bittechnology.com/s/amazon-chime.html): Amazon's own video meetings app, which is being switched off.
+- [Amazon Chime SDK](https://aws.4bittechnology.com/s/amazon-chime-sdk.html): Building blocks for putting video calls, audio and chat inside your own app.
+- [Amazon Connect](https://aws.4bittechnology.com/s/amazon-connect.html): A ready-made call centre you set up in a browser instead of buying phone hardware.
+- [Amazon Pinpoint](https://aws.4bittechnology.com/s/amazon-pinpoint.html): A marketing messaging service that AWS is closing down.
+- [Amazon Pinpoint APIs](https://aws.4bittechnology.com/s/amazon-pinpoint-apis.html): The older set of Pinpoint APIs for customer messaging, most of which stop working in October 2026.
+- [Amazon Quick](https://aws.4bittechnology.com/s/amazon-quick.html): The new umbrella name for Amazon QuickSight plus AI agents that answer questions about your business data.
+- [Amazon Simple Email Service](https://aws.4bittechnology.com/s/amazon-simple-email-service.html): Sends email from your app, cheaply and at scale.
+- [Amazon WorkDocs](https://aws.4bittechnology.com/s/amazon-workdocs.html): Amazon's file storage and sharing service for staff, now switched off.
+- [Amazon WorkDocs SDK](https://aws.4bittechnology.com/s/amazon-workdocs-sdk.html): The programming interface to Amazon WorkDocs, a file sharing service AWS has closed to new customers.
+- [Amazon WorkMail](https://aws.4bittechnology.com/s/amazon-workmail.html): AWS business email and calendar. It is being shut down on 31 March 2027.
+
+### Compute
+
+- [AWS App Runner](https://aws.4bittechnology.com/s/aws-app-runner.html): Give it your code or container, it runs a web service.
+- [AWS Batch](https://aws.4bittechnology.com/s/aws-batch.html): Runs large numbers of background jobs.
+- [AWS Compute Optimizer](https://aws.4bittechnology.com/s/aws-compute-optimizer.html): Looks at how hard your servers actually work and tells you which ones are too big.
+- [AWS Elastic Beanstalk](https://aws.4bittechnology.com/s/aws-elastic-beanstalk.html): Upload your code and AWS sets up the servers for you.
+- [AWS Lambda](https://aws.4bittechnology.com/s/aws-lambda.html): Run a small piece of code without owning a server.
+- [AWS Local Zones](https://aws.4bittechnology.com/s/aws-local-zones.html): Small AWS outposts in extra cities, so your servers sit closer to users there.
+- [AWS Nitro Enclaves](https://aws.4bittechnology.com/s/aws-nitro-enclaves.html): A sealed side room on your server where secret data can be processed and nobody, not even you, can look in.
+- [AWS Outposts family](https://aws.4bittechnology.com/s/aws-outposts-family.html): AWS ships actual racks or small boxes of its own hardware to your building and runs them for you.
+- [AWS Outposts rack](https://aws.4bittechnology.com/s/aws-outposts-rack.html): Puts a full rack of AWS hardware inside your own building.
+- [AWS Outposts servers](https://aws.4bittechnology.com/s/aws-outposts-servers.html): A single AWS server box you put in a shop, clinic or factory.
+- [AWS Parallel Cluster](https://aws.4bittechnology.com/s/aws-parallel-cluster.html): Sets up a cluster of machines that run scientific jobs in a queue.
+- [AWS Parallel Computing Service](https://aws.4bittechnology.com/s/aws-parallel-computing-service.html): It runs a proper scientific computing cluster for you, using the Slurm scheduler researchers already know.
+- [AWS Serverless Application Repository](https://aws.4bittechnology.com/s/aws-serverless-application-repository.html): A catalogue of ready-made small AWS apps you can deploy into your own account in a few clicks.
+- [AWS SimSpace Weaver](https://aws.4bittechnology.com/s/aws-simspace-weaver.html): A retired service that used to spread one huge simulated world across many servers.
+- [AWS Wavelength](https://aws.4bittechnology.com/s/aws-wavelength.html): AWS servers placed inside mobile phone networks, so phone apps reach them without crossing the wider internet.
+- [Amazon DCV](https://aws.4bittechnology.com/s/amazon-dcv.html): Lets you use a graphics heavy desktop that is running somewhere else.
+- [Amazon EC2](https://aws.4bittechnology.com/s/amazon-ec2.html): A computer you rent in Amazon's data centre.
+- [Amazon EC2 Auto Scaling](https://aws.4bittechnology.com/s/amazon-ec2-auto-scaling.html): Adds servers when busy, removes them when quiet.
+- [Amazon EC2 Image Builder](https://aws.4bittechnology.com/s/amazon-ec2-image-builder.html): It builds your standard server image for you, on a schedule, with your software and patches baked in.
+- [Amazon Elastic VMware Service](https://aws.4bittechnology.com/s/amazon-elastic-vmware-service.html): It runs VMware Cloud Foundation on AWS hardware, inside your own network.
+- [Amazon Lightsail](https://aws.4bittechnology.com/s/amazon-lightsail.html): A simple server at a fixed monthly price.
+- [Amazon Lightsail for Research](https://aws.4bittechnology.com/s/amazon-lightsail-for-research.html): A simple rented desktop in the cloud with research software like RStudio or JupyterLab already installed.
+- [Bottlerocket](https://aws.4bittechnology.com/s/bottlerocket.html): A stripped down operating system for machines that only run containers.
+- [Elastic Fabric Adapter](https://aws.4bittechnology.com/s/elastic-fabric-adapter.html): A special network card for EC2 that lets many servers talk to each other extremely fast.
+
+### Containers
+
+- [AWS Fargate](https://aws.4bittechnology.com/s/aws-fargate.html): Runs containers without you owning any servers.
+- [Amazon ECS Anywhere](https://aws.4bittechnology.com/s/amazon-ecs-anywhere.html): Lets AWS run and manage containers on servers you own, not AWS servers.
+- [Amazon EKS Anywhere](https://aws.4bittechnology.com/s/amazon-eks-anywhere.html): Runs AWS style Kubernetes clusters on your own servers.
+- [Amazon EKS Distro](https://aws.4bittechnology.com/s/amazon-eks-distro.html): The exact Kubernetes build AWS itself runs, handed to you as open source.
+- [Amazon Elastic Container Registry](https://aws.4bittechnology.com/s/amazon-elastic-container-registry.html): A private store for your container images.
+- [Amazon Elastic Container Service](https://aws.4bittechnology.com/s/amazon-elastic-container-service.html): Runs your app in containers, the simple AWS way.
+- [Amazon Elastic Kubernetes Service](https://aws.4bittechnology.com/s/amazon-elastic-kubernetes-service.html): Managed Kubernetes.
+- [Red Hat OpenShift Service on AWS](https://aws.4bittechnology.com/s/red-hat-openshift-service-on-aws.html): Red Hat's OpenShift, run for you inside your AWS account.
+
+### Cost and Billing
+
+- [AWS Billing Conductor](https://aws.4bittechnology.com/s/aws-billing-conductor.html): It lets you send someone a different AWS bill than the one AWS actually produced.
+- [AWS Budgets](https://aws.4bittechnology.com/s/aws-budgets.html): It emails you when your AWS spending passes a number you picked.
+- [AWS Cost Explorer](https://aws.4bittechnology.com/s/aws-cost-explorer.html): Shows where your AWS money is going.
+- [AWS Cost and Usage Report](https://aws.4bittechnology.com/s/aws-cost-and-usage-report.html): It drops a giant spreadsheet of every line of your AWS bill into an S3 bucket.
+- [AWS FinOps Agent](https://aws.4bittechnology.com/s/aws-finops-agent.html): An AI agent that watches your AWS bill, investigates cost spikes and answers cost questions in plain English.
+- [Reserved Instance Reporting](https://aws.4bittechnology.com/s/reserved-instance-reporting.html): It is the screen that tells you whether the capacity you pre-paid for is actually being used.
+- [Savings Plans](https://aws.4bittechnology.com/s/savings-plans.html): A pricing commitment, not a service. You promise to spend a set amount per hour for one or three years and pay less per hour.
+
+### Customer Enablement
+
+- [AWS Activate](https://aws.4bittechnology.com/s/aws-activate.html): Free AWS credits and help for new startups.
+- [AWS IQ](https://aws.4bittechnology.com/s/aws-iq.html): A retired marketplace where you hired freelance AWS experts by the project.
+- [AWS Managed Services](https://aws.4bittechnology.com/s/aws-managed-services.html): You pay AWS staff to run your AWS infrastructure operations for you.
+- [AWS Professional Services](https://aws.4bittechnology.com/s/aws-professional-services.html): AWS consultants you pay to come and build or advise on a project with you.
+- [AWS Support](https://aws.4bittechnology.com/s/aws-support.html): A paid plan that lets you raise a ticket and get a human at AWS to help.
+- [AWS Training Certification](https://aws.4bittechnology.com/s/aws-training-certification.html): AWS courses and exams, some free, that prove you know the services.
+- [AWS rePost](https://aws.4bittechnology.com/s/aws-repost.html): A free public question and answer site for AWS, run by AWS.
+- [AWS rePost Private](https://aws.4bittechnology.com/s/aws-repost-private.html): A private version of the re:Post question site, just for your company. It is being shut down.
+
+### Databases
+
+- [AWS Database Migration Service](https://aws.4bittechnology.com/s/aws-database-migration-service.html): Moves a database into AWS with almost no downtime.
+- [Amazon Aurora](https://aws.4bittechnology.com/s/amazon-aurora.html): Amazon's faster version of MySQL and PostgreSQL.
+- [Amazon DocumentDB](https://aws.4bittechnology.com/s/amazon-documentdb.html): It is a database that speaks MongoDB's language but is built and run by AWS.
+- [Amazon DynamoDB](https://aws.4bittechnology.com/s/amazon-dynamodb.html): A very fast database with no tables to join.
+- [Amazon ElastiCache](https://aws.4bittechnology.com/s/amazon-elasticache.html): Keeps frequently used data in memory so it is fast.
+- [Amazon Keyspaces](https://aws.4bittechnology.com/s/amazon-keyspaces.html): It stores data the way Apache Cassandra does, without you running any Cassandra servers.
+- [Amazon MemoryDB](https://aws.4bittechnology.com/s/amazon-memorydb.html): It is a very fast in-memory store that, unlike a normal cache, does not lose your data.
+- [Amazon Neptune](https://aws.4bittechnology.com/s/amazon-neptune.html): It is a database for things that are connected to other things, and for the connections themselves.
+- [Amazon RDS](https://aws.4bittechnology.com/s/amazon-rds.html): A normal SQL database, run for you.
+- [Amazon Timestream](https://aws.4bittechnology.com/s/amazon-timestream.html): It stores readings that arrive with a timestamp, like sensor or metric data.
+- [Oracle Database at AWS](https://aws.4bittechnology.com/s/oracle-database-at-aws.html): Runs real Oracle Exadata databases inside an AWS data centre, next to your apps.
+
+### Developer Tools
+
+- [AWS Cloud Control API](https://aws.4bittechnology.com/s/aws-cloud-control-api.html): One set of five commands to create, read, update, delete and list almost any AWS thing.
+- [AWS Cloud Development Kit](https://aws.4bittechnology.com/s/aws-cloud-development-kit.html): Write your AWS setup as normal code instead of a long config file.
+- [AWS Cloud9](https://aws.4bittechnology.com/s/aws-cloud9.html): A code editor that ran in your browser, now closed to new customers.
+- [AWS CloudShell](https://aws.4bittechnology.com/s/aws-cloudshell.html): A terminal inside the AWS website that already knows who you are.
+- [AWS CodeArtifact](https://aws.4bittechnology.com/s/aws-codeartifact.html): A private store for the code libraries your team installs.
+- [AWS CodeBuild](https://aws.4bittechnology.com/s/aws-codebuild.html): A machine AWS starts for you to compile and test your code, then throws away.
+- [AWS CodeCommit](https://aws.4bittechnology.com/s/aws-codecommit.html): AWS's own private Git repository hosting.
+- [AWS CodeDeploy](https://aws.4bittechnology.com/s/aws-codedeploy.html): Puts a new version of your app onto servers gradually, and rolls back if it breaks.
+- [AWS CodePipeline](https://aws.4bittechnology.com/s/aws-codepipeline.html): Joins the steps from code change to live release into one automatic chain.
+- [AWS Command Line Interface](https://aws.4bittechnology.com/s/aws-command-line-interface.html): Type AWS commands in a terminal instead of clicking around the website.
+- [AWS Fault Injection Service](https://aws.4bittechnology.com/s/aws-fault-injection-service.html): Deliberately breaks parts of your system so you can see how it copes.
+- [AWS Infrastructure Composer](https://aws.4bittechnology.com/s/aws-infrastructure-composer.html): Draw your AWS setup on a canvas and get the config file out of it.
+- [AWS Tools and SDKs](https://aws.4bittechnology.com/s/aws-tools-and-sdks.html): The official libraries that let your program talk to AWS.
+- [AWS X Ray](https://aws.4bittechnology.com/s/aws-x-ray.html): Follows one request through all your services and shows where the time went.
+- [Amazon CodeCatalyst](https://aws.4bittechnology.com/s/amazon-codecatalyst.html): AWS's all in one place for repos, pipelines and issues, now in maintenance mode.
+- [Amazon Corretto](https://aws.4bittechnology.com/s/amazon-corretto.html): Amazon's free version of Java, which they keep patched for years.
+
+### End User Computing
+
+- [Amazon WorkSpaces](https://aws.4bittechnology.com/s/amazon-workspaces.html): Gives each person a Windows or Linux desktop they open from any device.
+
+### Front End Web and Mobile
+
+- [AWS Amplify](https://aws.4bittechnology.com/s/aws-amplify.html): The quickest way to put a web or mobile front end online.
+- [AWS Device Farm](https://aws.4bittechnology.com/s/aws-device-farm.html): Lets you test your app on real phones and tablets sitting in an AWS data centre.
+- [Amazon Location Service](https://aws.4bittechnology.com/s/amazon-location-service.html): Maps, address lookup, routes and location tracking for your app, without a Google Maps contract.
+
+### Games
+
+- [Amazon GameLift Servers](https://aws.4bittechnology.com/s/amazon-gamelift-servers.html): Runs and scales the game servers for a multiplayer game.
+- [Amazon GameLift Streams](https://aws.4bittechnology.com/s/amazon-gamelift-streams.html): Runs a game on an AWS machine and streams the video to a player's browser or device.
+- [Open 3D Engine](https://aws.4bittechnology.com/s/open-3d-engine.html): A free 3D game and simulation engine you download and build with.
+
+### General
+
+- [AWS Marketplace Dark](https://aws.4bittechnology.com/s/aws-marketplace-dark.html): Not a service. It is the dark background version of the AWS Marketplace icon.
+- [AWS Marketplace Light](https://aws.4bittechnology.com/s/aws-marketplace-light.html): Not a product. It is the light-background version of the AWS Marketplace icon.
+
+### Internet of Things
+
+- [AWS IoT Core](https://aws.4bittechnology.com/s/aws-iot-core.html): It is the front door where your gadgets connect to AWS and send messages.
+- [AWS IoT Device Defender](https://aws.4bittechnology.com/s/aws-iot-device-defender.html): It watches your connected devices for signs that one has been tampered with.
+- [AWS IoT Device Management](https://aws.4bittechnology.com/s/aws-iot-device-management.html): It helps you keep track of and update a large number of devices at once.
+- [AWS IoT Events](https://aws.4bittechnology.com/s/aws-iot-events.html): A service, now being retired, that watched device readings and reacted when a pattern appeared.
+- [AWS IoT ExpressLink](https://aws.4bittechnology.com/s/aws-iot-expresslink.html): A ready made connectivity chip, so a simple product can reach AWS without you writing network code.
+- [AWS IoT FleetWise](https://aws.4bittechnology.com/s/aws-iot-fleetwise.html): It collects data from vehicles, choosing what to send so you do not pay for every signal.
+- [AWS IoT Greengrass](https://aws.4bittechnology.com/s/aws-iot-greengrass.html): It runs AWS style code on your own hardware, near the machines, even without internet.
+- [AWS IoT SiteWise](https://aws.4bittechnology.com/s/aws-iot-sitewise.html): It collects readings from factory machines and stores them in a way that matches how the plant is laid out.
+- [AWS IoT TwinMaker](https://aws.4bittechnology.com/s/aws-iot-twinmaker.html): Builds a live 3D model of a real factory or building that updates from its sensors.
+- [FreeRTOS](https://aws.4bittechnology.com/s/freertos.html): A tiny free operating system that runs on very small chips inside devices.
+
+### Management and Governance
+
+- [AWS AppConfig](https://aws.4bittechnology.com/s/aws-appconfig.html): Changes a setting in your running app without redeploying the code.
+- [AWS Application Auto Scaling](https://aws.4bittechnology.com/s/aws-application-auto-scaling.html): Adds and removes capacity automatically for AWS services other than plain servers.
+- [AWS Auto Scaling](https://aws.4bittechnology.com/s/aws-auto-scaling.html): One screen to set up scaling across several services at once.
+- [AWS Backint Agent](https://aws.4bittechnology.com/s/aws-backint-agent.html): Backs up an SAP HANA database straight into S3 using SAP's own backup screens.
+- [AWS Chatbot](https://aws.4bittechnology.com/s/aws-chatbot.html): Sends AWS alerts into Slack or Microsoft Teams, and lets you run some commands from the chat.
+- [AWS CloudFormation](https://aws.4bittechnology.com/s/aws-cloudformation.html): Writes your whole setup as a file, so you can rebuild it exactly.
+- [AWS CloudTrail](https://aws.4bittechnology.com/s/aws-cloudtrail.html): Records who did what in your AWS account.
+- [AWS Config](https://aws.4bittechnology.com/s/aws-config.html): Records how your AWS setup changes over time.
+- [AWS Console Mobile Application](https://aws.4bittechnology.com/s/aws-console-mobile-application.html): The official AWS app for your phone, for checking things while away from a laptop.
+- [AWS Control Tower](https://aws.4bittechnology.com/s/aws-control-tower.html): Sets up a tidy, rule enforced group of AWS accounts for a company.
+- [AWS DevOps Agent](https://aws.4bittechnology.com/s/aws-devops-agent.html): An AI assistant that digs into why your system broke and suggests the fix.
+- [AWS Distro for OpenTelemetry](https://aws.4bittechnology.com/s/aws-distro-for-opentelemetry.html): AWS's own build of the standard open source tool that collects traces and metrics from your app.
+- [AWS Health Dashboard](https://aws.4bittechnology.com/s/aws-health-dashboard.html): Tells you when AWS itself has a problem, including ones that affect only your account.
+- [AWS Launch Wizard](https://aws.4bittechnology.com/s/aws-launch-wizard.html): A guided form that builds the AWS setup for a few specific packaged applications.
+- [AWS License Manager](https://aws.4bittechnology.com/s/aws-license-manager.html): Keeps count of software licences you own so you do not go over what you paid for.
+- [AWS Management Console](https://aws.4bittechnology.com/s/aws-management-console.html): The AWS website where you click around to see and change your stuff.
+- [AWS Organizations](https://aws.4bittechnology.com/s/aws-organizations.html): Manages many AWS accounts as one company.
+- [AWS Partner Central](https://aws.4bittechnology.com/s/aws-partner-central.html): The website AWS resellers and software vendors use to manage their AWS partnership.
+- [AWS Proton](https://aws.4bittechnology.com/s/aws-proton.html): A way for a platform team to publish ready made deployment templates for developers, now being shut down.
+- [AWS Resilience Hub](https://aws.4bittechnology.com/s/aws-resilience-hub.html): Scores how well your app would survive a failure, and tells you what is missing.
+- [AWS Resource Explorer](https://aws.4bittechnology.com/s/aws-resource-explorer.html): Search across all your AWS resources in every region at once.
+- [AWS Service Catalog](https://aws.4bittechnology.com/s/aws-service-catalog.html): An internal menu of approved setups that staff can deploy without free rein.
+- [AWS Service Management Connector](https://aws.4bittechnology.com/s/aws-service-management-connector.html): Retiring. It let ServiceNow or Jira users request and see AWS resources from their own ticket tool.
+- [AWS Sustainability](https://aws.4bittechnology.com/s/aws-sustainability.html): Not a service. It is AWS's environment programme, with one real tool for your carbon numbers.
+- [AWS Systems Manager](https://aws.4bittechnology.com/s/aws-systems-manager.html): Manage all your servers from one place.
+- [AWS Telco Network Builder](https://aws.4bittechnology.com/s/aws-telco-network-builder.html): Deploys and manages mobile network software for phone companies running 5G on AWS.
+- [AWS Trusted Advisor](https://aws.4bittechnology.com/s/aws-trusted-advisor.html): Checks your account and suggests fixes.
+- [AWS User Notifications](https://aws.4bittechnology.com/s/aws-user-notifications.html): One place to decide which AWS events reach you, and where they land.
+- [AWS Well Architected Tool](https://aws.4bittechnology.com/s/aws-well-architected-tool.html): A questionnaire about your system that produces a list of the risks you have not handled.
+- [Amazon CloudWatch](https://aws.4bittechnology.com/s/amazon-cloudwatch.html): Watches your systems and tells you when something is wrong.
+- [Amazon Managed Grafana](https://aws.4bittechnology.com/s/amazon-managed-grafana.html): Runs Grafana dashboards for you so nobody has to patch a Grafana server.
+- [Amazon Managed Service for Prometheus](https://aws.4bittechnology.com/s/amazon-managed-service-for-prometheus.html): Stores and queries Prometheus metrics for you, without running Prometheus servers.
+
+### Media
+
+- [AWS Deadline Cloud](https://aws.4bittechnology.com/s/aws-deadline-cloud.html): It runs your 3D renders and other heavy creative jobs on rented computers.
+- [AWS Elemental Appliances & Software](https://aws.4bittechnology.com/s/aws-elemental-appliances-software.html): It is the name for the video encoding boxes and software AWS sells you to run in your own building.
+- [AWS Elemental Conductor](https://aws.4bittechnology.com/s/aws-elemental-conductor.html): It is the control panel that manages a room full of Elemental encoders.
+- [AWS Elemental Delta](https://aws.4bittechnology.com/s/aws-elemental-delta.html): It stores and hands out live video in your own building so thousands of viewers can watch it.
+- [AWS Elemental Link](https://aws.4bittechnology.com/s/aws-elemental-link.html): A small box you plug a camera into, and the video goes straight to AWS.
+- [AWS Elemental Live](https://aws.4bittechnology.com/s/aws-elemental-live.html): Software or a box in your building that turns a live camera feed into internet streams.
+- [AWS Elemental MediaConnect](https://aws.4bittechnology.com/s/aws-elemental-mediaconnect.html): It moves a live video feed from one place to another without losing quality.
+- [AWS Elemental MediaConvert](https://aws.4bittechnology.com/s/aws-elemental-mediaconvert.html): It converts video files you already have into the formats players can stream.
+- [AWS Elemental MediaLive](https://aws.4bittechnology.com/s/aws-elemental-medialive.html): It takes a live camera or stream and turns it into something viewers can watch.
+- [AWS Elemental MediaPackage](https://aws.4bittechnology.com/s/aws-elemental-mediapackage.html): It hands your live video to viewers in whatever format their player wants, and can record it.
+- [AWS Elemental MediaStore](https://aws.4bittechnology.com/s/aws-elemental-mediastore.html): It was fast storage made for live video, and AWS has now shut it down.
+- [AWS Elemental MediaTailor](https://aws.4bittechnology.com/s/aws-elemental-mediatailor.html): It slips adverts into a video stream so they play like part of the programme.
+- [AWS Elemental Server](https://aws.4bittechnology.com/s/aws-elemental-server.html): Software in your own building that converts recorded video files into streaming formats.
+- [AWS Thinkbox Deadline](https://aws.4bittechnology.com/s/aws-thinkbox-deadline.html): Free software you install yourself to manage a render farm.
+- [AWS Thinkbox Frost](https://aws.4bittechnology.com/s/aws-thinkbox-frost.html): A 3ds Max plugin that turns clouds of particles into a solid surface you can render.
+- [AWS Thinkbox Krakatoa](https://aws.4bittechnology.com/s/aws-thinkbox-krakatoa.html): Free desktop software that renders huge clouds of particles, like smoke, dust and fire.
+- [AWS Thinkbox Stoke](https://aws.4bittechnology.com/s/aws-thinkbox-stoke.html): Free 3ds Max plugin that simulates particles moving through fields of motion.
+- [AWS Thinkbox XMesh](https://aws.4bittechnology.com/s/aws-thinkbox-xmesh.html): Saves moving 3D animation to disk so an artist can replay it fast.
+- [Amazon Interactive Video Service](https://aws.4bittechnology.com/s/amazon-interactive-video-service.html): It gives you live streaming with chat, like a Twitch style channel, with very little setup.
+
+### Migration and Transfer
+
+- [AWS Application Discovery Service](https://aws.4bittechnology.com/s/aws-application-discovery-service.html): It surveys the servers in your data centre so you know what you actually have before moving.
+- [AWS Application Migration Service](https://aws.4bittechnology.com/s/aws-application-migration-service.html): It copies your existing servers, as they are, onto EC2 and lets you cut over.
+- [AWS Data Transfer Terminal](https://aws.4bittechnology.com/s/aws-data-transfer-terminal.html): Lets you drive your hard drives to an AWS building and copy them in over a very fast cable.
+- [AWS DataSync](https://aws.4bittechnology.com/s/aws-datasync.html): It copies large amounts of files from one place to another, and checks they arrived.
+- [AWS Mainframe Modernization](https://aws.4bittechnology.com/s/aws-mainframe-modernization.html): Tools to move old mainframe programs to AWS, either running them as they are or rewriting them into Java.
+- [AWS Migration Evaluator](https://aws.4bittechnology.com/s/aws-migration-evaluator.html): Looks at the servers you own today and estimates what they would cost on AWS.
+- [AWS Transfer Family](https://aws.4bittechnology.com/s/aws-transfer-family.html): An SFTP server that saves files straight into S3.
+- [AWS Transform](https://aws.4bittechnology.com/s/aws-transform.html): An AI agent that reads your old applications and rewrites them for AWS.
+
+### Networking and Content Delivery
+
+- [AWS App Mesh](https://aws.4bittechnology.com/s/aws-app-mesh.html): A retired traffic controller that used to sit next to each of your services.
+- [AWS Client VPN](https://aws.4bittechnology.com/s/aws-client-vpn.html): Lets staff on laptops anywhere dial into your private AWS network.
+- [AWS Cloud Map](https://aws.4bittechnology.com/s/aws-cloud-map.html): A phone book your services look things up in instead of hard coding addresses.
+- [AWS Cloud WAN](https://aws.4bittechnology.com/s/aws-cloud-wan.html): One place to build and see your whole global network instead of wiring regions together by hand.
+- [AWS Direct Connect](https://aws.4bittechnology.com/s/aws-direct-connect.html): A private cable from your building or data centre into AWS, instead of going over the internet.
+- [AWS Global Accelerator](https://aws.4bittechnology.com/s/aws-global-accelerator.html): Gets users onto the AWS network early so their traffic takes a faster path to your servers.
+- [AWS Interconnect](https://aws.4bittechnology.com/s/aws-interconnect.html): Orders a private cable between AWS and another cloud or your office, in a few clicks.
+- [AWS PrivateLink](https://aws.4bittechnology.com/s/aws-privatelink.html): Lets your private network reach an AWS service or a partner's service without touching the internet.
+- [AWS RTB Fabric](https://aws.4bittechnology.com/s/aws-rtb-fabric.html): Carries advertising bid requests between ad companies in a few milliseconds.
+- [AWS Site to Site VPN](https://aws.4bittechnology.com/s/aws-site-to-site-vpn.html): An encrypted tunnel over the internet joining your office network to your AWS network.
+- [AWS Transit Gateway](https://aws.4bittechnology.com/s/aws-transit-gateway.html): A central hub that connects all your networks so you stop wiring each pair together.
+- [AWS Verified Access](https://aws.4bittechnology.com/s/aws-verified-access.html): Staff reach internal apps over the internet without a VPN, and every request is checked.
+- [Amazon API Gateway](https://aws.4bittechnology.com/s/amazon-api-gateway.html): The front door for your API.
+- [Amazon Application Recovery Controller](https://aws.4bittechnology.com/s/amazon-application-recovery-controller.html): Big red switches that move your traffic away from a broken region or zone, and checks that the backup is really ready.
+- [Amazon CloudFront](https://aws.4bittechnology.com/s/amazon-cloudfront.html): Keeps copies of your files near your users so pages load fast.
+- [Amazon Route 53](https://aws.4bittechnology.com/s/amazon-route-53.html): The phone book that turns your domain name into an address.
+- [Amazon VPC Lattice](https://aws.4bittechnology.com/s/amazon-vpc-lattice.html): Connects your services to each other by name, with permissions and routing handled for you.
+- [Amazon Virtual Private Cloud](https://aws.4bittechnology.com/s/amazon-virtual-private-cloud.html): Your own private section of the AWS network.
+- [Elastic Load Balancing](https://aws.4bittechnology.com/s/elastic-load-balancing.html): Shares incoming traffic across several servers.
+
+### Quantum
+
+- [Amazon Braket](https://aws.4bittechnology.com/s/amazon-braket.html): Lets you send programs to real quantum computers, or to simulators of them, and get results back.
+
+### Satellite
+
+- [AWS Ground Station](https://aws.4bittechnology.com/s/aws-ground-station.html): Rents you time on satellite dishes to talk to your satellite, by the minute.
+
+### Security and Identity
+
+- [AWS Artifact](https://aws.4bittechnology.com/s/aws-artifact.html): A self-service download page for AWS's own audit and compliance reports.
+- [AWS Audit Manager](https://aws.4bittechnology.com/s/aws-audit-manager.html): It collects evidence about your AWS setup automatically so an audit is less painful.
+- [AWS Certificate Manager](https://aws.4bittechnology.com/s/aws-certificate-manager.html): Free HTTPS certificates that renew themselves.
+- [AWS CloudHSM](https://aws.4bittechnology.com/s/aws-cloudhsm.html): A dedicated tamper-proof box that holds your encryption keys, and only you can open it.
+- [AWS Directory Service](https://aws.4bittechnology.com/s/aws-directory-service.html): It runs Microsoft Active Directory for you, or connects AWS to the one you already have.
+- [AWS Firewall Manager](https://aws.4bittechnology.com/s/aws-firewall-manager.html): It pushes the same firewall rules to every account in your company automatically.
+- [AWS IAM Identity Center](https://aws.4bittechnology.com/s/aws-iam-identity-center.html): One login that gets your staff into all your AWS accounts, with the right permissions.
+- [AWS Identity and Access Management](https://aws.4bittechnology.com/s/aws-identity-and-access-management.html): Decides who can do what in your AWS account.
+- [AWS Key Management Service](https://aws.4bittechnology.com/s/aws-key-management-service.html): Creates and guards the keys that encrypt your data.
+- [AWS Network Firewall](https://aws.4bittechnology.com/s/aws-network-firewall.html): A firewall that inspects traffic going in and out of your private network in AWS.
+- [AWS Payment Cryptography](https://aws.4bittechnology.com/s/aws-payment-cryptography.html): It does the card-industry encryption work that bank payment systems need.
+- [AWS Private Certificate Authority](https://aws.4bittechnology.com/s/aws-private-certificate-authority.html): It lets you issue your own certificates for things inside your own network.
+- [AWS Resource Access Manager](https://aws.4bittechnology.com/s/aws-resource-access-manager.html): Lets one AWS account share a specific resource with another account.
+- [AWS Secrets Manager](https://aws.4bittechnology.com/s/aws-secrets-manager.html): A safe for passwords and API keys.
+- [AWS Security Agent](https://aws.4bittechnology.com/s/aws-security-agent.html): An AI helper that attacks and reviews your own application to find holes.
+- [AWS Security Hub](https://aws.4bittechnology.com/s/aws-security-hub.html): One screen that gathers security problems from all your AWS security tools.
+- [AWS Security Incident Response](https://aws.4bittechnology.com/s/aws-security-incident-response.html): AWS security experts help you handle a breach, and the service triages alerts in between.
+- [AWS Shield](https://aws.4bittechnology.com/s/aws-shield.html): Protection against attacks that try to flood your site.
+- [AWS Signer](https://aws.4bittechnology.com/s/aws-signer.html): It digitally signs your code so the thing running it can check nobody tampered with it.
+- [AWS WAF](https://aws.4bittechnology.com/s/aws-waf.html): A filter that blocks bad web traffic before it reaches you.
+- [Amazon Cloud Directory](https://aws.4bittechnology.com/s/amazon-cloud-directory.html): Stores objects like people and devices in several overlapping trees at once.
+- [Amazon Cognito](https://aws.4bittechnology.com/s/amazon-cognito.html): Sign up and log in for your app's users, ready made.
+- [Amazon Detective](https://aws.4bittechnology.com/s/amazon-detective.html): After an alert, it shows you the story of what actually happened.
+- [Amazon GuardDuty](https://aws.4bittechnology.com/s/amazon-guardduty.html): Watches for signs that someone has broken in.
+- [Amazon Inspector](https://aws.4bittechnology.com/s/amazon-inspector.html): It keeps checking your servers, containers and functions for known security holes.
+- [Amazon Macie](https://aws.4bittechnology.com/s/amazon-macie.html): It looks through your S3 buckets for personal data you did not know was there.
+- [Amazon Security Lake](https://aws.4bittechnology.com/s/amazon-security-lake.html): It puts all your security logs in one place, in one standard format.
+- [Amazon Verified Permissions](https://aws.4bittechnology.com/s/amazon-verified-permissions.html): Decides whether a user is allowed to do a thing in your app, so you do not code it yourself.
+
+### Storage
+
+- [AWS Backup](https://aws.4bittechnology.com/s/aws-backup.html): One place to schedule backups of everything.
+- [AWS Elastic Disaster Recovery](https://aws.4bittechnology.com/s/aws-elastic-disaster-recovery.html): It keeps a live copy of your servers in AWS so you can start them if the originals die.
+- [AWS Snowball](https://aws.4bittechnology.com/s/aws-snowball.html): AWS posts you a rugged box, you copy data onto it and post it back.
+- [AWS Snowball Edge](https://aws.4bittechnology.com/s/aws-snowball-edge.html): A rugged box AWS posts you, which you fill with data and post back.
+- [AWS Storage Gateway](https://aws.4bittechnology.com/s/aws-storage-gateway.html): A small piece of software in your office that makes AWS storage look like a local drive.
+- [Amazon EFS](https://aws.4bittechnology.com/s/amazon-efs.html): A shared folder that many servers can read and write at the same time.
+- [Amazon Elastic Block Store](https://aws.4bittechnology.com/s/amazon-elastic-block-store.html): The hard disk attached to your EC2 server.
+- [Amazon FSx](https://aws.4bittechnology.com/s/amazon-fsx.html): The family name for AWS's managed versions of four real file systems.
+- [Amazon FSx for Lustre](https://aws.4bittechnology.com/s/amazon-fsx-for-lustre.html): A file system built for hundreds of machines reading the same data very fast.
+- [Amazon FSx for NetApp ONTAP](https://aws.4bittechnology.com/s/amazon-fsx-for-netapp-ontap.html): Real NetApp storage, run by AWS, with the same tools your storage team already knows.
+- [Amazon FSx for OpenZFS](https://aws.4bittechnology.com/s/amazon-fsx-for-openzfs.html): A fast Linux file share with snapshots, run by AWS.
+- [Amazon FSx for WFS](https://aws.4bittechnology.com/s/amazon-fsx-for-wfs.html): A Windows file share, the kind with drive letters, run by AWS.
+- [Amazon File Cache](https://aws.4bittechnology.com/s/amazon-file-cache.html): A temporary fast copy of files that actually live somewhere slower.
+- [Amazon S3 on Outposts](https://aws.4bittechnology.com/s/amazon-s3-on-outposts.html): Gives you S3 buckets on AWS hardware sitting in your own building.
+- [Amazon Simple Storage Service](https://aws.4bittechnology.com/s/amazon-simple-storage-service.html): A place to keep files, as many as you want.
+- [Amazon Simple Storage Service Glacier](https://aws.4bittechnology.com/s/amazon-simple-storage-service-glacier.html): Very cheap storage for files you almost never open.

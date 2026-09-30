@@ -154,3 +154,17 @@ Built by **[Mihir Joshi](https://github.com/imihirjoshi/AWS-Guide)**. Distribute
 Source: https://github.com/imihirjoshi/AWS-Guide
 
 See `legal.html` for the full trademark, icon licensing, accuracy and privacy notice.
+
+## Build steps
+
+Three small scripts. Run them after changing data or assets, in this order.
+
+```
+python3 gen.py     # 303 static service pages, sitemap.xml, robots.txt, llms.txt
+python3 bust.py    # stamp every css and js link with a hash of the file
+python3 check.py   # fail if any class used in markup has no CSS rule
+```
+
+`gen.py` is the important one. Without it the service content exists only inside
+`data/services.json`, which a search crawler may render but an AI answer engine
+usually will not. The generated pages under `s/` put the same content in real HTML.

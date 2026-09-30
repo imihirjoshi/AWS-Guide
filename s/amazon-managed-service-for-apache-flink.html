@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amazon Managed Service for Apache Flink: Runs code that does sums over</title>
+<meta name="description" content="Runs code that does sums over a live stream of events, like a running total per minute.">
+<link rel="canonical" href="https://aws.4bittechnology.com/s/amazon-managed-service-for-apache-flink.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AWS Explained Simply">
+<meta property="og:title" content="Amazon Managed Service for Apache Flink: Runs code that does sums over">
+<meta property="og:description" content="Runs code that does sums over a live stream of events, like a running total per minute.">
+<meta property="og:url" content="https://aws.4bittechnology.com/s/amazon-managed-service-for-apache-flink.html">
+<meta property="og:image" content="https://aws.4bittechnology.com/assets/og/service.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amazon Managed Service for Apache Flink: Runs code that does sums over">
+<meta name="twitter:description" content="Runs code that does sums over a live stream of events, like a running total per minute.">
+<meta name="twitter:image" content="https://aws.4bittechnology.com/assets/og/service.png">
+<link rel="icon" href="../assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/sdoc.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Amazon Managed Service for Apache Flink explained in plain English", "description": "Runs code that does sums over a live stream of events, like a running total per minute.", "url": "https://aws.4bittechnology.com/s/amazon-managed-service-for-apache-flink.html", "inLanguage": "en", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "author": {"@type": "Person", "name": "Mihir Joshi"}, "publisher": {"@type": "Organization", "name": "4Bit Technology"}, "about": {"@type": "SoftwareApplication", "name": "Amazon Managed Service for Apache Flink", "applicationCategory": "Analytics"}, "isPartOf": {"@type": "WebSite", "name": "AWS Explained Simply", "url": "https://aws.4bittechnology.com"}}</script>
+</head>
+<body><header class="top"><div class="wrap">
+  <a class="logo" href="../index.html"><span class="awsmark"><img src="../assets/icons/brand/aws-logo.svg" alt="AWS" width="40" height="24"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="../index.html">Basics</a><a href="../learn.html">Start here</a>
+    <a href="../services.html">Services</a><a href="../architecture.html">What to build</a>
+    <a href="../playground.html">Playground</a><a href="../certifications.html">Certifications</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+<main class="wrap sdoc">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Basics</a> <span>/</span>
+    <a href="../services.html">Services</a> <span>/</span>
+    <a href="../services.html#amazon-managed-service-for-apache-flink">Analytics</a>
+  </nav>
+  <header class="shead">
+    <img src="../assets/icons/services/amazon-managed-service-for-apache-flink.svg" alt="Amazon Managed Service for Apache Flink icon" width="56" height="56">
+    <div><h1>Amazon Managed Service for Apache Flink</h1><p class="scat">Analytics &nbsp;&middot;&nbsp; Advanced, most people never need it</p></div>
+  </header>
+  <p class="sone">Runs code that does sums over a live stream of events, like a running total per minute.</p>
+  <div class="slike"><b>Picture it as</b><p>A shop assistant with a tally counter, keeping a rolling count of customers per hour rather than counting at closing time.</p></div>
+  <section class="sblk"><h2>What it actually does</h2><p>This was renamed from Amazon Kinesis Data Analytics in 2023. It runs Apache Flink applications, in Java, Scala, Python or SQL, and handles the servers, checkpoints and restarts. Flink is good at windows, counting events per five minutes, and at joining two streams. It is also genuinely hard, the concepts of state, watermarks and late data take real learning, and the service is expensive to leave running.</p></section>
+  <section class="sblk"><h2>Reach for it when</h2><ul class="syes"><li>Continuous aggregations, averages or counts over a live stream</li><li>Detecting a pattern across events, such as three failures in a minute</li><li>Joining two streams as they arrive</li></ul></section>
+  <section class="sblk"><h2>Do not reach for it when</h2><ul class="sno"><li>For simple per-record work, a Lambda on the stream is far cheaper and simpler</li><li>If a five minute delay is fine, land the data with Firehose and query with Athena</li><li>For plain delivery with no computation, use Amazon Data Firehose</li></ul></section>
+  <section class="sblk"><h2>One small example</h2><p>A delivery app keeps a live count of orders per city per minute and raises an alert when one city stalls.</p></section>
+  <section class="sblk"><h2>How you pay</h2><p>Per Kinesis Processing Unit hour, and the application runs continuously, so you pay around the clock. Durable state storage and the mandatory extra unit for orchestration catch people out.</p></section>
+  <section class="sblk"><h2>Usually sits next to</h2><div class="relwrap"><a class="relcard" href="amazon-kinesis-data-streams.html"><img src="../assets/icons/services/amazon-kinesis-data-streams.svg" alt="" width="24" height="24"><span><b>Amazon Kinesis Data Streams</b><span>A pipe that holds a stream of events for a while so several programs can read them.</span></span></a><a class="relcard" href="amazon-managed-streaming-for-apache-kafka.html"><img src="../assets/icons/services/amazon-managed-streaming-for-apache-kafka.svg" alt="" width="24" height="24"><span><b>Amazon Managed Streaming for Apache Kafka</b><span>AWS runs Apache Kafka for you so you do not have to babysit the servers.</span></span></a><a class="relcard" href="amazon-data-firehose.html"><img src="../assets/icons/services/amazon-data-firehose.svg" alt="" width="24" height="24"><span><b>Amazon Data Firehose</b><span>Takes a constant trickle of records and drops them into storage for you, in batches.</span></span></a><a class="relcard" href="amazon-simple-storage-service.html"><img src="../assets/icons/services/amazon-simple-storage-service.svg" alt="" width="24" height="24"><span><b>Amazon Simple Storage Service</b><span>A place to keep files, as many as you want.</span></span></a></div></section>
+  <section class="sblk"><h2>The real source</h2><p>This is a simplified summary written for people learning AWS.
+    The <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">official AWS documentation</a>
+    is the authoritative word and it wins wherever this page disagrees with it.</p></section>
+  <p class="sback"><a href="../services.html">All 303 AWS services, explained</a></p>
+</main>
+<footer class="foot"><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol"><h3>Independent project</h3>
+      <p><strong>Not affiliated with Amazon Web Services.</strong> Not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p></div>
+    <div class="fcol"><h3>Trademarks and icons</h3>
+      <p>AWS and all service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Icons are the official AWS Architecture Icons, used unmodified. All writing here is original.</p></div>
+    <div class="fcol"><h3>Prices are estimates</h3>
+      <p>Every figure is a rough teaching estimate, never a quote. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers.</p></div>
+    <div class="fcol"><h3>Your data</h3>
+      <p>No accounts, no ads, no tracking, no cookies. <a href="../legal.html">Full notice</a>.</p></div>
+  </div>
+  <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+<script src="../assets/js/currency.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/notice.js"></script>
+</body></html>

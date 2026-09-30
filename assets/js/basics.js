@@ -80,7 +80,7 @@
       'balancer. The organised notebook is RDS or DynamoDB. You already understand the hard part.</p>' +
       '<div class="bendlinks">' +
         '<a href="learn.html">Now read Start here</a>' +
-        '<a class="ghost" href="index.html">Browse the services</a>' +
+        '<a class="ghost" href="services.html">Browse the services</a>' +
         '<a class="ghost" href="architecture.html">See what to build</a>' +
       '</div>' +
     '</section>';

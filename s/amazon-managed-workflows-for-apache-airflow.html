@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amazon Managed Workflows for Apache Airflow: It runs Apache Airflow fo</title>
+<meta name="description" content="It runs Apache Airflow for you, so scheduled data pipelines have somewhere to live.">
+<link rel="canonical" href="https://aws.4bittechnology.com/s/amazon-managed-workflows-for-apache-airflow.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AWS Explained Simply">
+<meta property="og:title" content="Amazon Managed Workflows for Apache Airflow: It runs Apache Airflow fo">
+<meta property="og:description" content="It runs Apache Airflow for you, so scheduled data pipelines have somewhere to live.">
+<meta property="og:url" content="https://aws.4bittechnology.com/s/amazon-managed-workflows-for-apache-airflow.html">
+<meta property="og:image" content="https://aws.4bittechnology.com/assets/og/service.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amazon Managed Workflows for Apache Airflow: It runs Apache Airflow fo">
+<meta name="twitter:description" content="It runs Apache Airflow for you, so scheduled data pipelines have somewhere to live.">
+<meta name="twitter:image" content="https://aws.4bittechnology.com/assets/og/service.png">
+<link rel="icon" href="../assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/sdoc.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Amazon Managed Workflows for Apache Airflow explained in plain English", "description": "It runs Apache Airflow for you, so scheduled data pipelines have somewhere to live.", "url": "https://aws.4bittechnology.com/s/amazon-managed-workflows-for-apache-airflow.html", "inLanguage": "en", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "author": {"@type": "Person", "name": "Mihir Joshi"}, "publisher": {"@type": "Organization", "name": "4Bit Technology"}, "about": {"@type": "SoftwareApplication", "name": "Amazon Managed Workflows for Apache Airflow", "applicationCategory": "Application Integration"}, "isPartOf": {"@type": "WebSite", "name": "AWS Explained Simply", "url": "https://aws.4bittechnology.com"}}</script>
+</head>
+<body><header class="top"><div class="wrap">
+  <a class="logo" href="../index.html"><span class="awsmark"><img src="../assets/icons/brand/aws-logo.svg" alt="AWS" width="40" height="24"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="../index.html">Basics</a><a href="../learn.html">Start here</a>
+    <a href="../services.html">Services</a><a href="../architecture.html">What to build</a>
+    <a href="../playground.html">Playground</a><a href="../certifications.html">Certifications</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+<main class="wrap sdoc">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Basics</a> <span>/</span>
+    <a href="../services.html">Services</a> <span>/</span>
+    <a href="../services.html#amazon-managed-workflows-for-apache-airflow">Application Integration</a>
+  </nav>
+  <header class="shead">
+    <img src="../assets/icons/services/amazon-managed-workflows-for-apache-airflow.svg" alt="Amazon Managed Workflows for Apache Airflow icon" width="56" height="56">
+    <div><h1>Amazon Managed Workflows for Apache Airflow</h1><p class="scat">Application Integration &nbsp;&middot;&nbsp; Advanced, most people never need it</p></div>
+  </header>
+  <p class="sone">It runs Apache Airflow for you, so scheduled data pipelines have somewhere to live.</p>
+  <div class="slike"><b>Picture it as</b><p>Hiring a caretaker for a machine you already own. Same machine, same controls, you just stop doing the maintenance.</p></div>
+  <section class="sblk"><h2>What it actually does</h2><p>Airflow is the common open source tool for scheduling data jobs written as Python DAGs. MWAA runs the scheduler, workers and web UI inside your VPC and handles version upgrades. It is still Airflow, so the quirks, the Python dependency conflicts and the learning curve all come with it.</p></section>
+  <section class="sblk"><h2>Reach for it when</h2><ul class="syes"><li>Your team already writes Airflow DAGs</li><li>Daily data pipelines with dependencies between many steps</li><li>You want to stay portable rather than tied to an AWS-only workflow tool</li></ul></section>
+  <section class="sblk"><h2>Do not reach for it when</h2><ul class="sno"><li>A handful of scheduled tasks, use EventBridge Scheduler with Lambda</li><li>Event-driven application logic rather than batch data jobs, use Step Functions</li></ul></section>
+  <section class="sblk"><h2>One small example</h2><p>A data team runs a nightly DAG that pulls from three databases, transforms in Glue, and loads into Redshift.</p></section>
+  <section class="sblk"><h2>How you pay</h2><p>Per environment-hour for the scheduler and web server, plus workers and storage. The surprise is the base cost, roughly 350 dollars a month for a small environment even if no DAG ever runs.</p></section>
+  <section class="sblk"><h2>Usually sits next to</h2><div class="relwrap"><a class="relcard" href="aws-glue.html"><img src="../assets/icons/services/aws-glue.svg" alt="" width="24" height="24"><span><b>AWS Glue</b><span>Cleans and moves data between places.</span></span></a><a class="relcard" href="amazon-simple-storage-service.html"><img src="../assets/icons/services/amazon-simple-storage-service.svg" alt="" width="24" height="24"><span><b>Amazon Simple Storage Service</b><span>A place to keep files, as many as you want.</span></span></a><a class="relcard" href="aws-step-functions.html"><img src="../assets/icons/services/aws-step-functions.svg" alt="" width="24" height="24"><span><b>AWS Step Functions</b><span>Draws your multi step process as a flowchart that actually runs.</span></span></a><a class="relcard" href="amazon-virtual-private-cloud.html"><img src="../assets/icons/services/amazon-virtual-private-cloud.svg" alt="" width="24" height="24"><span><b>Amazon Virtual Private Cloud</b><span>Your own private section of the AWS network.</span></span></a></div></section>
+  <section class="sblk"><h2>The real source</h2><p>This is a simplified summary written for people learning AWS.
+    The <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">official AWS documentation</a>
+    is the authoritative word and it wins wherever this page disagrees with it.</p></section>
+  <p class="sback"><a href="../services.html">All 303 AWS services, explained</a></p>
+</main>
+<footer class="foot"><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol"><h3>Independent project</h3>
+      <p><strong>Not affiliated with Amazon Web Services.</strong> Not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p></div>
+    <div class="fcol"><h3>Trademarks and icons</h3>
+      <p>AWS and all service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Icons are the official AWS Architecture Icons, used unmodified. All writing here is original.</p></div>
+    <div class="fcol"><h3>Prices are estimates</h3>
+      <p>Every figure is a rough teaching estimate, never a quote. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers.</p></div>
+    <div class="fcol"><h3>Your data</h3>
+      <p>No accounts, no ads, no tracking, no cookies. <a href="../legal.html">Full notice</a>.</p></div>
+  </div>
+  <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+<script src="../assets/js/currency.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/notice.js"></script>
+</body></html>

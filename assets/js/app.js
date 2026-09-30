@@ -130,8 +130,8 @@
         rows.map(function (s) {
           var tag = s.written ? (s.tier === 1 ? 'learn first' : s.tier === 2 ? 'common' : 'advanced') : 'not written';
           var done = isRead(s.slug);
-          return '<button class="row' + (s.written ? '' : ' todo') + (done ? ' read' : '') +
-            '" data-slug="' + esc(s.slug) + '">' +
+          return '<a class="row' + (s.written ? '' : ' todo') + (done ? ' read' : '') +
+            '" href="s/' + esc(s.slug) + '.html" data-slug="' + esc(s.slug) + '">' +
             '<span class="tile"><img src="' + esc(s.icon) + '" alt="" loading="lazy" width="26" height="26"></span>' +
             '<span class="body"><span class="head">' +
               '<span class="nm">' + esc(s.name) + '</span>' +
@@ -139,7 +139,7 @@
                   : '<span class="tag" data-t="' + (s.written ? s.tier : '') + '">' + tag + '</span>') +
             '</span>' +
             '<span class="de">' + esc(s.one || 'Plain English write up still to come.') + '</span></span>' +
-            '</button>';
+            '</a>';
         }).join('') + '</div></details>';
     }).join('');
   }
@@ -184,6 +184,7 @@
     if (s.written) {
       h += '<div class="readbar" id="readbar"></div>';
     }
+    h += '<p class="fullpage"><a href="s/' + esc(s.slug) + '.html">Open the full page for ' + esc(s.name) + '</a></p>';
     h += '<div class="blk"><h3>The real source</h3><p>This is a simplified summary. The ' +
       '<a href="https://docs.aws.amazon.com/" target="_blank" rel="nofollow noopener" style="text-decoration:underline">AWS documentation</a>' +
       ' is the official word, and it wins wherever this page disagrees with it.</p></div></div>';

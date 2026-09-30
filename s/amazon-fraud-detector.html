@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amazon Fraud Detector: Scores an online action as likely fraud or not,</title>
+<meta name="description" content="Scores an online action as likely fraud or not, using your own past cases.">
+<link rel="canonical" href="https://aws.4bittechnology.com/s/amazon-fraud-detector.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AWS Explained Simply">
+<meta property="og:title" content="Amazon Fraud Detector: Scores an online action as likely fraud or not,">
+<meta property="og:description" content="Scores an online action as likely fraud or not, using your own past cases.">
+<meta property="og:url" content="https://aws.4bittechnology.com/s/amazon-fraud-detector.html">
+<meta property="og:image" content="https://aws.4bittechnology.com/assets/og/service.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amazon Fraud Detector: Scores an online action as likely fraud or not,">
+<meta name="twitter:description" content="Scores an online action as likely fraud or not, using your own past cases.">
+<meta name="twitter:image" content="https://aws.4bittechnology.com/assets/og/service.png">
+<link rel="icon" href="../assets/icons/brand/aws-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/sdoc.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Amazon Fraud Detector explained in plain English", "description": "Scores an online action as likely fraud or not, using your own past cases.", "url": "https://aws.4bittechnology.com/s/amazon-fraud-detector.html", "inLanguage": "en", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "author": {"@type": "Person", "name": "Mihir Joshi"}, "publisher": {"@type": "Organization", "name": "4Bit Technology"}, "about": {"@type": "SoftwareApplication", "name": "Amazon Fraud Detector", "applicationCategory": "AI and Machine Learning"}, "isPartOf": {"@type": "WebSite", "name": "AWS Explained Simply", "url": "https://aws.4bittechnology.com"}}</script>
+</head>
+<body><header class="top"><div class="wrap">
+  <a class="logo" href="../index.html"><span class="awsmark"><img src="../assets/icons/brand/aws-logo.svg" alt="AWS" width="40" height="24"></span><b>Explained Simply</b></a>
+  <nav class="nav">
+    <a href="../index.html">Basics</a><a href="../learn.html">Start here</a>
+    <a href="../services.html">Services</a><a href="../architecture.html">What to build</a>
+    <a href="../playground.html">Playground</a><a href="../certifications.html">Certifications</a>
+  </nav>
+  <div class="ctl"><span id="curbox"></span><button id="theme" title="Switch light and dark" aria-label="Switch light and dark">&#9681;</button></div>
+</div></header>
+<main class="wrap sdoc">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Basics</a> <span>/</span>
+    <a href="../services.html">Services</a> <span>/</span>
+    <a href="../services.html#amazon-fraud-detector">AI and Machine Learning</a>
+  </nav>
+  <header class="shead">
+    <img src="../assets/icons/services/amazon-fraud-detector.svg" alt="Amazon Fraud Detector icon" width="56" height="56">
+    <div><h1>Amazon Fraud Detector</h1><p class="scat">AI and Machine Learning &nbsp;&middot;&nbsp; Advanced, most people never need it</p></div>
+  </header>
+  <p class="sone">Scores an online action as likely fraud or not, using your own past cases.</p>
+  <div class="slike"><b>Picture it as</b><p>A shop manager who has seen enough shoplifters to get a feeling about a particular customer at the till.</p></div>
+  <section class="sblk"><h2>What it actually does</h2><p>You upload historic events labelled fraud or legitimate, it trains a model, and you then send live events and get a score from 0 to 1000 plus an outcome from rules you write. It needs a decent volume of labelled history, roughly ten thousand events with at least a few hundred frauds, so a new business usually cannot use it. It scores, it does not block, your code has to act on the outcome.</p></section>
+  <section class="sblk"><h2>Reach for it when</h2><ul class="syes"><li>Account signup abuse or fake reviews at reasonable volume</li><li>Guest checkout payment fraud where you have labelled history</li><li>You want rules and a model in one place</li></ul></section>
+  <section class="sblk"><h2>Do not reach for it when</h2><ul class="sno"><li>Card payment fraud where your payment provider already screens, you would pay twice for the same check</li><li>A new product with no fraud history, start with hand-written rules</li><li>Anything where you must explain each decision precisely to a regulator</li></ul></section>
+  <section class="sblk"><h2>One small example</h2><p>A signup from a fresh email on a known hosting IP scores 890, so your code sends it to manual review.</p></section>
+  <section class="sblk"><h2>How you pay</h2><p>Per prediction, plus training and hosting hours. Scoring every page view rather than the few risky moments is the classic overspend.</p></section>
+  <section class="sblk"><h2>Usually sits next to</h2><div class="relwrap"><a class="relcard" href="aws-lambda.html"><img src="../assets/icons/services/aws-lambda.svg" alt="" width="24" height="24"><span><b>AWS Lambda</b><span>Run a small piece of code without owning a server.</span></span></a><a class="relcard" href="amazon-api-gateway.html"><img src="../assets/icons/services/amazon-api-gateway.svg" alt="" width="24" height="24"><span><b>Amazon API Gateway</b><span>The front door for your API.</span></span></a><a class="relcard" href="amazon-dynamodb.html"><img src="../assets/icons/services/amazon-dynamodb.svg" alt="" width="24" height="24"><span><b>Amazon DynamoDB</b><span>A very fast database with no tables to join.</span></span></a><a class="relcard" href="amazon-simple-notification-service.html"><img src="../assets/icons/services/amazon-simple-notification-service.svg" alt="" width="24" height="24"><span><b>Amazon Simple Notification Service</b><span>Sends one message to many listeners at once.</span></span></a></div></section>
+  <section class="sblk"><h2>The real source</h2><p>This is a simplified summary written for people learning AWS.
+    The <a href="https://docs.aws.amazon.com/" rel="nofollow noopener" target="_blank">official AWS documentation</a>
+    is the authoritative word and it wins wherever this page disagrees with it.</p></section>
+  <p class="sback"><a href="../services.html">All 303 AWS services, explained</a></p>
+</main>
+<footer class="foot"><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol"><h3>Independent project</h3>
+      <p><strong>Not affiliated with Amazon Web Services.</strong> Not endorsed by, sponsored by, or connected to Amazon Web Services, Inc. or Amazon.com, Inc.</p></div>
+    <div class="fcol"><h3>Trademarks and icons</h3>
+      <p>AWS and all service names and icons are trademarks of Amazon.com, Inc. or its affiliates. Icons are the official AWS Architecture Icons, used unmodified. All writing here is original.</p></div>
+    <div class="fcol"><h3>Prices are estimates</h3>
+      <p>Every figure is a rough teaching estimate, never a quote. Use the <a href="https://calculator.aws/" rel="nofollow noopener" target="_blank">AWS Pricing Calculator</a> for real numbers.</p></div>
+    <div class="fcol"><h3>Your data</h3>
+      <p>No accounts, no ads, no tracking, no cookies. <a href="../legal.html">Full notice</a>.</p></div>
+  </div>
+  <p class="fbase">Built by <a href="https://github.com/imihirjoshi/AWS-Guide" rel="noopener" target="_blank">Mihir Joshi</a>. Distributed by 4Bit Technology.</p>
+</div></footer>
+<script src="../assets/js/currency.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/notice.js"></script>
+</body></html>
