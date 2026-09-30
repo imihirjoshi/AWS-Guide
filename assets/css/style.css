@@ -50,6 +50,7 @@ html{-webkit-text-size-adjust:100%}
 body{background:var(--field);color:var(--ink);font:400 15px/1.55 var(--sans);
      font-feature-settings:"ss01";-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+h1,h2,h3,p,li,td,th,dd,dt,span,button{overflow-wrap:break-word}
 .mono{font-family:var(--mono);font-size:.86em;letter-spacing:-.02em}
 .wrap{width:min(1640px,100% - 56px);margin-inline:auto}
 
@@ -146,18 +147,22 @@ a{color:inherit;text-decoration:none}
 .row{display:grid;grid-template-columns:42px minmax(0,1fr);gap:13px;align-items:start;
      background:var(--surface);border:1px solid var(--rule);border-radius:12px;
      padding:15px 16px;cursor:pointer;text-align:left;font:inherit;color:inherit;
-     transition:border-color .15s, transform .15s, box-shadow .15s;position:relative}
+     transition:border-color .15s, transform .15s, box-shadow .15s}
 .row:hover{border-color:var(--dot,var(--c-other));transform:translateY(-2px);
            box-shadow:0 6px 20px -8px color-mix(in srgb, var(--dot,#6B7C91) 42%, transparent)}
 .row:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 .row .tile{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;
            background:color-mix(in srgb, var(--dot,#6B7C91) 13%, transparent)}
 .row img{width:26px;height:26px;display:block}
-.row .nm{display:block;font-size:14.5px;font-weight:600;line-height:1.28;letter-spacing:-.005em;
-         padding-right:16px}
-.row .de{display:block;font-size:13px;color:var(--ink-2);line-height:1.45;margin-top:5px}
-.row .tag{position:absolute;top:13px;right:14px;font-family:var(--mono);font-size:9.5px;
+.row .body{min-width:0}
+.row .head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.row .nm{flex:1 1 auto;min-width:0;font-size:14.5px;font-weight:600;line-height:1.28;
+         letter-spacing:-.005em;overflow-wrap:anywhere}
+.row .de{display:block;font-size:13px;color:var(--ink-2);line-height:1.45;margin-top:5px;
+         overflow-wrap:anywhere}
+.row .tag{flex:0 0 auto;font-family:var(--mono);font-size:9.5px;line-height:1.5;
           letter-spacing:.03em;padding:3px 8px;border-radius:99px;white-space:nowrap;
+          margin-top:1px;
           background:color-mix(in srgb, var(--dot,#6B7C91) 15%, transparent);color:var(--ink-2)}
 .row .tag[data-t="1"]{background:var(--ink);color:#fff}
 
@@ -267,7 +272,7 @@ a{color:inherit;text-decoration:none}
   .row{padding:13px 14px;gap:11px;grid-template-columns:38px minmax(0,1fr)}
   .row .tile{width:38px;height:38px;border-radius:9px}
   .row img{width:23px;height:23px}
-  .row .nm{font-size:14px;padding-right:76px}
+  .row .nm{font-size:14px}
   .row .de{font-size:12.5px}
   .row:hover{transform:none;box-shadow:none}
   .grp{margin-top:22px}
@@ -316,3 +321,42 @@ a{color:inherit;text-decoration:none}
 @media (prefers-reduced-motion:reduce){
   .sn,.sl{animation:none;opacity:1;stroke-dashoffset:0}
 }
+
+/* ============================================================
+   Shared patterns, so every page speaks the same language
+   ============================================================ */
+.prose{max-width:70ch}
+.sechead{display:flex;align-items:center;gap:11px;margin:38px 0 14px}
+.sechead .bar{height:22px;width:4px;border-radius:2px;background:var(--dot,var(--signal))}
+.sechead h2{font-family:var(--wide);font-variation-settings:"wdth" 112;font-weight:600;
+            font-size:16px;letter-spacing:.01em}
+.sechead .n{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+            background:var(--surface);border:1px solid var(--rule);padding:2px 9px;border-radius:99px}
+
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:16px 18px}
+.card.tinted{background:color-mix(in srgb, var(--dot,var(--signal)) 8%, var(--surface));
+             border-color:color-mix(in srgb, var(--dot,var(--signal)) 26%, var(--rule))}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:14px 0}
+
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--surface);
+      border:1px solid var(--rule);border-radius:99px;padding:7px 13px;font-size:12.5px;
+      color:var(--ink-2)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--dot,var(--c-other));flex:0 0 7px}
+
+.linkcard{display:flex;gap:12px;align-items:center;background:var(--surface);
+  border:1px solid var(--rule);border-radius:12px;padding:13px 15px;
+  transition:border-color .15s,transform .15s,box-shadow .15s}
+.linkcard:hover{text-decoration:none;border-color:var(--dot,var(--signal));transform:translateY(-2px);
+  box-shadow:0 6px 20px -8px color-mix(in srgb, var(--dot,#6B7C91) 42%, transparent)}
+.linkcard .tile{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:0 0 40px;
+  background:color-mix(in srgb, var(--dot,#6B7C91) 13%, transparent)}
+.linkcard img{width:25px;height:25px}
+.linkcard b{display:block;font-size:13.5px;font-weight:600;line-height:1.25}
+.linkcard span{display:block;font-size:12px;color:var(--ink-3);margin-top:3px}
+
+.dtable{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
+        border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.dtable th,.dtable td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft)}
+.dtable tr:last-child td{border-bottom:0}
+.dtable th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+           color:var(--ink-3);background:var(--field);font-weight:400}

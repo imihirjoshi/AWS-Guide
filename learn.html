@@ -10,26 +10,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;112,600;125,600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-.doc{max-width:72ch;margin:0 auto;padding:40px 20px 78px}
-.doc h1{font-size:clamp(26px,4vw,36px);line-height:1.13;letter-spacing:-.5px}
-.doc h2{font-size:21px;margin:34px 0 10px;line-height:1.25}
-.doc h3{font-size:16px;margin:22px 0 6px}
-.doc p{margin:10px 0;color:var(--ink)}
-.doc .lead{font-size:17px;color:var(--mut);margin-top:12px}
-.doc ul,.doc ol{margin:10px 0 10px 21px;display:flex;flex-direction:column;gap:6px}
-.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px 0;box-shadow:var(--sh)}
-.box.warn{border-left:4px solid var(--red)}
-.box.tip{border-left:4px solid var(--green)}
-.eight{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:16px 0}
-.eight a{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;gap:10px;
-  align-items:center;text-decoration:none;color:var(--ink);box-shadow:var(--sh)}
-.eight a:hover{border-color:var(--brand);text-decoration:none}
-.eight img{width:30px;height:30px}
-.eight b{display:block;font-size:13px}
-.eight span{font-size:11.5px;color:var(--mut)}
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
-th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.07em}
+.doc{max-width:74ch;margin:0 auto;padding:44px 20px 80px}
+.doc h1{font-family:var(--wide);font-variation-settings:"wdth" 118;font-weight:600;
+  font-size:clamp(27px,3.6vw,40px);line-height:1.08;letter-spacing:-.018em}
+.doc .lead{font-size:17px;color:var(--ink-2);margin-top:14px;line-height:1.5}
+.doc h3{font-size:15px;font-weight:600;margin:22px 0 6px}
+.doc p{margin:11px 0;line-height:1.65}
+.doc ul,.doc ol{margin:12px 0 12px 20px;display:flex;flex-direction:column;gap:8px;line-height:1.55}
+.doc li::marker{color:var(--ink-3)}
 </style>
 </head>
 <body>
@@ -45,16 +33,16 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.07
 <h1>Never used AWS before? Start here.</h1>
 <p class="lead">Ten minutes. No jargon. By the end you will know what the cloud actually is and which eight services cover most of what people build.</p>
 
-<h2>1. What is the cloud, really</h2>
+<div class="sechead" style="--dot:var(--c-compute)"><span class="bar"></span><h2>1. What is the cloud, really</h2></div>
 <p>Amazon owns very large buildings full of computers. You rent a slice of them by the hour. That is the whole idea.</p>
 <p>Before the cloud, you bought a server, put it in your office, and it sat idle most of the time. If it broke, you fixed it. If your site got popular on a Monday, you could not buy a second server by Tuesday.</p>
 <p>Now you rent, and you give it back when you are done.</p>
 
-<div class="box tip"><strong>The one thing that changes everything:</strong> you pay for what you use, by the hour or by the request. So a mistake you forget about keeps charging you until you notice. Set a budget alert on day one.</div>
+<div class="card tinted" style="--dot:var(--c-storage);margin:16px 0"><strong>The one thing that changes everything:</strong> you pay for what you use, by the hour or by the request. So a mistake you forget about keeps charging you until you notice. Set a budget alert on day one.</div>
 
-<h2>2. Why there are 300 services</h2>
+<div class="sechead" style="--dot:var(--c-network)"><span class="bar"></span><h2>2. Why there are 300 services</h2></div>
 <p>It looks mad. It is actually simple. Every service answers one question, and AWS just never deletes anything.</p>
-<table>
+<table class="dtable">
 <tr><th>The question</th><th>The answer</th></tr>
 <tr><td>Where does my code run?</td><td>EC2, Lambda, Fargate, App Runner</td></tr>
 <tr><td>Where do my files live?</td><td>S3, EBS, EFS</td></tr>
@@ -65,11 +53,11 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.07
 </table>
 <p>Ask which question you have. Then only three or four services matter.</p>
 
-<h2>3. The eight to learn first</h2>
+<div class="sechead" style="--dot:var(--c-ai)"><span class="bar"></span><h2>3. The eight to learn first</h2></div>
 <p>Learn these and you can build most things. Everything else can wait until you actually need it.</p>
-<div class="eight" id="eight"></div>
+<div class="cardgrid" id="eight"></div>
 
-<h2>4. How the money works</h2>
+<div class="sechead" style="--dot:var(--c-cost)"><span class="bar"></span><h2>4. How the money works</h2></div>
 <p>Four things are charged, and only four things surprise people.</p>
 <ul>
 <li><strong>Time.</strong> A server that is on costs money, even at 3am with nobody using it.</li>
@@ -77,12 +65,12 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.07
 <li><strong>Requests.</strong> Per million calls. Usually small.</li>
 <li><strong>Data going out.</strong> Data in is usually free. Data out to the internet is not. This is the one that catches everybody.</li>
 </ul>
-<div class="box warn"><strong>The three classic bill shocks.</strong><br>
+<div class="card tinted" style="--dot:var(--c-security);margin:16px 0"><strong>The three classic bill shocks.</strong><br>
 A NAT gateway left running, roughly 33 dollars a month doing nothing.<br>
 CloudWatch logs with no retention set, growing forever.<br>
 A test server started on a Friday and forgotten until the bill arrives.</div>
 
-<h2>5. The mistakes to avoid on day one</h2>
+<div class="sechead" style="--dot:var(--c-security)"><span class="bar"></span><h2>5. The mistakes to avoid on day one</h2></div>
 <ol>
 <li><strong>Turn on MFA on the root account.</strong> Then stop using the root account.</li>
 <li><strong>Set a budget alert.</strong> Five minutes. It has saved more people more money than any other single action.</li>
@@ -92,7 +80,7 @@ A test server started on a Friday and forgotten until the bill arrives.</div>
 <li><strong>Tag everything.</strong> Later, when the bill is confusing, tags are the only way to know what belongs to what.</li>
 </ol>
 
-<h2>6. Now go and play</h2>
+<div class="sechead" style="--dot:var(--c-storage)"><span class="bar"></span><h2>6. Now go and play</h2></div>
 <p>The <a href="playground.html">playground</a> lets you drag services onto a board, connect them, change the sizes and see roughly what it would cost. Start with the "Classic web app" template and change one thing at a time.</p>
 <p>Then browse <a href="index.html">all the services</a>. The ones marked <em>core</em> are the ones worth reading first.</p>
 </main>
@@ -123,6 +111,7 @@ A test server started on a Friday and forgotten until the bill arrives.</div>
 <script src="assets/js/ui.js"></script>
 <script>
 (function(){
+  var DOT={"amazon-ec2": "--c-compute", "amazon-simple-storage-service": "--c-storage", "amazon-rds": "--c-database", "aws-lambda": "--c-compute", "amazon-cloudfront": "--c-network", "aws-identity-and-access-management": "--c-security", "amazon-cloudwatch": "--c-mgmt", "amazon-virtual-private-cloud": "--c-network"};
   var EIGHT=[['amazon-ec2','A computer you rent'],['amazon-simple-storage-service','Where files live'],
     ['amazon-rds','A normal SQL database'],['aws-lambda','Run code, no server'],
     ['amazon-cloudfront','Make it fast everywhere'],['aws-identity-and-access-management','Who can do what'],
@@ -131,7 +120,10 @@ A test server started on a Friday and forgotten until the bill arrives.</div>
     var by={};S.forEach(function(s){by[s.slug]=s;});
     document.getElementById('eight').innerHTML=EIGHT.map(function(p){
       var s=by[p[0]];if(!s)return '';
-      return '<a href="index.html#'+s.slug+'"><img src="'+s.icon+'" alt=""><span><b>'+s.name+'</b>'+p[1]+'</span></a>';
+      var dot=DOT[p[0]]||'--c-other';
+      return '<a class="linkcard" style="--dot:var('+dot+')" href="index.html#'+s.slug+'">'+
+        '<span class="tile"><img src="'+s.icon+'" alt=""></span>'+
+        '<span><b>'+s.name+'</b><span>'+p[1]+'</span></span></a>';
     }).join('');
   }).catch(function(){});
 })();
