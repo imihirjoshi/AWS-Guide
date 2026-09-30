@@ -101,6 +101,20 @@ Add an entry to the `KINDS` object in `assets/js/playground.js`. Each entry need
 a `fields` list describing the settings, a `sub` function for the line under the name, and a
 `cost` function returning US dollars per month.
 
+## The notice acknowledgement
+
+A small panel asks the reader to acknowledge three things on their first visit: the project is
+not affiliated with AWS, prices are teaching estimates, and explanations are simplified.
+
+It is versioned. `NOTICE_VERSION` lives at the top of `assets/js/notice.js` and is currently
+`2026-09-30`. **If you change `legal.html` in a way a reader should see again, bump that constant
+and the version line at the top of `legal.html`.** Everyone then gets the panel once more, headed
+"The notice has changed".
+
+The acknowledgement is stored in the reader's own browser under `aws-notice-ack`. It is never
+transmitted. If storage is blocked, the panel simply shows again next visit, which is the safe
+failure.
+
 ## Licence and trademarks
 
 **This project is not affiliated with, endorsed by, or sponsored by Amazon Web Services.**
